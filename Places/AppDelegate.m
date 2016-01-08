@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <Parse.h>
 
 @interface AppDelegate ()
 
@@ -16,6 +17,26 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [Parse enableLocalDatastore];
+    [Parse setApplicationId:@"QWKjB4xFEvXzI8wOGHdSD1SsLBSDNyVS22qBnDgS"
+                  clientKey:@"voWCiHsFuaN8ssQj4HEYFztVy6wE9ltBmi0ikfTL"];
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    //Check the Username string and display UIViewController
+    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    UIStoryboard *MainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *StartView = [MainStoryBoard instantiateViewControllerWithIdentifier:@"welcome"];
+    UIViewController *Viewcontroller = [MainStoryBoard instantiateViewControllerWithIdentifier:@"TabBarController"];
+    PFUser *currentUser = [PFUser currentUser];
+    if (currentUser) {
+        self.window.rootViewController = Viewcontroller;
+        [self.window makeKeyAndVisible];
+    }else{
+        self.window.rootViewController = StartView;
+        [self.window makeKeyAndVisible];
+    }
+    
     // Override point for customization after application launch.
     return YES;
 }

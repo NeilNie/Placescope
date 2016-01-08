@@ -1,0 +1,17 @@
+//
+//  TableViewCell.h
+//  Placescope
+//
+//  Created by Yongyang Nie on 1/3/16.
+//  Copyright © 2016 Yongyang Nie. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface TableViewCell : UITableViewCell
+
+@property (nonatomic, weak) IBOutlet UILabel *locationName;
+@property (nonatomic, weak) IBOutlet UILabel *Address;
+@property (nonatomic, weak) IBOutlet UIImageView *thumbnailImageView;
+
+@end
