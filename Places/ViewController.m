@@ -177,7 +177,7 @@
     }
     
     //Loop through the array of places returned from the Google API.
-    for (int i=0; i<[data count]; i++)
+    for (int i=0; i<[displayName count]; i++)
     {
         //Retrieve the NSDictionary object in each index of the array.
         NSDictionary *place = [data objectAtIndex:i];
@@ -247,6 +247,14 @@
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    for(MapPoint* currentAnnotation in self.mapView.annotations)
+    {
+        if([currentAnnotation.title isEqualToString:[displayName objectAtIndex:indexPath.row]])
+        {
+            // currentAnnotation is the annotation you searched
+        }
+    }
     
     MKCoordinateRegion region;
     MKCoordinateSpan span;
