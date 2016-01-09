@@ -255,16 +255,6 @@
             // currentAnnotation is the annotation you searched
         }
     }
-    
-    MKCoordinateRegion region;
-    MKCoordinateSpan span;
-    span.latitudeDelta = 0.005;
-    span.longitudeDelta = 0.005;
-    region.span = span;
-    region.center = [[self.mapView annotations] objectAtIndex:indexPath.row].coordinate;
-    
-    [self.mapView setRegion:region animated:YES];
-    [self.mapView selectAnnotation:[[self.mapView annotations] objectAtIndex:indexPath.row] animated:YES];
 }
 -(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(nonnull NSIndexPath *)indexPath{
     
