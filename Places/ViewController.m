@@ -11,7 +11,7 @@
 #define kGOOGLE_API_KEY @"AIzaSyArw7ygFfOtMGDI7KpupWHWwLvDDR0-fyA"
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
-@interface ViewController ()
+@interface UIViewController ()
 
 @end
 
@@ -27,6 +27,8 @@
     searchLocation = [[NSMutableArray alloc] init];
     displayName = [[NSMutableArray alloc] init];
     ThumbnilURL = [[NSMutableArray alloc] init];
+    photo_reference = [[NSMutableDictionary alloc] init];
+    
     if ([searchResult count] == 0) {
         self.tableViewConstraint.constant = 0;
         NSLog(@"TableConstrained");
@@ -39,9 +41,14 @@
     [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
     [locationManager requestAlwaysAuthorization];
     
-    UITapGestureRecognizer *singleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTapGesture:)];
-    [self.mapView addGestureRecognizer:singleTapGestureRecognizer];
+    UISwipeGestureRecognizer *swipeUp = [[UISwipeGestureRecognizer alloc]  initWithTarget:self action:@selector(didSwipe:)];
+    swipeUp.direction = UISwipeGestureRecognizerDirectionUp;
+    [self.buttonMenu addGestureRecognizer:swipeUp];
     
+    UISwipeGestureRecognizer *swipeDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(didSwipe:)];
+    swipeDown.direction = UISwipeGestureRecognizerDirectionDown;
+    [self.buttonMenu addGestureRecognizer:swipeDown];
+
     UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
     lpgr.minimumPressDuration = 1.5; //user needs to press for 2 seconds
     [self.mapView addGestureRecognizer:lpgr];
@@ -51,7 +58,8 @@
     mapRegion.span.latitudeDelta = 0.015;
     mapRegion.span.longitudeDelta = 0.015;
     [self.mapView setRegion:mapRegion animated: YES];
-
+    
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@""] forBarMetrics:UIBarMetricsDefault];
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 }
@@ -70,9 +78,39 @@
     }];
     NSLog(@"Textfield Did begin editing");
 }
-
+-(IBAction)showMenu:(id)sender{
+    
+    self.searchText.hidden = NO;
+    self.searchButton.hidden = NO;
+    [UIView animateWithDuration:0.3 animations:^{
+        self.searchButton.center = CGPointMake(self.searchButton.center.x, 37);
+        self.searchText.center = CGPointMake(self.searchText.center.x, 37);
+        self.buttonMenu.alpha = 1;
+        self.navigationController.navigationBarHidden = NO;
+        [self.view layoutIfNeeded];
+    }];
+}
 
 #pragma mark - UIGestureRecognizer
+
+- (void)didSwipe:(UISwipeGestureRecognizer*)swipe{
+    
+    [self.view layoutIfNeeded];
+    [self.searchText resignFirstResponder];
+    
+    if (swipe.direction == UISwipeGestureRecognizerDirectionUp) {
+        [UIView animateWithDuration:0.3 animations:^{
+            self.searchButton.center = CGPointMake(self.searchButton.center.x, -35);
+            self.searchText.center = CGPointMake(self.searchText.center.x, -35);
+            self.buttonMenu.alpha = 0;
+        } completion:^(BOOL finished) {
+            self.navigationController.navigationBarHidden = YES;
+            self.searchText.hidden = YES;
+            self.searchButton.hidden = YES;
+            [self.view layoutIfNeeded];
+        }];
+    }
+}
 
 - (void)handleLongPress:(UIGestureRecognizer *)gestureRecognizer
 {
@@ -83,33 +121,6 @@
 
     MapPoint *annot = [[MapPoint alloc] initWithName:@"Your Pin" address:nil coordinate:touchMapCoordinate];
     [self.mapView addAnnotation:annot];
-}
-
--(void)handleSingleTapGesture:(UITapGestureRecognizer *)tapGestureRecognizer{
-    
-    [self.view layoutIfNeeded];
-    [self.searchText resignFirstResponder];
-    if (self.searchText.hidden == NO) {
-        [UIView animateWithDuration:0.3 animations:^{
-            self.searchButton.center = CGPointMake(self.searchButton.center.x, -35);
-            self.searchText.center = CGPointMake(self.searchText.center.x, -35);
-            self.buttonMenu.alpha = 0;
-        } completion:^(BOOL finished) {
-            self.searchText.hidden = YES;
-            self.searchButton.hidden = YES;
-            [self.view layoutIfNeeded];
-        }];
-    }
-    if (self.searchText.hidden == YES) {
-        self.searchText.hidden = NO;
-        self.searchButton.hidden = NO;
-        [UIView animateWithDuration:0.3 animations:^{
-            self.searchButton.center = CGPointMake(self.searchButton.center.x, 37);
-            self.searchText.center = CGPointMake(self.searchText.center.x, 37);
-            self.buttonMenu.alpha = 1;
-            [self.view layoutIfNeeded];
-        }];
-    }
 }
 
 #pragma mark - queryGooglePlaces
@@ -139,6 +150,7 @@
 - (void)fetchedData:(NSData *)responseData {
     
     if (displayName.count > 1) {
+        [photo_reference removeAllObjects];
         [displayName removeAllObjects];
         [searchLocation removeAllObjects];
         [ThumbnilURL removeAllObjects];
@@ -160,7 +172,7 @@
     //Plot the data in the places array onto the map with the plotPostions method.
     [self plotPositions:searchResult];
     
-    [UIView animateWithDuration:0.3 animations:^{
+    [UIView animateWithDuration:0.5 animations:^{
         self.tableViewConstraint.constant = 250;
     }];
 }
@@ -176,8 +188,9 @@
         }
     }
     
+    NSLog(@"began");
     //Loop through the array of places returned from the Google API.
-    for (int i=0; i<[displayName count]; i++)
+    for (int i=0; i<[data count]; i++)
     {
         //Retrieve the NSDictionary object in each index of the array.
         NSDictionary *place = [data objectAtIndex:i];
@@ -185,9 +198,17 @@
         //There is a specific NSDictionary object that gives us location info.
         NSDictionary *geo = [place objectForKey:@"geometry"];
         
+        //retrieve photo preference number
+        NSMutableArray *photos = [[NSMutableArray alloc] initWithArray:[place objectForKey:@"photos"]];
+        if (photos.count != 0) {
+            NSDictionary *dic = [photos objectAtIndex:0];
+            [photo_reference setObject:[dic objectForKey:@"photo_reference"] forKey:[place objectForKey:@"name"]];
+        }
+        
         //Get our name and address info for adding to a pin.
         NSString *name=[place objectForKey:@"name"];
         NSString *vicinity=[place objectForKey:@"vicinity"];
+        NSLog(name, vicinity);
         [displayName addObject:name];
         [searchLocation addObject:vicinity];
         [ThumbnilURL addObject:[place objectForKey:@"icon"]];
@@ -205,15 +226,12 @@
         //Create a new annotiation.
         MapPoint *placeObject = [[MapPoint alloc] initWithName:name address:vicinity coordinate:placeCoord];
         
-        
         [_mapView addAnnotation:placeObject];
     }
-    NSLog(@"names %@", displayName);
-    NSLog(@"vicinity %@", searchLocation);
-    NSLog(@"icon %@", ThumbnilURL);
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.TableView reloadData];
     });
+    NSLog(@"ended");
 }
 
 #pragma mark - Table view methods
@@ -252,13 +270,27 @@
     {
         if([currentAnnotation.title isEqualToString:[displayName objectAtIndex:indexPath.row]])
         {
-            // currentAnnotation is the annotation you searched
+            MKCoordinateRegion region;
+            MKCoordinateSpan span;
+            span.latitudeDelta = 0.005;
+            span.longitudeDelta = 0.005;
+            region.span = span;
+            region.center = currentAnnotation.coordinate;
+            
+            [self.mapView setRegion:region animated:YES];
+            [self.mapView selectAnnotation:currentAnnotation animated:YES];
         }
     }
 }
--(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(nonnull NSIndexPath *)indexPath{
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    
+    if ([segue.identifier isEqualToString:@"SegueID"]) {
+        NSIndexPath *indexPath = [self.TableView indexPathForSelectedRow];
+        Detail *viewController = segue.destinationViewController;
+        viewController.LocationName = [displayName objectAtIndex:indexPath.row];
+        viewController.Location = [searchLocation objectAtIndex:indexPath.row];
+        viewController.photo_reference = [photo_reference objectForKey:[displayName objectAtIndex:indexPath.row]];
+    }
 }
 
 #pragma mark - MKMapViewDelegate methods.

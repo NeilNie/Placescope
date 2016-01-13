@@ -6,10 +6,10 @@
 //  Copyright © 2016 Yongyang Nie. All rights reserved.
 //
 
-//#import <Realm/Realm.h>
+#import <Realm/Realm.h>
 #import <UIKit/UIKit.h>
 
-@interface UserInfo : NSObject  //RLMObject
+@interface UserInfo : RLMObject
 
 @property NSString *username;
 @property NSString *language;

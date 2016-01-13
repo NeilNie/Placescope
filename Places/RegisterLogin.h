@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-//#import <Parse.h>
-//#import <Realm/Realm.h>
+#import <Parse.h>
+#import <Realm/Realm.h>
 #import "UserInfo.h"
 
 @interface RegisterLogin : UIViewController{

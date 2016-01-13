@@ -13,6 +13,7 @@
 #import "MapPoint.h"
 #import "TableViewCell.h"
 #import "Reachability.h"
+#import "Detail.h"
 
 @interface ViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>{
     
@@ -24,10 +25,14 @@
     NSMutableArray *displayName;
     NSMutableArray *searchLocation;
     NSMutableArray *ThumbnilURL;
+    NSMutableDictionary *photo_reference;
     
     int currenDist;
     BOOL firstLaunch;
+    
+    
 }
+@property (weak, nonatomic) IBOutlet UINavigationItem *naviBar;
 @property (weak, nonatomic) IBOutlet UITableView *TableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewConstraint;
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;

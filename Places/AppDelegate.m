@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import <Parse.h>
+#import "INTULocationManager.h"
+#import "ViewController.h"
 
 @interface AppDelegate ()
 
@@ -29,12 +31,18 @@
     UIViewController *StartView = [MainStoryBoard instantiateViewControllerWithIdentifier:@"welcome"];
     UIViewController *Viewcontroller = [MainStoryBoard instantiateViewControllerWithIdentifier:@"TabBarController"];
     PFUser *currentUser = [PFUser currentUser];
+    self.window.rootViewController = Viewcontroller;
+    [self.window makeKeyAndVisible];
     if (currentUser) {
-        self.window.rootViewController = Viewcontroller;
-        [self.window makeKeyAndVisible];
+        
     }else{
-        self.window.rootViewController = StartView;
-        [self.window makeKeyAndVisible];
+        //self.window.rootViewController = StartView;
+        //[self.window makeKeyAndVisible];
+    }
+    UILocalNotification *locationNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    if (locationNotification) {
+        // Set icon badge number to zero
+        application.applicationIconBadgeNumber = 0;
     }
     
     // Override point for customization after application launch.
@@ -47,11 +55,46 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
+    
+    INTULocationManager *locMgr = [INTULocationManager sharedInstance];
+    INTULocationRequestID locationRequestID;
+    
+    locationRequestID = [locMgr subscribeToSignificantLocationChangesWithBlock:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
+        
+        if (status == INTULocationStatusSuccess) {
+            // A new updated location is available in currentLocation, and achievedAccuracy indicates how accurate this particular location is
+            UILocalNotification *notification = [[UILocalNotification alloc] init];
+            notification.fireDate = [[NSDate date] dateByAddingTimeInterval:1];
+            notification.alertBody = @"It seems like you are traveling. Open Placescope and find places around you.";
+            [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+        }
+        else {
+            // An error occurred
+            NSLog(@"Location Manager Error");
+        }
+    }];
+    
+    timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(updatetime) userInfo:nil repeats:YES];
+    
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
+-(void)updatetime{
+    
+    NSDateFormatter *dateformat = [[NSDateFormatter alloc] init];
+    [dateformat setDateFormat:@"hh"];
+    NSString *string = [dateformat stringFromDate:[NSDate date]];
+    if ([string intValue] == 7) {
+        
+    }
+    NSLog(@"%d", [string intValue]);
+}
+
 - (void)applicationWillEnterForeground:(UIApplication *)application {
+    
+    [timer invalidate];
+    
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 

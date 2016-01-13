@@ -21,7 +21,7 @@
     // Do any additional setup after loading the view.
 }
 
-/*-(void)AnimateBackground{
+-(void)AnimateBackground{
     
     if (self.background.alpha == 1) {
         [UIView animateWithDuration:0.5 animations:^{
@@ -75,7 +75,7 @@
 }
 -(IBAction)save3:(id)sender{
     
-}*/
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
