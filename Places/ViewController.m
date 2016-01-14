@@ -343,6 +343,7 @@
 
 #pragma mark - other methods
 - (IBAction)search:(id)sender {
+    
 }
 - (IBAction)bar:(id)sender {
     [self queryPlacesWithKeyword:nil queryPlacesWithType:@"bar" defaultLanguage:@"english" isOpen:YES];

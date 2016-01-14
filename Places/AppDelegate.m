@@ -10,6 +10,7 @@
 #import <Parse.h>
 #import "INTULocationManager.h"
 #import "ViewController.h"
+#import "Preference.h"
 
 @interface AppDelegate ()
 
@@ -45,6 +46,14 @@
         application.applicationIconBadgeNumber = 0;
     }
     
+    UIUserNotificationType types = UIUserNotificationTypeBadge |
+    UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
+    
+    UIUserNotificationSettings *mySettings =
+    [UIUserNotificationSettings settingsForTypes:types categories:nil];
+    
+    [[UIApplication sharedApplication] registerUserNotificationSettings:mySettings];
+    
     // Override point for customization after application launch.
     return YES;
 }
@@ -64,9 +73,18 @@
         if (status == INTULocationStatusSuccess) {
             // A new updated location is available in currentLocation, and achievedAccuracy indicates how accurate this particular location is
             UILocalNotification *notification = [[UILocalNotification alloc] init];
-            notification.fireDate = [[NSDate date] dateByAddingTimeInterval:1];
+            NSDate *date = [[NSDate alloc] initWithTimeIntervalSinceNow:3];
+            notification.fireDate = date;
+            notification.alertTitle = @"You are at a new place";
             notification.alertBody = @"It seems like you are traveling. Open Placescope and find places around you.";
+            notification.timeZone = [NSTimeZone defaultTimeZone];
+            notification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
+            
             [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+            NSLog(@"%@", notification);
+            
+            traveling = YES;
+            [[NSUserDefaults standardUserDefaults] setBool:traveling forKey:@"traveling"];
         }
         else {
             // An error occurred
@@ -74,8 +92,9 @@
         }
     }];
     
-    timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(updatetime) userInfo:nil repeats:YES];
-    
+    if (traveling == YES && dailyNotification == YES) {
+        timer = [NSTimer scheduledTimerWithTimeInterval:60*60 target:self selector:@selector(updatetime) userInfo:nil repeats:YES];
+    }
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
@@ -87,8 +106,46 @@
     NSString *string = [dateformat stringFromDate:[NSDate date]];
     if ([string intValue] == 7) {
         
+        UILocalNotification *notification = [[UILocalNotification alloc] init];
+        NSDate *date = [[NSDate alloc] initWithTimeIntervalSinceNow:3];
+        notification.fireDate = date;
+        notification.alertTitle = @"Maybe it's time for breakfast and coffee";
+        notification.alertBody = @"Open Placescope to find the best coffee shop for you!";
+        notification.timeZone = [NSTimeZone defaultTimeZone];
+        notification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
+        
+        [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+        
+    }else if ([string integerValue] == 12){
+        
+        UILocalNotification *notification = [[UILocalNotification alloc] init];
+        NSDate *date = [[NSDate alloc] initWithTimeIntervalSinceNow:3];
+        notification.fireDate = date;
+        notification.alertTitle = @"Hey, It's lunch time!";
+        notification.alertBody = @"Open Placescope to find the best restaurant for you!";
+        notification.timeZone = [NSTimeZone defaultTimeZone];
+        notification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
+        
+        [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+
+        //send local notification lunch
+    }else if ([string integerValue] == 18){
+        
+        UILocalNotification *notification = [[UILocalNotification alloc] init];
+        NSDate *date = [[NSDate alloc] initWithTimeIntervalSinceNow:3];
+        notification.fireDate = date;
+        notification.alertTitle = @"Dinner is the best part of the day!";
+        notification.alertBody = @"Placescope finds you the best restaurant for you!";
+        notification.timeZone = [NSTimeZone defaultTimeZone];
+        notification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
+        
+        [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+        //local notification dinner
     }
-    NSLog(@"%d", [string intValue]);
+    //if afternoon tea is on then give notifcation about afternoon tea
+    
+    //if total notification is off, no notification at all
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -104,6 +161,21 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    UIApplicationState state = [application applicationState];
+    if (state == UIApplicationStateActive) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You are in a new place"
+                                                        message:notification.alertBody
+                                                       delegate:self cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+    
+    // Set icon badge number to zero
+    application.applicationIconBadgeNumber = 0;
 }
 
 @end

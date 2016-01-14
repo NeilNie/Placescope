@@ -17,8 +17,11 @@
 @implementation Preference
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     array = [[NSMutableArray alloc] initWithObjects:@"Daily notification", @"Travel notification", @"Email newsletter", @"No Ads (purchase this feature)", nil];
+    dailyNotification = YES;
+    
     self.Table.dataSource = self;
     self.Table.delegate = self;
     // Do any additional setup after loading the view.

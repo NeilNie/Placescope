@@ -15,6 +15,8 @@
 #import "Reachability.h"
 #import "Detail.h"
 
+BOOL traveling;
+
 @interface ViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>{
     
     CLLocationManager *locationManager;

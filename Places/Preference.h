@@ -13,6 +13,8 @@
 
 BOOL areAdsRemoved;
 
+BOOL dailyNotification;
+
 @interface Preference : UIViewController <UITableViewDataSource, UITableViewDelegate,ADBannerViewDelegate, SKPaymentTransactionObserver, SKProductsRequestDelegate, SKRequestDelegate>{
     NSMutableArray *array;
 }

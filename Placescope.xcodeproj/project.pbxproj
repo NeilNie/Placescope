@@ -732,6 +732,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				GCC_NO_COMMON_BLOCKS = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
@@ -760,6 +761,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				GCC_NO_COMMON_BLOCKS = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
