@@ -14,6 +14,7 @@
 @property NSString *username;
 @property NSString *language;
 @property BOOL OpenNow;
+@property BOOL dailyNotification;
 
 @end
 

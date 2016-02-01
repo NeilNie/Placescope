@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Notification - Placescope Apple Watch.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+		<key>Placescope Apple Watch.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 		<key>Placescope.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -23,6 +33,11 @@
 			<true/>
 		</dict>
 		<key>0082A6081C31CFEE00B42954</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>28BDECF41C491BD4000AD454</key>
 		<dict>
 			<key>primary</key>
 			<true/>

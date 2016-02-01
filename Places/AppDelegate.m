@@ -40,12 +40,16 @@
         //self.window.rootViewController = StartView;
         //[self.window makeKeyAndVisible];
     }
+    
+    //clear notification badge
     UILocalNotification *locationNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     if (locationNotification) {
         // Set icon badge number to zero
         application.applicationIconBadgeNumber = 0;
     }
     
+    
+    //register for notification
     UIUserNotificationType types = UIUserNotificationTypeBadge |
     UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
     
@@ -71,12 +75,13 @@
     locationRequestID = [locMgr subscribeToSignificantLocationChangesWithBlock:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
         
         if (status == INTULocationStatusSuccess) {
-            // A new updated location is available in currentLocation, and achievedAccuracy indicates how accurate this particular location is
+            
+            // A new updated location is available in currentLocation, create and push a notification
             UILocalNotification *notification = [[UILocalNotification alloc] init];
             NSDate *date = [[NSDate alloc] initWithTimeIntervalSinceNow:3];
             notification.fireDate = date;
             notification.alertTitle = @"You are at a new place";
-            notification.alertBody = @"It seems like you are traveling. Open Placescope and find places around you.";
+            notification.alertBody = @"It seems like you are traveling. Open Placescope and find the right places for you.";
             notification.timeZone = [NSTimeZone defaultTimeZone];
             notification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
             
@@ -95,6 +100,7 @@
     if (traveling == YES && dailyNotification == YES) {
         timer = [NSTimer scheduledTimerWithTimeInterval:60*60 target:self selector:@selector(updatetime) userInfo:nil repeats:YES];
     }
+    
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
@@ -102,7 +108,7 @@
 -(void)updatetime{
     
     NSDateFormatter *dateformat = [[NSDateFormatter alloc] init];
-    [dateformat setDateFormat:@"hh"];
+    [dateformat setDateFormat:@"HH"];
     NSString *string = [dateformat stringFromDate:[NSDate date]];
     if ([string intValue] == 7) {
         
@@ -142,10 +148,6 @@
         [[UIApplication sharedApplication] scheduleLocalNotification:notification];
         //local notification dinner
     }
-    //if afternoon tea is on then give notifcation about afternoon tea
-    
-    //if total notification is off, no notification at all
-    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
