@@ -9,6 +9,7 @@
 #import "ViewController.h"
 
 #define kGOOGLE_API_KEY @"AIzaSyArw7ygFfOtMGDI7KpupWHWwLvDDR0-fyA"
+#define kAdMobAdUnitID @"ca-app-pub-7942613644553368/5543329138"
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
 @interface UIViewController ()
@@ -19,21 +20,6 @@
 
 - (void)viewDidLoad {
     
-    self.mapView.delegate = self;
-    self.TableView.delegate = self;
-    self.TableView.dataSource = self;
-    
-    searchResult = [[NSMutableArray alloc] init];
-    searchLocation = [[NSMutableArray alloc] init];
-    displayName = [[NSMutableArray alloc] init];
-    ThumbnilURL = [[NSMutableArray alloc] init];
-    photo_reference = [[NSMutableDictionary alloc] init];
-    
-    if ([searchResult count] == 0) {
-        self.tableViewConstraint.constant = 0;
-        NSLog(@"TableConstrained");
-    }
-    
     // Ensure that we can view our own location in the map view.
     [self.mapView setShowsUserLocation:YES];
     locationManager = [[CLLocationManager alloc] init];
@@ -41,30 +27,40 @@
     [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
     [locationManager requestAlwaysAuthorization];
     
-    UISwipeGestureRecognizer *swipeUp = [[UISwipeGestureRecognizer alloc]  initWithTarget:self action:@selector(didSwipe:)];
-    swipeUp.direction = UISwipeGestureRecognizerDirectionUp;
-    [self.buttonMenu addGestureRecognizer:swipeUp];
-    
-    UISwipeGestureRecognizer *swipeDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(didSwipe:)];
-    swipeDown.direction = UISwipeGestureRecognizerDirectionDown;
-    [self.buttonMenu addGestureRecognizer:swipeDown];
-
-    UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
-    lpgr.minimumPressDuration = 1.5; //user needs to press for 2 seconds
-    [self.mapView addGestureRecognizer:lpgr];
-    
     MKCoordinateRegion mapRegion;
     mapRegion.center = self.mapView.userLocation.coordinate;
     mapRegion.span.latitudeDelta = 0.015;
     mapRegion.span.longitudeDelta = 0.015;
     [self.mapView setRegion:mapRegion animated: YES];
     
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@""] forBarMetrics:UIBarMetricsDefault];
+    searchLocation = [[NSMutableArray alloc] init];
+    displayName = [[NSMutableArray alloc] init];
+    ThumbnilURL = [[NSMutableArray alloc] init];
+    openNow = [[NSMutableArray alloc] init];
+    ratingArray = [[NSMutableArray alloc] init];
+    place_id= [[NSMutableArray alloc] init];
+    
+    if ([displayName count] == 0) {
+        self.tableViewConstraint.constant = 0;
+    }
+
+    //gesture recognizers
+    UISwipeGestureRecognizer *swipeUp = [[UISwipeGestureRecognizer alloc]  initWithTarget:self action:@selector(didSwipe:)];
+    swipeUp.direction = UISwipeGestureRecognizerDirectionUp;
+    [self.buttonMenu addGestureRecognizer:swipeUp];
+    
+    self.bannerView.delegate = self;
+    self.bannerView.adUnitID = kAdMobAdUnitID;
+    self.bannerView.rootViewController = self;
+    GADRequest *request = [GADRequest request];
+    [self.bannerView loadRequest:request];
+
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning {
+    
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -73,10 +69,9 @@
     
     [self.view layoutIfNeeded];
     [UIView animateWithDuration:0.3 animations:^{
-        self.buttonMenu.alpha = 1;
+        self.buttonMenu.alpha = 0;
         [self.view layoutIfNeeded];
     }];
-    NSLog(@"Textfield Did begin editing");
 }
 -(IBAction)showMenu:(id)sender{
     
@@ -128,7 +123,7 @@
 -(void)queryPlacesWithKeyword: (NSString *)keyword queryPlacesWithType: (NSString *)googleType defaultLanguage: (NSString *)language isOpen: (BOOL)openNow {
     
     //Resource: https://developers.google.com/maps/documentation/places/#Authentication
-    NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=%f,%f&radius=%@&types=%@&key=%@", currentCentre.latitude, currentCentre.longitude, [NSString stringWithFormat:@"%i", currenDist - 200], googleType, kGOOGLE_API_KEY];
+    NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=%f,%f&radius=%@&types=%@&language=%@&key=%@", currentCentre.latitude, currentCentre.longitude, [NSString stringWithFormat:@"%i", currenDist - 200], googleType, language, kGOOGLE_API_KEY];
     NSLog(@"%@", url);
     
     //check reachablity
@@ -150,7 +145,6 @@
 - (void)fetchedData:(NSData *)responseData {
     
     if (displayName.count > 1) {
-        [photo_reference removeAllObjects];
         [displayName removeAllObjects];
         [searchLocation removeAllObjects];
         [ThumbnilURL removeAllObjects];
@@ -182,15 +176,13 @@
     //Remove any existing custom annotations but not the user location blue dot.
     for (id<MKAnnotation> annotation in _mapView.annotations){
         
-        if ([annotation isKindOfClass:[MapPoint class]])
-        {
+        if ([annotation isKindOfClass:[MapPoint class]]){
+            
             [_mapView removeAnnotation:annotation];
         }
     }
     
-    NSLog(@"began");
-    //Loop through the array of places returned from the Google API.
-    for (int i=0; i<[data count]; i++)
+    for (int i=0; i < [data count]; i++)
     {
         //Retrieve the NSDictionary object in each index of the array.
         NSDictionary *place = [data objectAtIndex:i];
@@ -198,40 +190,39 @@
         //There is a specific NSDictionary object that gives us location info.
         NSDictionary *geo = [place objectForKey:@"geometry"];
         
-        //retrieve photo preference number
-        NSMutableArray *photos = [[NSMutableArray alloc] initWithArray:[place objectForKey:@"photos"]];
-        if (photos.count != 0) {
-            NSDictionary *dic = [photos objectAtIndex:0];
-            [photo_reference setObject:[dic objectForKey:@"photo_reference"] forKey:[place objectForKey:@"name"]];
-        }
-        
         //Get our name and address info for adding to a pin.
         NSString *name=[place objectForKey:@"name"];
         NSString *vicinity=[place objectForKey:@"vicinity"];
-        NSLog(name, vicinity);
         [displayName addObject:name];
         [searchLocation addObject:vicinity];
         [ThumbnilURL addObject:[place objectForKey:@"icon"]];
+        [place_id addObject:[place objectForKey:@"place_id"]];
+        
+        if ([place objectForKey:@"rating"]) {
+            [ratingArray addObject:[place objectForKey:@"rating"]];
+        }else{
+            [ratingArray addObject:@"0.0"];
+        }
+        NSDictionary *dictionary = [place objectForKey:@"opening_hours"];
+        if ([dictionary objectForKey:@"open_now"]) {
+            [openNow addObject:[dictionary objectForKey:@"open_now"]];
+        }else{
+            [openNow addObject:@"1"];
+        }
         
         //Get the lat and long for the location.
         NSDictionary *loc = [geo objectForKey:@"location"];
-        
-        //Create a special variable to hold this coordinate info.
         CLLocationCoordinate2D placeCoord;
-        
-        //Set the lat and long.
         placeCoord.latitude=[[loc objectForKey:@"lat"] doubleValue];
         placeCoord.longitude=[[loc objectForKey:@"lng"] doubleValue];
         
         //Create a new annotiation.
         MapPoint *placeObject = [[MapPoint alloc] initWithName:name address:vicinity coordinate:placeCoord];
-        
         [_mapView addAnnotation:placeObject];
     }
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.TableView reloadData];
     });
-    NSLog(@"ended");
 }
 
 #pragma mark - Table view methods
@@ -245,7 +236,7 @@
     return [searchLocation count];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 70;
+    return 81;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
@@ -261,6 +252,15 @@
     cell.Address.text = [searchLocation objectAtIndex:indexPath.row];
     NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: [ThumbnilURL objectAtIndex:indexPath.row]]];
     cell.thumbnailImageView.image = [UIImage imageWithData:imageData];
+    cell.rating.text = [NSString stringWithFormat:@"%@", [ratingArray objectAtIndex:indexPath.row]];
+    if ([[openNow objectAtIndex:indexPath.row] intValue] == 1) {
+        cell.OpenNow.textColor = [UIColor colorWithRed:37.0f/255.0f green:183.0f/255.0f blue:81.0f/255.0f alpha:1.0f];
+        cell.OpenNow.text = @"Open Now";
+    }else{
+        cell.OpenNow.textColor = [UIColor redColor];
+        cell.OpenNow.text = @"Closed Now";
+    }
+    
     
     return cell;
 }
@@ -282,21 +282,22 @@
         }
     }
 }
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+-(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
     
-    if ([segue.identifier isEqualToString:@"SegueID"]) {
-        NSIndexPath *indexPath = [self.TableView indexPathForSelectedRow];
-        Detail *viewController = segue.destinationViewController;
-        viewController.LocationName = [displayName objectAtIndex:indexPath.row];
-        viewController.Location = [searchLocation objectAtIndex:indexPath.row];
-        viewController.photo_reference = [photo_reference objectForKey:[displayName objectAtIndex:indexPath.row]];
+    placeid = [place_id objectAtIndex:indexPath.row];
+    
+    for(MapPoint* currentAnnotation in self.mapView.annotations){
+        if([currentAnnotation.title isEqualToString:[displayName objectAtIndex:indexPath.row]]){
+            coordinate = currentAnnotation;
+        }
     }
+    
+    NSLog(@"place id %@", placeid);
 }
 
 #pragma mark - MKMapViewDelegate methods.
 
-- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
-{
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
 
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 900, 900);
     [mapView setRegion:[mapView regionThatFits:region] animated:YES];
@@ -335,7 +336,6 @@
     
     //Set our current distance instance variable.
     currenDist = MKMetersBetweenMapPoints(eastMapPoint, westMapPoint);
-    NSLog(@"%@", [NSString stringWithFormat:@"%d", currenDist]);
     
     //Set our current centre point on the map instance variable.
     currentCentre = self.mapView.centerCoordinate;
@@ -345,29 +345,41 @@
 - (IBAction)search:(id)sender {
     
 }
+- (IBAction)clear:(id)sender {
+    
+    [displayName removeAllObjects];;
+    [searchLocation removeAllObjects];
+    [ThumbnilURL removeAllObjects];
+    [openNow removeAllObjects];
+    [ratingArray removeAllObjects];
+    [self.TableView reloadData];
+    [UIView animateWithDuration:0.5 animations:^{
+        self.tableViewConstraint.constant = 0;
+    }];
+}
 - (IBAction)bar:(id)sender {
-    [self queryPlacesWithKeyword:nil queryPlacesWithType:@"bar" defaultLanguage:@"english" isOpen:YES];
+    [self queryPlacesWithKeyword:nil queryPlacesWithType:@"bar" defaultLanguage:@"en" isOpen:YES];
 }
 - (IBAction)food:(id)sender {
-    [self queryPlacesWithKeyword:nil queryPlacesWithType:@"food" defaultLanguage:@"english" isOpen:YES];
+    [self queryPlacesWithKeyword:nil queryPlacesWithType:@"food" defaultLanguage:@"en" isOpen:YES];
 }
 - (IBAction)cafe:(id)sender {
-    [self queryPlacesWithKeyword:nil queryPlacesWithType:@"cafe" defaultLanguage:@"english" isOpen:YES];
+    [self queryPlacesWithKeyword:nil queryPlacesWithType:@"cafe" defaultLanguage:@"en" isOpen:YES];
 }
 - (IBAction)atm:(id)sender {
-    [self queryPlacesWithKeyword:nil queryPlacesWithType:@"bank" defaultLanguage:@"english" isOpen:YES];
+    [self queryPlacesWithKeyword:nil queryPlacesWithType:@"bank" defaultLanguage:@"en" isOpen:YES];
 }
 - (IBAction)parks:(id)sender{
-    [self queryPlacesWithKeyword:nil queryPlacesWithType:@"parks" defaultLanguage:@"english" isOpen:YES];
+    [self queryPlacesWithKeyword:nil queryPlacesWithType:@"parks" defaultLanguage:@"en" isOpen:YES];
 }
 - (IBAction)gas:(id)sender{
-    [self queryPlacesWithKeyword:nil queryPlacesWithType:@"gas" defaultLanguage:@"english" isOpen:YES];
+    [self queryPlacesWithKeyword:nil queryPlacesWithType:@"gas" defaultLanguage:@"en" isOpen:YES];
 }
 - (IBAction)shopping:(id)sender{
-    [self queryPlacesWithKeyword:nil queryPlacesWithType:@"shopping" defaultLanguage:@"english" isOpen:YES];
+    [self queryPlacesWithKeyword:nil queryPlacesWithType:@"shopping" defaultLanguage:@"en" isOpen:YES];
 }
 - (IBAction)parking:(id)sender{
-    [self queryPlacesWithKeyword:nil queryPlacesWithType:@"parking" defaultLanguage:@"english" isOpen:YES];
+    [self queryPlacesWithKeyword:nil queryPlacesWithType:@"parking" defaultLanguage:@"en" isOpen:YES];
 }
 - (BOOL)connected {
     Reachability *reachability = [Reachability reachabilityForInternetConnection];

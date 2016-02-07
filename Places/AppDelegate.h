@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <WatchConnectivity/WatchConnectivity.h>
+#import "INTULocationManager.h"
+#import "ViewController.h"
+#import "Preference.h"
+#import <KinveyKit/KinveyKit.h>
+#import <Realm/Realm.h>
 
 NSTimer *timer;
 

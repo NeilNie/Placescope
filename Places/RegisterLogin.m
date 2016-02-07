@@ -21,6 +21,14 @@
     // Do any additional setup after loading the view.
 }
 
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    
+    [self.Email resignFirstResponder];
+    [self.Name resignFirstResponder];
+    [self.Password resignFirstResponder];
+    
+}
+
 -(void)AnimateBackground{
     
     if (self.background.alpha == 1) {
@@ -49,31 +57,56 @@
 }
 -(IBAction)save1:(id)sender{
     
-    PFUser *user = [PFUser user];
-    user.username = self.Name.text;
-    user.password = self.Password.text;
-    user.email = self.Email.text;
-    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-        if (succeeded) {
-            NSLog(@"new user added, yeah!");
-            UIStoryboard *MainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            UIViewController *StartView = [MainStoryBoard instantiateViewControllerWithIdentifier:@"second"];
-            [self presentViewController:StartView animated:YES completion:nil];
-        }else{
-            UIAlertView* MessageAlert = [[UIAlertView alloc] initWithTitle:@"Opps!?..?" message:[NSString stringWithFormat:@"Can't sign up, error %@", error] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil,nil];
-            [MessageAlert show];
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    [realm beginWriteTransaction];
+    UserInfo *info = [[UserInfo alloc] init];
+    info.id = 0;
+    info.username = self.Name.text;
+    info.email = self.Email.text;
+    info.travelNotification = YES;
+    info.newsteller = YES;
+    info.coffee = YES;
+    [realm addObject:info];
+    [realm commitWriteTransaction];
+    [KCSUser userWithUsername:self.Name.text password:self.Password.text fieldsAndValues:@{KCSUserAttributeEmail: self.Email.text} withCompletionBlock:^(KCSUser *user, NSError *errorOrNil, KCSUserActionResult result) {
+        if (errorOrNil == nil) {
+            NSString * storyboardName = @"Main";
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
+            UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
+            [self presentViewController:vc animated:YES completion:nil];
+            
+        } else {
+            NSLog(@"%@", errorOrNil);
         }
     }];
 }
--(IBAction)save2:(id)sender{
+-(IBAction)login:(id)sender{
     
-    UserInfo *info = [[UserInfo alloc] init];
-    info.username = [PFUser currentUser].username;
-    info.language = [[NSLocale preferredLanguages] objectAtIndex:0];
-    info.OpenNow = YES;
-    
-}
--(IBAction)save3:(id)sender{
+    [KCSUser loginWithUsername:self.Email.text password:self.Password.text withCompletionBlock:^(KCSUser *user, NSError *errorOrNil, KCSUserActionResult result) {
+        
+        RLMRealm *realm = [RLMRealm defaultRealm];
+        [realm beginWriteTransaction];
+        UserInfo *info = [[UserInfo alloc] init];
+        info.id = 0;
+        info.username = user.username;
+        info.email = user.email;
+        info.travelNotification = YES;
+        info.newsteller = YES;
+        info.coffee = YES;
+        [realm addObject:info];
+        [realm commitWriteTransaction];
+        if (errorOrNil ==  nil) {
+            NSString * storyboardName = @"Main";
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
+            UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
+            [self presentViewController:vc animated:YES completion:nil];
+        } else {
+            //there was an error with the update save
+            NSString* message = [errorOrNil localizedDescription];
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Create account failed", @"Sign account failed") message:message delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"OK") otherButtonTitles: nil];
+            [alert show];
+        }
+    }];
     
 }
 

@@ -7,8 +7,6 @@
 //
 
 #import "Workflow.h"
-#import "TableViewCell.h"
-#import "Reachability.h"
 
 #define kGOOGLE_API_KEY @"AIzaSyArw7ygFfOtMGDI7KpupWHWwLvDDR0-fyA"
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
@@ -25,52 +23,65 @@
     
     return nameArray.count;
 }
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if ([[UIScreen mainScreen] bounds].size.width == 320) {
+        
+        return CGSizeMake(320, 180);
+        
+    }else if ([[UIScreen mainScreen] bounds].size.width == 375) {
+        
+        return CGSizeMake(375, 200);
+        
+    }else if ([[UIScreen mainScreen] bounds].size.width > 414){
+        
+        return CGSizeMake(414, 290);
+        
+    }else{
+        
+        return CGSizeMake(150, 150);
+    }
+}
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *identifier = @"Cell";
+    static NSString *identifier = @"WorkflowCell";
     
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    WorkflowCell *cell = (WorkflowCell *)[collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     
-    UIImageView *locationImage = (UIImageView *)[cell viewWithTag:1];
-    UILabel *locationName = (UILabel *)[cell viewWithTag:2];
-    UILabel *locationAddress = (UILabel *)[cell viewWithTag:3];
-    
-    locationImage.image = [UIImage imageNamed:@"default-placeholder.png"];
+    cell.Image.image = [UIImage imageNamed:@"default-placeholder.png"];
     
     NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: [ThumbnilURL objectAtIndex:indexPath.row]]];
-    locationImage.image = [UIImage imageWithData:imageData];
-    locationName.text = [nameArray objectAtIndex:indexPath.row];
-    locationAddress.text = [addressArray objectAtIndex:indexPath.row];
+    cell.Image.image = [UIImage imageWithData:imageData];
+    cell.Name.text = [nameArray objectAtIndex:indexPath.row];
+    cell.Address.text = [addressArray objectAtIndex:indexPath.row];
+    cell.Rating.text = [NSString stringWithFormat:@"%@", [rating objectAtIndex:indexPath.row]];
+    cell.Type.text = [NSString stringWithFormat:@"%@ • %@", [type objectAtIndex:indexPath.row], [type2 objectAtIndex:indexPath.row]];
+    
+    cell.layer.shouldRasterize = YES;
+    cell.layer.rasterizationScale = [UIScreen mainScreen].scale;
     
     return cell;
 }
 
 #pragma mark - Google Places
 
--(void)queryPlacesWithKeyword: (NSString *)keyword queryPlacesWithType: (NSString *)googleType{
+-(void)queryPlacesKeyword: (NSString *)keyword queryWithType: (NSString *)type1 secondType: (NSString *)typet thirdType: (NSString *)type3{
     
     //Resource: https://developers.google.com/maps/documentation/places/#Authentication
-    NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=%f,%f&radius=%@&types=%@&key=%@", currentCentre.latitude, currentCentre.longitude, [NSString stringWithFormat:@"%i", 700], googleType, kGOOGLE_API_KEY];
+    NSString *myurl = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=%f,%f&radius=%@&types=%@|%@&key=%@", currentCentre.latitude, currentCentre.longitude, [NSString stringWithFormat:@"%i", 700], type1, typet, kGOOGLE_API_KEY];
     
-    //check reachablity
     if ([self connected] == YES) {
-        
-        //Formulate the string as URL object.
-        NSURL *googleRequestURL = [NSURL URLWithString:url];
-        
-        //get JSON data and put it into a dictionary
-        NSData *data = [NSData dataWithContentsOfURL: googleRequestURL];
-        
-        NSError* error;
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+        NSURL *searchURL = [NSURL URLWithString:[myurl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+        NSData *data = [NSData dataWithContentsOfURL: searchURL];
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
 
         dispatch_async(kBgQueue, ^{
-
             [self performSelectorOnMainThread:@selector(fetchedData:) withObject:json waitUntilDone:YES];
             NSLog(@"%@", json);
         });
     }else{
-        NSLog(@"Not reacheable, no result displayed");
+        UIAlertView* MessageAlert = [[UIAlertView alloc] initWithTitle:@"Opps..." message:@"No internet connection. Please try again later." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil,nil];
+        [MessageAlert show];
     }
 }
 
@@ -83,20 +94,22 @@
         
         NSDictionary *place = [result objectAtIndex:i];
         
-        if ([[place objectForKey:@"rating"] floatValue] >= 4.2) {
+        if ([[place objectForKey:@"rating"] floatValue] >= 4) {
             
             [nameArray addObject:[place objectForKey:@"name"]];
             [addressArray addObject:[place objectForKey:@"vicinity"]];
+            [rating addObject:[place objectForKey:@"rating"]];
+            [type addObject:[[place objectForKey:@"types"] objectAtIndex:0]];
+            [type2 addObject:[[place objectForKey:@"types"] objectAtIndex:1]];
             
             NSMutableArray *photos = [[NSMutableArray alloc] initWithArray:[place objectForKey:@"photos"]];
             if (photos.count != 0) {
                 NSDictionary *dic = [photos objectAtIndex:0];
-                NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/photo?maxwidth=2000&photoreference=%@&key=%@", [dic objectForKey:@"photo_reference"], kGOOGLE_API_KEY];
+                NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/photo?maxwidth=1000&photoreference=%@&key=%@", [dic objectForKey:@"photo_reference"], kGOOGLE_API_KEY];
                 [ThumbnilURL addObject:url];
             }
         }
     }
-    NSLog(@"result %@", ThumbnilURL);
     
     //refresh table and display
     if (nameArray.count > 0) {
@@ -132,39 +145,32 @@
     nameArray = [[NSMutableArray alloc] init];
     addressArray = [[NSMutableArray alloc] init];
     ThumbnilURL = [[NSMutableArray alloc] init];
-    
-    self.collectionView.dataSource = self;
-    self.collectionView.delegate = self;
-    self.collectionView.alpha = 0;
+    rating = [[NSMutableArray alloc] init];
+    type = [[NSMutableArray alloc] init];
+    type2 = [[NSMutableArray alloc] init];
     
     dateformat = [[NSDateFormatter alloc] init];
     [dateformat setDateFormat:@"HH"];
     NSString *string = [dateformat stringFromDate:[NSDate date]];
     if ([string intValue] >= 7 && [string intValue] <= 11) {
         
-        [self queryPlacesWithKeyword:nil queryPlacesWithType:@"breakfast"];
+        [self queryPlacesKeyword:nil queryWithType:@"cafe" secondType:@"establishment" thirdType:nil];
         
     }else if ([string intValue] >= 12 && [string intValue] <= 17){
         
-        [self queryPlacesWithKeyword:nil queryPlacesWithType:@"lunch"];
+        [self queryPlacesKeyword:nil queryWithType:@"food" secondType:@"establishment" thirdType:nil];
         
     }else if ([string intValue] >= 18 && [string intValue] <= 21){
         
-        [self queryPlacesWithKeyword:nil queryPlacesWithType:@"dinner"];
+        [self queryPlacesKeyword:nil queryWithType:@"food" secondType:@"restaurant" thirdType:nil];
         
     }else{
         
-        [self queryPlacesWithKeyword:nil queryPlacesWithType:@"night"];
+        [self queryPlacesKeyword:nil queryWithType:@"bar" secondType:@"restaurant" thirdType:nil];
     }
     
-    size_t size;
-    sysctlbyname("hw.mfachine", NULL, &size, NULL, 0);
-    char *machine = malloc(size);
-    sysctlbyname("hw.machine", machine, &size, NULL, 0);
-    NSString *platform = [NSString stringWithCString:machine encoding:NSUTF8StringEncoding];
-    NSLog(@"iPhone Device %i",[self platformType:platform]);
-    ScreenSize = [self platformType:platform];
-    free(machine);
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
+    
     // Do any additional setup after loading the view.
 }
 
@@ -179,64 +185,20 @@
     NSString *string = [dateformat stringFromDate:[NSDate date]];
     if ([string intValue] >= 7 && [string intValue] <= 11) {
         
-        [self queryPlacesWithKeyword:@"breakfast" queryPlacesWithType:@"breakfast"];
+        [self queryPlacesKeyword:nil queryWithType:@"cafe" secondType:@"establishment" thirdType:nil];
         
     }else if ([string intValue] >= 12 && [string intValue] <= 17){
         
-        [self queryPlacesWithKeyword:@"tea" queryPlacesWithType:@"tea"];
+        [self queryPlacesKeyword:nil queryWithType:@"food" secondType:@"museum" thirdType:nil];
         
     }else if ([string intValue] >= 18 && [string intValue] <= 21){
         
-        [self queryPlacesWithKeyword:@"dinner" queryPlacesWithType:@"dinner"];
+        [self queryPlacesKeyword:nil queryWithType:@"food" secondType:@"restaurant" thirdType:nil];
         
     }else{
         
-        [self queryPlacesWithKeyword:@"night" queryPlacesWithType:@"night"];
+        [self queryPlacesKeyword:nil queryWithType:@"bar" secondType:@"restaurant" thirdType:nil];
     }
 }
-
-- (int)platformType:(NSString *)platform
-{
-    if ([platform isEqualToString:@"iPhone4,1"])    return 550;
-    if ([platform isEqualToString:@"iPhone5,1"])    return 670;
-    if ([platform isEqualToString:@"iPhone5,2"])    return 670;
-    if ([platform isEqualToString:@"iPhone5,3"])    return 670;
-    if ([platform isEqualToString:@"iPhone5,4"])    return 670;
-    if ([platform isEqualToString:@"iPhone6,1"])    return 670;
-    if ([platform isEqualToString:@"iPhone6,2"])    return 670;
-    if ([platform isEqualToString:@"iPhone7,2"])    return 700;
-    if ([platform isEqualToString:@"iPhone7,1"])    return 720;
-    if ([platform isEqualToString:@"iPod4,1"])      return 630;
-    if ([platform isEqualToString:@"iPod5,1"])      return 630;
-    if ([platform isEqualToString:@"iPad2,1"])      return 850;
-    if ([platform isEqualToString:@"iPad2,2"])      return 850;
-    if ([platform isEqualToString:@"iPad2,3"])      return 850;
-    if ([platform isEqualToString:@"iPad2,4"])      return 850;
-    if ([platform isEqualToString:@"iPad2,5"])      return 850;
-    if ([platform isEqualToString:@"iPad2,6"])      return 850;
-    if ([platform isEqualToString:@"iPad2,7"])      return 850;
-    if ([platform isEqualToString:@"iPad3,1"])      return 850;
-    if ([platform isEqualToString:@"iPad3,2"])      return 850;
-    if ([platform isEqualToString:@"iPad3,3"])      return 850;
-    if ([platform isEqualToString:@"iPad3,4"])      return 850;
-    if ([platform isEqualToString:@"iPad3,5"])      return 850;
-    if ([platform isEqualToString:@"iPad3,6"])      return 850;
-    if ([platform isEqualToString:@"iPad4,1"])      return 850;
-    if ([platform isEqualToString:@"iPad4,2"])      return 850;
-    if ([platform isEqualToString:@"iPad4,3"])      return 850;
-    if ([platform isEqualToString:@"iPad4,4"])      return 850;
-    if ([platform isEqualToString:@"iPad4,5"])      return 850;
-    if ([platform isEqualToString:@"iPad4,6"])      return 850;
-    if ([platform isEqualToString:@"iPad4,7"])      return 850;
-    if ([platform isEqualToString:@"iPad4,8"])      return 850;
-    if ([platform isEqualToString:@"iPad4,9"])      return 850;
-    if ([platform isEqualToString:@"iPad5,3"])      return 850;
-    if ([platform isEqualToString:@"iPad5,4"])      return 850;
-    if ([platform isEqualToString:@"i386"])         return 630;
-    if ([platform isEqualToString:@"x86_64"])       return 690;
-    
-    return 700;
-}
-
 
 @end

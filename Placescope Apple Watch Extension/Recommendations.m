@@ -8,6 +8,9 @@
 
 #import "Recommendations.h"
 
+#define kGOOGLE_API_KEY @"AIzaSyArw7ygFfOtMGDI7KpupWHWwLvDDR0-fyA"
+#define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+
 @interface Recommendations ()
 
 @end
@@ -16,21 +19,47 @@
 
 #pragma WCsession Delegates
 
--(void)session:(WCSession *)session didReceiveMessage:(NSDictionary<NSString *,id> *)message{
+-(void)queryPlacesKeyword: (NSString *)keyword queryWithType: (NSString *)type1 secondType: (NSString *)typet thirdType: (NSString *)type3{
     
-    NSLog(@"received %@", message);
+    //Resource: https://developers.google.com/maps/documentation/places/#Authentication
+    NSString *myurl = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=%f,%f&radius=%@&types=%@|%@&key=%@", currentCentre.latitude, currentCentre.longitude, [NSString stringWithFormat:@"%i", 700], type1, typet, kGOOGLE_API_KEY];
     
-    if ([[message objectForKey:@"reply"] isEqualToString:@"yes"]) {
-        NSLog(@"got data");
-        name = [message objectForKey:@"name"];
-        address = [message objectForKey:@"address"];
-        rating = [message objectForKey:@"rating"];
-        [self setupTable];
-    }
+    NSURL *searchURL = [NSURL URLWithString:[myurl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSData *data = [NSData dataWithContentsOfURL: searchURL];
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+    
+    dispatch_async(kBgQueue, ^{
+        [self performSelectorOnMainThread:@selector(fetchedData:) withObject:json waitUntilDone:YES];
+        NSLog(@"%@", json);
+    });
 }
+
+- (void)fetchedData:(NSDictionary *)responseData{
+    
+    //parse out the json data for places
+    NSMutableArray *result = [responseData objectForKey:@"results"];
+    
+    for (int i = 0 ; i < [result count]; i++) {
+        
+        NSDictionary *place = [result objectAtIndex:i];
+        
+        if ([[place objectForKey:@"rating"] floatValue] >= 4) {
+            
+            [name addObject:[place objectForKey:@"name"]];
+            [address addObject:[place objectForKey:@"vicinity"]];
+            [rating addObject:[place objectForKey:@"rating"]];
+        }
+    }
+    
+    //refresh table and display
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSLog(@"reload table");
+        [self setupTable];
+    });
+}
+
 - (void)setupTable
 {
-    
     [self.Table setNumberOfRows:name.count withRowType:@"default"];
     
     NSInteger rowCount = self.Table.numberOfRows;
@@ -46,35 +75,23 @@
         [row.Address setText:locationString];
         [row.Rating setText:ratingString];
     }
-    
+    [self.Table setHidden:NO];
+    [self.loading setHidden:YES];
 }
 
-
 - (void)awakeWithContext:(id)context {
-    
-    if ([WCSession isSupported]) {
-        NSLog(@"Activated");
-        WCSession *session = [WCSession defaultSession];
-        session.delegate = self;
-        [session activateSession];
-        
-        [[WCSession defaultSession] sendMessage:@{@"key": @"rec"}
-                                   replyHandler:^(NSDictionary *reply) {
-                                       //handle reply from iPhone app here
-                                   }
-                                   errorHandler:^(NSError *error) {
-                                       NSLog(@"error %@", error);
-                                   }
-         ];
-        
-    }else{
-        NSLog(@"not supported");
-    }
     
     name = [[NSMutableArray alloc] init];
     address = [[NSMutableArray alloc] init];
     rating = [[NSMutableArray alloc] init];
     
+    locationManager = [[CLLocationManager alloc] init];
+    locationManager.delegate = self;
+    [locationManager requestWhenInUseAuthorization];
+    [locationManager requestLocation];
+    currentCentre = [locationManager location].coordinate;
+    
+    [self.Table setHidden:YES];
     [super awakeWithContext:context];
     
     // Configure interface objects here.

@@ -13,5 +13,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *locationName;
 @property (nonatomic, weak) IBOutlet UILabel *Address;
 @property (nonatomic, weak) IBOutlet UIImageView *thumbnailImageView;
+@property (nonatomic, weak) IBOutlet UILabel *rating;
+@property (nonatomic, weak) IBOutlet UILabel *OpenNow;
 
 @end

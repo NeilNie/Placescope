@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
-#import <sys/sysctl.h>
+#import "TableViewCell.h"
+#import "Reachability.h"
+#import "WorkflowCell.h"
 
 int ScreenSize;
 
@@ -18,15 +20,16 @@ int ScreenSize;
     NSMutableArray *nameArray;
     NSMutableArray *addressArray;
     NSMutableArray *ThumbnilURL;
-    NSMutableArray *tourName;
-    NSMutableArray *tourLocation;
-    NSMutableArray *tourThumbnilURL;
+    NSMutableArray *rating;
+    NSMutableArray *type;
+    NSMutableArray *type2;
     
     CLLocationCoordinate2D currentCentre;
     CLLocationManager *locationManager;
     
     NSDateFormatter *dateformat;
 }
+@property (weak, nonatomic) IBOutlet UINavigationItem *bar;
 @property (weak, nonatomic) IBOutlet UIImageView *sadFace;
 @property (weak, nonatomic) IBOutlet UILabel *noResult;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;

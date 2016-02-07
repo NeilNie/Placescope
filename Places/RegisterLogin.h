@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Parse.h>
 #import <Realm/Realm.h>
 #import "UserInfo.h"
+#import <KinveyKit/KinveyKit.h>
 
 @interface RegisterLogin : UIViewController{
     NSTimer *timer;
@@ -27,5 +27,10 @@
 @property (weak, nonatomic) IBOutlet UITextField *Password;
 
 //third
+@property (weak, nonatomic) IBOutlet UISwitch *coffee;
+@property (weak, nonatomic) IBOutlet UISwitch *travel;
+@property (weak, nonatomic) IBOutlet UISwitch *daily;
+@property (weak, nonatomic) IBOutlet UISwitch *newsteller;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *terms;
 
 @end

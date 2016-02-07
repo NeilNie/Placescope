@@ -8,16 +8,28 @@
 
 #import <UIKit/UIKit.h>
 #import "ViewController.h"
-#import <iAd/iAd.h>
 #import <StoreKit/StoreKit.h>
+#import "UserInfo.h"
+#import <Realm/Realm.h>
+
+@import GoogleMobileAds;
 
 BOOL areAdsRemoved;
 
 BOOL dailyNotification;
 
-@interface Preference : UIViewController <UITableViewDataSource, UITableViewDelegate,ADBannerViewDelegate, SKPaymentTransactionObserver, SKProductsRequestDelegate, SKRequestDelegate>{
+@interface Preference : UIViewController <UITableViewDataSource, UITableViewDelegate, SKPaymentTransactionObserver, SKProductsRequestDelegate, SKRequestDelegate, GADAdDelegate, GADBannerViewDelegate, UITextFieldDelegate>{
+    
     NSMutableArray *array;
+    NSMutableArray *array2;
+    UserInfo *info;
+    RLMResults *objects;
 }
 @property (weak, nonatomic) IBOutlet UITableView *Table;
+@property (weak, nonatomic) IBOutlet GADBannerView *bannerView;
+@property (weak, nonatomic) IBOutlet UITextField *username;
+@property (weak, nonatomic) IBOutlet UITextField *email;
+@property (weak, nonatomic) IBOutlet UITextField *password;
+
 
 @end

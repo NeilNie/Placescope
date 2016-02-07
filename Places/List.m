@@ -24,20 +24,20 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    return 55;
+    return 60;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    ListCell *cell = (ListCell *)[tableView dequeueReusableCellWithIdentifier:@"ListCell" forIndexPath:indexPath];
-    if (cell == nil) {
-        [tableView registerNib:[UINib nibWithNibName:@"ListCell" bundle:nil] forCellReuseIdentifier:@"ListCell"];
-        cell = [tableView dequeueReusableCellWithIdentifier:@"ListCell"];
-        
-    }
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ListCell" forIndexPath:indexPath];
+
+    UILabel *name = (UILabel *)[cell.contentView viewWithTag:1];
+    UILabel *location = (UILabel *)[cell.contentView viewWithTag:2];
+    UILabel *type = (UILabel *)[cell.contentView viewWithTag:3];
     UserList *list = [result objectAtIndex:indexPath.row];
-    cell.name.text = list.name;
-    cell.location.text = list.location;
+    name.text = list.name;
+    location.text = list.location;
+    type.text = list.type;
     
     return cell;
 }
@@ -49,6 +49,7 @@
     self.table.delegate = self;
     result = [UserList allObjects];
     [self.table reloadData];
+    NSLog(@"all objects %@", result);
 }
 
 - (void)didReceiveMemoryWarning {

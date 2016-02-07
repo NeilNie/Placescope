@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <Realm/Realm.h>
 #import "UserList.h"
-#import "ListCell.h"
 
 RLMResults *result;
 

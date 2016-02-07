@@ -7,8 +7,10 @@
 //
 
 #import "Preference.h"
+#import "Setting Cell.h"
 
-#define kRemoveAdsProductIdentifier @"com.placescope.noads"
+#define kRemoveAdsProductIdentifier @"noads.placescope.com"
+#define kAdMobAdUnitID @"ca-app-pub-7942613644553368/5543329138"
 
 @interface Preference ()
 
@@ -19,12 +21,28 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    array = [[NSMutableArray alloc] initWithObjects:@"Daily notification", @"Travel notification", @"Email newsletter", @"No Ads (purchase this feature)", nil];
-    dailyNotification = YES;
+    array = [[NSMutableArray alloc] initWithObjects:@"Travel notification", @"Email newsletter", @"Daily notification", @"No Ads (purchase this feature)", nil];
     
     self.Table.dataSource = self;
     self.Table.delegate = self;
+    
+    self.bannerView.delegate = self;
+    self.bannerView.adUnitID = kAdMobAdUnitID;
+    self.bannerView.rootViewController = self;
+    GADRequest *request = [GADRequest request];
+    [self.bannerView loadRequest:request];
+    
+    objects = [UserInfo allObjects];
+    NSLog(@"user info %@", objects);
+    info = [[UserInfo alloc] init];
+    info = [objects objectAtIndex:0];
+    self.username.text = info.username;
+    self.email.text = info.email;
     // Do any additional setup after loading the view.
+}
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -137,28 +155,128 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
-    return 1;
+    return 2;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return [array count];
+    switch (section) {
+        case 0:
+            return [array count];
+            break;
+        case 1:
+            return [array2 count];
+            break;
+            
+        default:
+            return [array count];
+            break;
+    }
+    
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 50;
 }
-/*- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *identifier = @"CellID";
     
-    return
-}*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    Setting_Cell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+    if (cell == nil) {
+        [tableView registerNib:[UINib nibWithNibName:@"Setting Cell" bundle:nil] forCellReuseIdentifier:identifier];
+        cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    }
+    info = [objects objectAtIndex:0];
+    cell.name.text = [array objectAtIndex:indexPath.row];
+    switch (indexPath.row) {
+        case 0:
+            cell.Switch.on = info.travelNotification;
+            break;
+        case 1:
+            cell.Switch.on = info.newsteller;
+            break;
+        case 2:
+            cell.Switch.on = info.dailyNotification;
+            break;
+        case 3:
+            cell.Switch.on = areAdsRemoved;
+            break;
+            
+        default:
+            break;
+    }
+    
+    return cell;
 }
-*/
 
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    switch (indexPath.row) {
+        case 0:
+            if (info.travelNotification == YES) {
+                [realm beginWriteTransaction];
+                info.travelNotification = NO;
+                [realm addOrUpdateObject:info];
+                [realm commitWriteTransaction];
+                
+            }else {
+                [realm beginWriteTransaction];
+                info.travelNotification = YES;
+                [realm addOrUpdateObject:info];
+                [realm commitWriteTransaction];
+            }
+            
+            break;
+        case 1:
+            if (info.newsteller == YES) {
+                [realm beginWriteTransaction];
+                info.newsteller = NO;
+                [realm addOrUpdateObject:info];
+                [realm commitWriteTransaction];
+                
+            }else {
+                [realm beginWriteTransaction];
+                info.newsteller = YES;
+                [realm addOrUpdateObject:info];
+                [realm commitWriteTransaction];
+            }
+            
+            break;
+        case 2:
+            if (info.dailyNotification == YES) {
+                [realm beginWriteTransaction];
+                info.dailyNotification = NO;
+                [realm addOrUpdateObject:info];
+                [realm commitWriteTransaction];
+                
+            }else {
+                [realm beginWriteTransaction];
+                info.dailyNotification = YES;;
+                [realm addOrUpdateObject:info];
+                [realm commitWriteTransaction];
+            }
+            break;
+        case 3:
+            if (areAdsRemoved == NO) {
+                [self tapsRemoveAdsButton];
+            }else{
+                [self restore1];
+            }
+            break;
+            
+        default:
+            break;
+    }
+    [self.Table reloadData];
+    NSLog(@"user %@", info);
+}
+
+- (IBAction)changePass:(id)sender {
+}
+
+- (IBAction)changeEmail:(id)sender {
+}
+
+- (IBAction)changeName:(id)sender {
+}
 @end

@@ -7,10 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import <Parse.h>
-#import "INTULocationManager.h"
-#import "ViewController.h"
-#import "Preference.h"
 
 @interface AppDelegate ()
 
@@ -21,34 +17,24 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    [Parse enableLocalDatastore];
-    [Parse setApplicationId:@"QWKjB4xFEvXzI8wOGHdSD1SsLBSDNyVS22qBnDgS"
-                  clientKey:@"voWCiHsFuaN8ssQj4HEYFztVy6wE9ltBmi0ikfTL"];
-    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    [[KCSClient sharedClient] initializeKinveyServiceForAppKey:@"kid_-yffmhMwpg" withAppSecret:@"7c0c198cb2fe4e4c9d818bb0df23d9dc" usingOptions:nil];
     
     //Check the Username string and display UIViewController
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     UIStoryboard *MainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *StartView = [MainStoryBoard instantiateViewControllerWithIdentifier:@"welcome"];
     UIViewController *Viewcontroller = [MainStoryBoard instantiateViewControllerWithIdentifier:@"TabBarController"];
-    PFUser *currentUser = [PFUser currentUser];
-    self.window.rootViewController = Viewcontroller;
-    [self.window makeKeyAndVisible];
-    if (currentUser) {
-        
-    }else{
-        //self.window.rootViewController = StartView;
-        //[self.window makeKeyAndVisible];
+    if (![KCSUser activeUser]) {
+        self.window.rootViewController = StartView;
+        [self.window makeKeyAndVisible];
+
+    } else {
+        self.window.rootViewController = Viewcontroller;
+        [self.window makeKeyAndVisible];
     }
     
-    //clear notification badge
-    UILocalNotification *locationNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
-    if (locationNotification) {
-        // Set icon badge number to zero
-        application.applicationIconBadgeNumber = 0;
-    }
-    
-    
+    application.applicationIconBadgeNumber = 0;
+
     //register for notification
     UIUserNotificationType types = UIUserNotificationTypeBadge |
     UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
@@ -78,7 +64,7 @@
             
             // A new updated location is available in currentLocation, create and push a notification
             UILocalNotification *notification = [[UILocalNotification alloc] init];
-            NSDate *date = [[NSDate alloc] initWithTimeIntervalSinceNow:3];
+            NSDate *date = [[NSDate alloc] initWithTimeIntervalSinceNow:120];
             notification.fireDate = date;
             notification.alertTitle = @"You are at a new place";
             notification.alertBody = @"It seems like you are traveling. Open Placescope and find the right places for you.";
@@ -97,7 +83,7 @@
         }
     }];
     
-    if (traveling == YES && dailyNotification == YES) {
+    if (traveling == YES) {
         timer = [NSTimer scheduledTimerWithTimeInterval:60*60 target:self selector:@selector(updatetime) userInfo:nil repeats:YES];
     }
     

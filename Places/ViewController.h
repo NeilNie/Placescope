@@ -9,15 +9,19 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
-#import <Parse.h>
+#import <KinveyKit/KinveyKit.h>
+#import <Realm/Realm.h>
 #import "MapPoint.h"
 #import "TableViewCell.h"
 #import "Reachability.h"
 #import "Detail.h"
+#import "UserInfo.h"
+
+@import GoogleMobileAds;
 
 BOOL traveling;
 
-@interface ViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>{
+@interface ViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, GADAdDelegate, GADBannerViewDelegate>{
     
     CLLocationManager *locationManager;
     CLLocationCoordinate2D currentCentre;
@@ -27,29 +31,21 @@ BOOL traveling;
     NSMutableArray *displayName;
     NSMutableArray *searchLocation;
     NSMutableArray *ThumbnilURL;
-    NSMutableDictionary *photo_reference;
+    NSMutableArray *openNow;
+    NSMutableArray *ratingArray;
+    NSMutableArray *place_id;
     
     int currenDist;
-    BOOL firstLaunch;
-    
-    
 }
-@property (weak, nonatomic) IBOutlet UINavigationItem *naviBar;
+@property(nonatomic, weak) IBOutlet GADBannerView *bannerView;
 @property (weak, nonatomic) IBOutlet UITableView *TableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewConstraint;
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UITextField *searchText;
 @property (weak, nonatomic) IBOutlet UIButton *searchButton;
-- (IBAction)search:(id)sender;
 @property (weak, nonatomic) IBOutlet UIView *buttonMenu;
-@property (weak, nonatomic) IBOutlet UIButton *bar;
-@property (weak, nonatomic) IBOutlet UIButton *food;
-@property (weak, nonatomic) IBOutlet UIButton *cafe;
-@property (weak, nonatomic) IBOutlet UIButton *atm;
-@property (weak, nonatomic) IBOutlet UIButton *parks;
-@property (weak, nonatomic) IBOutlet UIButton *gas;
-@property (weak, nonatomic) IBOutlet UIButton *shopping;
-@property (weak, nonatomic) IBOutlet UIButton *parking;
+
+- (IBAction)clear:(id)sender;
 - (IBAction)bar:(id)sender;
 - (IBAction)food:(id)sender;
 - (IBAction)cafe:(id)sender;
@@ -58,5 +54,6 @@ BOOL traveling;
 - (IBAction)gas:(id)sender;
 - (IBAction)shopping:(id)sender;
 - (IBAction)parking:(id)sender;
+- (IBAction)search:(id)sender;
 @end
 

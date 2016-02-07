@@ -7,15 +7,35 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+#import "MapPoint.h"
+#import <CoreLocation/CoreLocation.h>
+#import <Realm/Realm.h>
+#import "UserList.h"
 
-@interface Detail : UIViewController <UITableViewDataSource, UITableViewDelegate>{
+NSMutableString *placeid;
+MapPoint *coordinate;
+
+@interface Detail : UIViewController <CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate>{
+    
+    CLLocationCoordinate2D currentCentre;
+    CLLocationManager *locationManager;
     UIImage *photo;
+    NSMutableArray *array;
+    NSMutableArray *array2;
+    
+    NSMutableArray *reviewer;
+    NSMutableArray *reviews;
+    NSMutableArray *ratingArray;
+    
+    NSDictionary *searchResult;
 }
+@property (weak, nonatomic) IBOutlet UINavigationItem *naviBar;
 @property (weak, nonatomic) IBOutlet UITableView *table;
-@property (weak, nonatomic) IBOutlet UINavigationItem *Name;
-@property NSString *LocationName;
-@property NSString *Location;
-@property NSString *LocationType;
-@property NSString *photo_reference;
+@property (weak, nonatomic) IBOutlet UIImageView *image;
 
+- (IBAction)MapView:(id)sender;
+- (IBAction)navigate:(id)sender;
+- (IBAction)share:(id)sender;
+- (IBAction)save:(id)sender;
 @end
