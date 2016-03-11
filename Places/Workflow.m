@@ -5,9 +5,9 @@
 //  Created by Yongyang Nie on 1/13/16.
 //  Copyright © 2016 Yongyang Nie. All rights reserved.
 //
-
 #import "Workflow.h"
 
+#define kAdMobAdUnitID @"ca-app-pub-7942613644553368/5543329138"
 #define kGOOGLE_API_KEY @"AIzaSyArw7ygFfOtMGDI7KpupWHWwLvDDR0-fyA"
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
@@ -21,7 +21,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
-    return nameArray.count;
+    return results.count;
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -33,13 +33,13 @@
         
         return CGSizeMake(375, 200);
         
-    }else if ([[UIScreen mainScreen] bounds].size.width > 414){
+    }else if ([[UIScreen mainScreen] bounds].size.width == 414){
         
         return CGSizeMake(414, 290);
         
     }else{
         
-        return CGSizeMake(150, 150);
+        return CGSizeMake(375, 200);
     }
 }
 
@@ -50,17 +50,27 @@
     
     cell.Image.image = [UIImage imageNamed:@"default-placeholder.png"];
     
-    NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: [ThumbnilURL objectAtIndex:indexPath.row]]];
+    NSDictionary *place = [results objectAtIndex:indexPath.row];
+    NSMutableArray *photos = [place objectForKey:@"photos"];
+    NSString *url;
+    if (photos.count != 0) {
+        url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/photo?maxwidth=1000&photoreference=%@&key=%@", [[photos objectAtIndex:0] objectForKey:@"photo_reference"], kGOOGLE_API_KEY];
+    }
+    NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: url]];
     cell.Image.image = [UIImage imageWithData:imageData];
-    cell.Name.text = [nameArray objectAtIndex:indexPath.row];
-    cell.Address.text = [addressArray objectAtIndex:indexPath.row];
-    cell.Rating.text = [NSString stringWithFormat:@"%@", [rating objectAtIndex:indexPath.row]];
-    cell.Type.text = [NSString stringWithFormat:@"%@ • %@", [type objectAtIndex:indexPath.row], [type2 objectAtIndex:indexPath.row]];
+    cell.Name.text = [place objectForKey:@"name"];
+    cell.Address.text = [place objectForKey:@"vicinity"];
+    cell.Rating.text = [NSString stringWithFormat:@"%@", [place objectForKey:@"rating"]];
+    cell.Type.text = [NSString stringWithFormat:@"%@ • %@", [[place objectForKey:@"types"] objectAtIndex:0], [[place objectForKey:@"types"] objectAtIndex:1]];
     
     cell.layer.shouldRasterize = YES;
     cell.layer.rasterizationScale = [UIScreen mainScreen].scale;
     
     return cell;
+}
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    placeid = [[results objectAtIndex:indexPath.row] objectForKey:@"place_id"];
 }
 
 #pragma mark - Google Places
@@ -96,23 +106,12 @@
         
         if ([[place objectForKey:@"rating"] floatValue] >= 4) {
             
-            [nameArray addObject:[place objectForKey:@"name"]];
-            [addressArray addObject:[place objectForKey:@"vicinity"]];
-            [rating addObject:[place objectForKey:@"rating"]];
-            [type addObject:[[place objectForKey:@"types"] objectAtIndex:0]];
-            [type2 addObject:[[place objectForKey:@"types"] objectAtIndex:1]];
-            
-            NSMutableArray *photos = [[NSMutableArray alloc] initWithArray:[place objectForKey:@"photos"]];
-            if (photos.count != 0) {
-                NSDictionary *dic = [photos objectAtIndex:0];
-                NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/photo?maxwidth=1000&photoreference=%@&key=%@", [dic objectForKey:@"photo_reference"], kGOOGLE_API_KEY];
-                [ThumbnilURL addObject:url];
-            }
+            [results addObject:place];
         }
     }
     
     //refresh table and display
-    if (nameArray.count > 0) {
+    if (results.count > 0) {
         dispatch_async(dispatch_get_main_queue(), ^{
             NSLog(@"reload table");
             [self.collectionView reloadData];
@@ -132,22 +131,7 @@
     return networkStatus != NotReachable;
 }
 
-- (void)viewDidLoad {
-    
-    [super viewDidLoad];
-    
-    locationManager = [[CLLocationManager alloc] init];
-    [locationManager setDelegate:self];
-    [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
-    [locationManager requestAlwaysAuthorization];
-    currentCentre = [locationManager location].coordinate;
-    
-    nameArray = [[NSMutableArray alloc] init];
-    addressArray = [[NSMutableArray alloc] init];
-    ThumbnilURL = [[NSMutableArray alloc] init];
-    rating = [[NSMutableArray alloc] init];
-    type = [[NSMutableArray alloc] init];
-    type2 = [[NSMutableArray alloc] init];
+-(void)getPlaces{
     
     dateformat = [[NSDateFormatter alloc] init];
     [dateformat setDateFormat:@"HH"];
@@ -168,37 +152,101 @@
         
         [self queryPlacesKeyword:nil queryWithType:@"bar" secondType:@"restaurant" thirdType:nil];
     }
-    
-    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
-    
-    // Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)refresh:(id)sender {
     
-    [dateformat setDateFormat:@"HH"];
-    NSString *string = [dateformat stringFromDate:[NSDate date]];
-    if ([string intValue] >= 7 && [string intValue] <= 11) {
+    [self getPlaces];
+}
+
+- (IBAction)FacebookLike:(id)sender {
+    
+    liked = YES;
+    
+    [UIView animateWithDuration:0.5 animations:^{
         
-        [self queryPlacesKeyword:nil queryWithType:@"cafe" secondType:@"establishment" thirdType:nil];
+        self.alertHeight.constant = 0;
+        self.alertBody.hidden = YES;
+        self.like.alpha = 0;
+        self.share.alpha = 0;
+        [self.view layoutIfNeeded];
         
-    }else if ([string intValue] >= 12 && [string intValue] <= 17){
+    }];
+}
+
+- (IBAction)FacebookShare:(id)sender {
+    
+    shared = YES;
+    
+    [UIView animateWithDuration:0.5 animations:^{
         
-        [self queryPlacesKeyword:nil queryWithType:@"food" secondType:@"museum" thirdType:nil];
+        self.alertHeight.constant = 0;
+        self.alertBody.hidden = YES;
+        self.like.alpha = 0;
+        self.share.alpha = 0;
+        [self.view layoutIfNeeded];
         
-    }else if ([string intValue] >= 18 && [string intValue] <= 21){
+    }];
+}
+
+-(void)configureFacebookView{
+    
+    if (liked == NO || shared == NO) {
         
-        [self queryPlacesKeyword:nil queryWithType:@"food" secondType:@"restaurant" thirdType:nil];
+        FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
+        content.contentURL = [NSURL URLWithString:@"https://www.facebook.com/Placescope-1264092500272944/"];
+        content.contentTitle = @"Placescope";
+        content.contentDescription = @"Finds the best places for you no matter where you go! Donwload Placescope on the App Store today for FREE!";
+        content.imageURL = [NSURL URLWithString:@"string"];
+        self.share.shareContent = content;
         
-    }else{
-        
-        [self queryPlacesKeyword:nil queryWithType:@"bar" secondType:@"restaurant" thirdType:nil];
+        self.like.objectID = @"https://www.facebook.com/Placescope-1264092500272944/";
+        [self.view layoutIfNeeded];
+        [UIView animateWithDuration:0.5 animations:^{
+            
+            self.alertHeight.constant = 115;
+            self.alertBody.hidden = NO;
+            self.like.alpha = 1;
+            self.share.alpha = 1;
+            [self.view layoutIfNeeded];
+            
+        }];
     }
+}
+
+- (void)viewDidLoad {
+    
+    [super viewDidLoad];
+    
+    areAdsRemoved = [[NSUserDefaults standardUserDefaults] boolForKey:@"areAdsRemoved"];
+    if (areAdsRemoved == NO) {
+        self.bannerView.delegate = self;
+        self.bannerView.adUnitID = kAdMobAdUnitID;
+        self.bannerView.rootViewController = self;
+        GADRequest *request = [GADRequest request];
+        [self.bannerView loadRequest:request];
+    }
+    
+    locationManager = [[CLLocationManager alloc] init];
+    [locationManager setDelegate:self];
+    [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
+    [locationManager requestAlwaysAuthorization];
+    currentCentre = [locationManager location].coordinate;
+    
+    results = [[NSMutableArray alloc] init];
+    
+    self.alertBody.hidden = YES;
+    self.like.alpha = 0;
+    self.share.alpha = 0;
+    self.alertHeight.constant = 0;
+    
+    [self performSelector:@selector(getPlaces) withObject:nil afterDelay:1];
+    [self performSelector:@selector(configureFacebookView) withObject:nil afterDelay:1];
+
+}
+- (void)didReceiveMemoryWarning {
+    
+    [super didReceiveMemoryWarning];
 }
 
 @end

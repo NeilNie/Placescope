@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import <Realm/Realm.h>
-#import "UserInfo.h"
 #import <KinveyKit/KinveyKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import "UserInfo.h"
 
 @interface RegisterLogin : UIViewController{
     NSTimer *timer;
+    FBSDKLoginManager *login;
 }
 
 //first page
@@ -25,12 +28,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *Email;
 @property (weak, nonatomic) IBOutlet UITextField *Name;
 @property (weak, nonatomic) IBOutlet UITextField *Password;
-
-//third
-@property (weak, nonatomic) IBOutlet UISwitch *coffee;
-@property (weak, nonatomic) IBOutlet UISwitch *travel;
-@property (weak, nonatomic) IBOutlet UISwitch *daily;
-@property (weak, nonatomic) IBOutlet UISwitch *newsteller;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *terms;
+@property (weak, nonatomic) IBOutlet FBSDKLoginButton *FacebookLogin;
 
 @end

@@ -12,6 +12,7 @@
 @property NSString *name;
 @property NSString *location;
 @property NSString *type;
+@property NSNumber<RLMInt> *priceLevel;
 
 @end
 

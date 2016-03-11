@@ -10,6 +10,8 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import <KinveyKit/KinveyKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <Realm/Realm.h>
 #import "MapPoint.h"
 #import "TableViewCell.h"
@@ -18,8 +20,6 @@
 #import "UserInfo.h"
 
 @import GoogleMobileAds;
-
-BOOL traveling;
 
 @interface ViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, GADAdDelegate, GADBannerViewDelegate>{
     

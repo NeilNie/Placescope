@@ -9,7 +9,6 @@
 #import "Recommendations.h"
 
 #define kGOOGLE_API_KEY @"AIzaSyArw7ygFfOtMGDI7KpupWHWwLvDDR0-fyA"
-#define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
 @interface Recommendations ()
 
@@ -17,10 +16,9 @@
 
 @implementation Recommendations
 
-#pragma WCsession Delegates
-
 -(void)queryPlacesKeyword: (NSString *)keyword queryWithType: (NSString *)type1 secondType: (NSString *)typet thirdType: (NSString *)type3{
     
+    NSLog(@"query started");
     //Resource: https://developers.google.com/maps/documentation/places/#Authentication
     NSString *myurl = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=%f,%f&radius=%@&types=%@|%@&key=%@", currentCentre.latitude, currentCentre.longitude, [NSString stringWithFormat:@"%i", 700], type1, typet, kGOOGLE_API_KEY];
     
@@ -28,10 +26,8 @@
     NSData *data = [NSData dataWithContentsOfURL: searchURL];
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
     
-    dispatch_async(kBgQueue, ^{
-        [self performSelectorOnMainThread:@selector(fetchedData:) withObject:json waitUntilDone:YES];
-        NSLog(@"%@", json);
-    });
+    [self performSelectorOnMainThread:@selector(fetchedData:) withObject:json waitUntilDone:YES];
+    NSLog(@"%@", json);
 }
 
 - (void)fetchedData:(NSDictionary *)responseData{
@@ -68,7 +64,7 @@
         
         NSString *nameString = name[i];
         NSString *locationString = address[i];
-        NSString *ratingString = rating[i];
+        NSString *ratingString = [NSString stringWithFormat:@"%@ Rating", rating[i]];
         
         Row *row = [self.Table rowControllerAtIndex:i];
         [row.placeName setText:nameString];
@@ -77,6 +73,26 @@
     }
     [self.Table setHidden:NO];
     [self.loading setHidden:YES];
+}
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
+    
+    if ([locations count] == 0) {
+
+        return;
+    }
+    CLLocation *loc = [locations firstObject];
+    currentCentre = CLLocationCoordinate2DMake(loc.coordinate.latitude, loc.coordinate.longitude);
+    [self queryPlacesKeyword:nil queryWithType:@"food" secondType:@"establishment" thirdType:nil];
+    [locationManager stopUpdatingLocation];
+}
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(nonnull NSError *)error{
+
+    NSLog(@"%@", error);
+}
+-(void)locationQuickUpdate{
+    
+    [locationManager requestAlwaysAuthorization];
+    [locationManager requestLocation];
 }
 
 - (void)awakeWithContext:(id)context {
@@ -87,9 +103,7 @@
     
     locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self;
-    [locationManager requestWhenInUseAuthorization];
-    [locationManager requestLocation];
-    currentCentre = [locationManager location].coordinate;
+    [self locationQuickUpdate];
     
     [self.Table setHidden:YES];
     [super awakeWithContext:context];
@@ -108,6 +122,4 @@
 }
 
 @end
-
-
 

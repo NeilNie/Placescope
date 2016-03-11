@@ -18,7 +18,21 @@
     
     [super viewDidLoad];
     timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(AnimateBackground) userInfo:nil repeats:YES];
-    // Do any additional setup after loading the view.
+    self.FacebookLogin.readPermissions = @[@"public_profile", @"email", @"user_friends"];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    
+    [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields": @"id, name, email"}] startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+         
+         if (!error) {
+             [self saveUserInfoName:result[@"name"] email:result[@"email"]];
+             [self presentMainView];
+             NSLog(@"saved user %@", result);
+         }
+     }];
+    
+    [super viewDidAppear:YES];
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
@@ -57,24 +71,11 @@
 }
 -(IBAction)save1:(id)sender{
     
-    RLMRealm *realm = [RLMRealm defaultRealm];
-    [realm beginWriteTransaction];
-    UserInfo *info = [[UserInfo alloc] init];
-    info.id = 0;
-    info.username = self.Name.text;
-    info.email = self.Email.text;
-    info.travelNotification = YES;
-    info.newsteller = YES;
-    info.coffee = YES;
-    [realm addObject:info];
-    [realm commitWriteTransaction];
+    [self saveUserInfoName:self.Name.text email:self.Email.text];
+
     [KCSUser userWithUsername:self.Name.text password:self.Password.text fieldsAndValues:@{KCSUserAttributeEmail: self.Email.text} withCompletionBlock:^(KCSUser *user, NSError *errorOrNil, KCSUserActionResult result) {
         if (errorOrNil == nil) {
-            NSString * storyboardName = @"Main";
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
-            UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
-            [self presentViewController:vc animated:YES completion:nil];
-            
+            [self presentMainView];
         } else {
             NSLog(@"%@", errorOrNil);
         }
@@ -84,22 +85,10 @@
     
     [KCSUser loginWithUsername:self.Email.text password:self.Password.text withCompletionBlock:^(KCSUser *user, NSError *errorOrNil, KCSUserActionResult result) {
         
-        RLMRealm *realm = [RLMRealm defaultRealm];
-        [realm beginWriteTransaction];
-        UserInfo *info = [[UserInfo alloc] init];
-        info.id = 0;
-        info.username = user.username;
-        info.email = user.email;
-        info.travelNotification = YES;
-        info.newsteller = YES;
-        info.coffee = YES;
-        [realm addObject:info];
-        [realm commitWriteTransaction];
+        [self saveUserInfoName:user.username email:user.email];
+        
         if (errorOrNil ==  nil) {
-            NSString * storyboardName = @"Main";
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
-            UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
-            [self presentViewController:vc animated:YES completion:nil];
+            [self presentMainView];
         } else {
             //there was an error with the update save
             NSString* message = [errorOrNil localizedDescription];
@@ -107,6 +96,29 @@
             [alert show];
         }
     }];
+    
+}
+
+-(void)presentMainView{
+    
+    NSString * storyboardName = @"Main";
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
+    UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+-(void)saveUserInfoName:(NSString *)name email:(NSString *)email{
+    
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    [realm beginWriteTransaction];
+    UserInfo *info = [[UserInfo alloc] init];
+    info.id = 0;
+    info.username = name;
+    info.email = email;
+    info.travelNotification = YES;
+    info.newsteller = YES;
+    info.coffee = YES;
+    [realm addObject:info];
+    [realm commitWriteTransaction];
     
 }
 

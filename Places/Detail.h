@@ -12,11 +12,14 @@
 #import <CoreLocation/CoreLocation.h>
 #import <Realm/Realm.h>
 #import "UserList.h"
+#import "Preference.h"
+
+@import GoogleMobileAds;
 
 NSMutableString *placeid;
 MapPoint *coordinate;
 
-@interface Detail : UIViewController <CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate>{
+@interface Detail : UIViewController <CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate, GADBannerViewDelegate>{
     
     CLLocationCoordinate2D currentCentre;
     CLLocationManager *locationManager;
@@ -30,11 +33,11 @@ MapPoint *coordinate;
     
     NSDictionary *searchResult;
 }
+@property (weak, nonatomic) IBOutlet GADBannerView *banner;
 @property (weak, nonatomic) IBOutlet UINavigationItem *naviBar;
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 
-- (IBAction)MapView:(id)sender;
 - (IBAction)navigate:(id)sender;
 - (IBAction)share:(id)sender;
 - (IBAction)save:(id)sender;

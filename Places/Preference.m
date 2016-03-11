@@ -26,11 +26,14 @@
     self.Table.dataSource = self;
     self.Table.delegate = self;
     
-    self.bannerView.delegate = self;
-    self.bannerView.adUnitID = kAdMobAdUnitID;
-    self.bannerView.rootViewController = self;
-    GADRequest *request = [GADRequest request];
-    [self.bannerView loadRequest:request];
+    areAdsRemoved = [[NSUserDefaults standardUserDefaults] boolForKey:@"areAdsRemoved"];
+    if (areAdsRemoved == NO) {
+        self.bannerView.delegate = self;
+        self.bannerView.adUnitID = kAdMobAdUnitID;
+        self.bannerView.rootViewController = self;
+        GADRequest *request = [GADRequest request];
+        [self.bannerView loadRequest:request];
+    }
     
     objects = [UserInfo allObjects];
     NSLog(@"user info %@", objects);
@@ -139,6 +142,8 @@
                     //the user cancelled the payment ;(
                 }
                 [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
+                break;
+            case SKPaymentTransactionStateDeferred:
                 break;
         }
     }

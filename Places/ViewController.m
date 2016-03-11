@@ -33,12 +33,12 @@
     mapRegion.span.longitudeDelta = 0.015;
     [self.mapView setRegion:mapRegion animated: YES];
     
-    searchLocation = [[NSMutableArray alloc] init];
-    displayName = [[NSMutableArray alloc] init];
-    ThumbnilURL = [[NSMutableArray alloc] init];
-    openNow = [[NSMutableArray alloc] init];
-    ratingArray = [[NSMutableArray alloc] init];
-    place_id= [[NSMutableArray alloc] init];
+    searchLocation = [NSMutableArray array];
+    displayName = [NSMutableArray array];
+    ThumbnilURL = [NSMutableArray array];
+    openNow = [NSMutableArray array];
+    ratingArray = [NSMutableArray array];
+    place_id= [NSMutableArray array];
     
     if ([displayName count] == 0) {
         self.tableViewConstraint.constant = 0;
@@ -49,12 +49,15 @@
     swipeUp.direction = UISwipeGestureRecognizerDirectionUp;
     [self.buttonMenu addGestureRecognizer:swipeUp];
     
-    self.bannerView.delegate = self;
-    self.bannerView.adUnitID = kAdMobAdUnitID;
-    self.bannerView.rootViewController = self;
-    GADRequest *request = [GADRequest request];
-    [self.bannerView loadRequest:request];
-
+    areAdsRemoved = [[NSUserDefaults standardUserDefaults] boolForKey:@"areAdsRemoved"];
+    if (areAdsRemoved == NO) {
+        self.bannerView.delegate = self;
+        self.bannerView.adUnitID = kAdMobAdUnitID;
+        self.bannerView.rootViewController = self;
+        GADRequest *request = [GADRequest request];
+        [self.bannerView loadRequest:request];
+    }
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 }
@@ -75,15 +78,7 @@
 }
 -(IBAction)showMenu:(id)sender{
     
-    self.searchText.hidden = NO;
-    self.searchButton.hidden = NO;
-    [UIView animateWithDuration:0.3 animations:^{
-        self.searchButton.center = CGPointMake(self.searchButton.center.x, 37);
-        self.searchText.center = CGPointMake(self.searchText.center.x, 37);
-        self.buttonMenu.alpha = 1;
-        self.navigationController.navigationBarHidden = NO;
-        [self.view layoutIfNeeded];
-    }];
+    [self showAll];
 }
 
 #pragma mark - UIGestureRecognizer
@@ -100,8 +95,6 @@
             self.buttonMenu.alpha = 0;
         } completion:^(BOOL finished) {
             self.navigationController.navigationBarHidden = YES;
-            self.searchText.hidden = YES;
-            self.searchButton.hidden = YES;
             [self.view layoutIfNeeded];
         }];
     }
@@ -292,7 +285,20 @@
         }
     }
     
+    [self performSelector:@selector(showAll) withObject:nil afterDelay:2];
+    
+    
     NSLog(@"place id %@", placeid);
+}
+
+-(void)showAll{
+    [UIView animateWithDuration:0.3 animations:^{
+        self.searchButton.center = CGPointMake(self.searchButton.center.x, 37);
+        self.searchText.center = CGPointMake(self.searchText.center.x, 37);
+        self.buttonMenu.alpha = 1;
+        self.navigationController.navigationBarHidden = NO;
+        [self.view layoutIfNeeded];
+    }];
 }
 
 #pragma mark - MKMapViewDelegate methods.
@@ -341,8 +347,11 @@
     currentCentre = self.mapView.centerCoordinate;
 }
 
-#pragma mark - other methods
+#pragma mark - Private
+
 - (IBAction)search:(id)sender {
+    
+    [self queryPlacesWithKeyword:self.searchText.text queryPlacesWithType:nil defaultLanguage:@"en" isOpen:YES];
     
 }
 - (IBAction)clear:(id)sender {

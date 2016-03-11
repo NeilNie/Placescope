@@ -8,15 +8,23 @@
 
 #import <UIKit/UIKit.h>
 #import <WatchConnectivity/WatchConnectivity.h>
+#import <KinveyKit/KinveyKit.h>
+#import <Realm/Realm.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import "INTULocationManager.h"
 #import "ViewController.h"
 #import "Preference.h"
-#import <KinveyKit/KinveyKit.h>
-#import <Realm/Realm.h>
+#import "UserList.h"
+
+@import GoogleMobileAds;
 
 NSTimer *timer;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, WCSessionDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, WCSessionDelegate>{
+    
+    BOOL notified;
+    BOOL traveling;
+}
 
 @property (strong, nonatomic) UIWindow *window;
 

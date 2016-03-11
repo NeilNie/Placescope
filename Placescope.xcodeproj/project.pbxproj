@@ -32,6 +32,7 @@
 		00614EC31C65086E00669BE1 /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 00614EC21C65086E00669BE1 /* checkmark.png */; };
 		006A1AEF1C383DCC00A343F6 /* place_background_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 006A1AEE1C383DCC00A343F6 /* place_background_1.jpg */; };
 		00720D131C35B3590027018E /* search2.png in Resources */ = {isa = PBXBuildFile; fileRef = 00720D121C35B3590027018E /* search2.png */; };
+		00792CBB1C70027D00CFACD1 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00792CBA1C70027D00CFACD1 /* CloudKit.framework */; };
 		0082A5EA1C31CFEE00B42954 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0082A5E91C31CFEE00B42954 /* main.m */; };
 		0082A5ED1C31CFEE00B42954 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0082A5EC1C31CFEE00B42954 /* AppDelegate.m */; };
 		0082A5F01C31CFEE00B42954 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0082A5EF1C31CFEE00B42954 /* ViewController.m */; };
@@ -42,12 +43,17 @@
 		0082A61F1C31D08700B42954 /* MapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 0082A61E1C31D08700B42954 /* MapPoint.m */; };
 		0082A6211C31D09B00B42954 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0082A6201C31D09B00B42954 /* CoreLocation.framework */; };
 		0082A6231C31D0A000B42954 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0082A6221C31D0A000B42954 /* MapKit.framework */; };
-		00905C171C654D58001E9303 /* map_marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 00905C161C654D58001E9303 /* map_marker.png */; };
+		00BBA0991C682E0800D21BC8 /* Drink.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BBA0981C682E0800D21BC8 /* Drink.m */; };
+		00BBA09C1C682E1100D21BC8 /* Food.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BBA09B1C682E1100D21BC8 /* Food.m */; };
+		00BBA09F1C682E1C00D21BC8 /* Shopping.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BBA09E1C682E1C00D21BC8 /* Shopping.m */; };
 		00CA473E1C375A3D00237A8A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00CA473D1C375A3D00237A8A /* StoreKit.framework */; };
 		00CA47411C375B5200237A8A /* RegisterLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CA47401C375B5200237A8A /* RegisterLogin.m */; };
 		00CFDC551C39BC6A00054609 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00CFDC541C39BC6A00054609 /* TableViewCell.xib */; };
 		00CFDC581C39C29B00054609 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CFDC571C39C29B00054609 /* TableViewCell.m */; };
 		00DF22C81C59769400ECAA76 /* recurring_appointment.png in Resources */ = {isa = PBXBuildFile; fileRef = 00DF22C71C59769400ECAA76 /* recurring_appointment.png */; };
+		00E011831C90BB62009066B1 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00E011801C90BB62009066B1 /* FBSDKCoreKit.framework */; };
+		00E011841C90BB62009066B1 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00E011811C90BB62009066B1 /* FBSDKLoginKit.framework */; };
+		00E011851C90BB62009066B1 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00E011821C90BB62009066B1 /* FBSDKShareKit.framework */; };
 		00F113671C37027D009C0B50 /* mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 00F113661C37027D009C0B50 /* mask.png */; };
 		00F4FDB51C657CD0002E54FC /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FAD5691C61967200D4AB48 /* libsqlite3.tbd */; };
 		00FCBA251C41702A00568CD1 /* Detail.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FCBA241C41702A00568CD1 /* Detail.m */; };
@@ -58,8 +64,8 @@
 		280FDA0B1C610FE700CA7E25 /* Setting Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 280FDA0A1C610FE700CA7E25 /* Setting Cell.m */; };
 		282800651C3C997700F029C5 /* Preference.m in Sources */ = {isa = PBXBuildFile; fileRef = 282800641C3C997700F029C5 /* Preference.m */; };
 		283BBA021C62FC530013B5BA /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 283BBA011C62FC530013B5BA /* Media.xcassets */; };
-		283BBA041C62FC650013B5BA /* Media1.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 283BBA031C62FC650013B5BA /* Media1.xcassets */; };
-		283BBA051C62FC650013B5BA /* Media1.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 283BBA031C62FC650013B5BA /* Media1.xcassets */; };
+		283BBA041C62FC650013B5BA /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 283BBA031C62FC650013B5BA /* Media.xcassets */; };
+		283BBA051C62FC650013B5BA /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 283BBA031C62FC650013B5BA /* Media.xcassets */; };
 		283BBA071C62FCE70013B5BA /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 283BBA061C62FCE70013B5BA /* icon.png */; };
 		283BBA081C62FCE70013B5BA /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 283BBA061C62FCE70013B5BA /* icon.png */; };
 		283BBA091C62FCE70013B5BA /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 283BBA061C62FCE70013B5BA /* icon.png */; };
@@ -67,6 +73,9 @@
 		2888C0841C45CBB20074468F /* INTULocationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2888C0801C45CBB20074468F /* INTULocationRequest.m */; };
 		288B1B8F1C61A0BC0025DC33 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 288B1B8E1C61A0BC0025DC33 /* UserInfo.m */; };
 		289A700B1C6049EF00A819EA /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 289A700A1C6049EF00A819EA /* background.png */; };
+		289B0D4C1C7FC862003E3380 /* thumbs_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 289B0D4B1C7FC862003E3380 /* thumbs_up.png */; };
+		289B0D4E1C7FC8B5003E3380 /* share3 copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 289B0D4D1C7FC8B5003E3380 /* share3 copy.png */; };
+		289B0D501C7FCA30003E3380 /* clearbutton copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 289B0D4F1C7FCA30003E3380 /* clearbutton copy.png */; };
 		28ACF6E91C3B26E800FA46CF /* gas_pump.png in Resources */ = {isa = PBXBuildFile; fileRef = 28ACF6E81C3B26E800FA46CF /* gas_pump.png */; };
 		28ACF6EB1C3B270100FA46CF /* parking.png in Resources */ = {isa = PBXBuildFile; fileRef = 28ACF6EA1C3B270100FA46CF /* parking.png */; };
 		28ACF6EF1C3B278500FA46CF /* public-park_318-85491.png in Resources */ = {isa = PBXBuildFile; fileRef = 28ACF6EE1C3B278500FA46CF /* public-park_318-85491.png */; };
@@ -76,7 +85,6 @@
 		28B487A81C3ACC0E006FD748 /* cafe.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B487A21C3ACC0E006FD748 /* cafe.png */; };
 		28B487A91C3ACC0E006FD748 /* icons8_cup.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B487A31C3ACC0E006FD748 /* icons8_cup.png */; };
 		28B487AB1C3ACC0E006FD748 /* bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B487A51C3ACC0E006FD748 /* bar.png */; };
-		28BB405B1C60261F00A7E7C4 /* cover.png in Resources */ = {isa = PBXBuildFile; fileRef = 28BB405A1C60261F00A7E7C4 /* cover.png */; };
 		28BB405D1C6028E900A7E7C4 /* base.png in Resources */ = {isa = PBXBuildFile; fileRef = 28BB405C1C6028E900A7E7C4 /* base.png */; };
 		28BB40611C602C4E00A7E7C4 /* save.png in Resources */ = {isa = PBXBuildFile; fileRef = 28BB40601C602C4E00A7E7C4 /* save.png */; };
 		28BDECF91C491BD4000AD454 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28BDECF71C491BD4000AD454 /* Interface.storyboard */; };
@@ -87,7 +95,6 @@
 		28BDED121C491BD4000AD454 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28BDED111C491BD4000AD454 /* Assets.xcassets */; };
 		28BDED161C491BD4000AD454 /* Placescope Apple Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 28BDECF51C491BD4000AD454 /* Placescope Apple Watch.app */; };
 		28BF72D81C3B630200282442 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BF72D71C3B630200282442 /* Reachability.m */; };
-		28D1A6A81C5ABC750085CA64 /* Places.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D1A6A71C5ABC750085CA64 /* Places.m */; };
 		28D1A6AB1C5ABC930085CA64 /* Recommendations.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D1A6AA1C5ABC930085CA64 /* Recommendations.m */; };
 		28D1A6AE1C5ABCC60085CA64 /* Row.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D1A6AD1C5ABCC60085CA64 /* Row.m */; };
 		28DFF3DB1C3DFADF00876DC8 /* menu-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 28DFF3DA1C3DFADF00876DC8 /* menu-placeholder.png */; };
@@ -185,6 +192,8 @@
 		00614EC21C65086E00669BE1 /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark.png; sourceTree = "<group>"; };
 		006A1AEE1C383DCC00A343F6 /* place_background_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = place_background_1.jpg; sourceTree = "<group>"; };
 		00720D121C35B3590027018E /* search2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search2.png; sourceTree = "<group>"; };
+		00792CB91C70027600CFACD1 /* Placescope.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Placescope.entitlements; sourceTree = "<group>"; };
+		00792CBA1C70027D00CFACD1 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		0082A5E51C31CFEE00B42954 /* Placescope.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Placescope.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0082A5E91C31CFEE00B42954 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0082A5EB1C31CFEE00B42954 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -204,7 +213,12 @@
 		0082A61E1C31D08700B42954 /* MapPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPoint.m; sourceTree = "<group>"; };
 		0082A6201C31D09B00B42954 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		0082A6221C31D0A000B42954 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		00905C161C654D58001E9303 /* map_marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_marker.png; sourceTree = "<group>"; };
+		00BBA0971C682E0800D21BC8 /* Drink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Drink.h; sourceTree = "<group>"; };
+		00BBA0981C682E0800D21BC8 /* Drink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Drink.m; sourceTree = "<group>"; };
+		00BBA09A1C682E1100D21BC8 /* Food.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Food.h; sourceTree = "<group>"; };
+		00BBA09B1C682E1100D21BC8 /* Food.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Food.m; sourceTree = "<group>"; };
+		00BBA09D1C682E1C00D21BC8 /* Shopping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shopping.h; sourceTree = "<group>"; };
+		00BBA09E1C682E1C00D21BC8 /* Shopping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shopping.m; sourceTree = "<group>"; };
 		00CA473D1C375A3D00237A8A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		00CA473F1C375B5200237A8A /* RegisterLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterLogin.h; sourceTree = "<group>"; };
 		00CA47401C375B5200237A8A /* RegisterLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterLogin.m; sourceTree = "<group>"; };
@@ -212,6 +226,9 @@
 		00CFDC561C39C29B00054609 /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
 		00CFDC571C39C29B00054609 /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
 		00DF22C71C59769400ECAA76 /* recurring_appointment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recurring_appointment.png; sourceTree = "<group>"; };
+		00E011801C90BB62009066B1 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		00E011811C90BB62009066B1 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		00E011821C90BB62009066B1 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		00F113661C37027D009C0B50 /* mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mask.png; sourceTree = "<group>"; };
 		00FCBA231C41702A00568CD1 /* Detail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Detail.h; sourceTree = "<group>"; };
 		00FCBA241C41702A00568CD1 /* Detail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Detail.m; sourceTree = "<group>"; };
@@ -226,7 +243,7 @@
 		282800631C3C997700F029C5 /* Preference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Preference.h; sourceTree = "<group>"; };
 		282800641C3C997700F029C5 /* Preference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Preference.m; sourceTree = "<group>"; };
 		283BBA011C62FC530013B5BA /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
-		283BBA031C62FC650013B5BA /* Media1.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media1.xcassets; sourceTree = "<group>"; };
+		283BBA031C62FC650013B5BA /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		283BBA061C62FCE70013B5BA /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		2888C07D1C45CBB20074468F /* INTULocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INTULocationManager.h; sourceTree = "<group>"; };
 		2888C07E1C45CBB20074468F /* INTULocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INTULocationManager.m; sourceTree = "<group>"; };
@@ -237,6 +254,9 @@
 		288B1B8D1C61A0BC0025DC33 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
 		288B1B8E1C61A0BC0025DC33 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
 		289A700A1C6049EF00A819EA /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		289B0D4B1C7FC862003E3380 /* thumbs_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbs_up.png; sourceTree = "<group>"; };
+		289B0D4D1C7FC8B5003E3380 /* share3 copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share3 copy.png"; sourceTree = "<group>"; };
+		289B0D4F1C7FCA30003E3380 /* clearbutton copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clearbutton copy.png"; sourceTree = "<group>"; };
 		28ACF6E81C3B26E800FA46CF /* gas_pump.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gas_pump.png; sourceTree = "<group>"; };
 		28ACF6EA1C3B270100FA46CF /* parking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = parking.png; sourceTree = "<group>"; };
 		28ACF6EE1C3B278500FA46CF /* public-park_318-85491.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "public-park_318-85491.png"; sourceTree = "<group>"; };
@@ -247,7 +267,6 @@
 		28B487A21C3ACC0E006FD748 /* cafe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cafe.png; sourceTree = "<group>"; };
 		28B487A31C3ACC0E006FD748 /* icons8_cup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icons8_cup.png; sourceTree = "<group>"; };
 		28B487A51C3ACC0E006FD748 /* bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar.png; sourceTree = "<group>"; };
-		28BB405A1C60261F00A7E7C4 /* cover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cover.png; sourceTree = "<group>"; };
 		28BB405C1C6028E900A7E7C4 /* base.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = base.png; sourceTree = "<group>"; };
 		28BB40601C602C4E00A7E7C4 /* save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = save.png; sourceTree = "<group>"; };
 		28BDECF51C491BD4000AD454 /* Placescope Apple Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Placescope Apple Watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -265,8 +284,6 @@
 		28BDED131C491BD4000AD454 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28BF72D61C3B630200282442 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		28BF72D71C3B630200282442 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		28D1A6A61C5ABC750085CA64 /* Places.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Places.h; path = "../Placescope Apple Watch/Places.h"; sourceTree = "<group>"; };
-		28D1A6A71C5ABC750085CA64 /* Places.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Places.m; path = "../Placescope Apple Watch/Places.m"; sourceTree = "<group>"; };
 		28D1A6A91C5ABC930085CA64 /* Recommendations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recommendations.h; sourceTree = "<group>"; };
 		28D1A6AA1C5ABC930085CA64 /* Recommendations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recommendations.m; sourceTree = "<group>"; };
 		28D1A6AC1C5ABCC60085CA64 /* Row.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Row.h; sourceTree = "<group>"; };
@@ -295,13 +312,17 @@
 			files = (
 				00F4FDB51C657CD0002E54FC /* libsqlite3.tbd in Frameworks */,
 				0082A6231C31D0A000B42954 /* MapKit.framework in Frameworks */,
+				00E011851C90BB62009066B1 /* FBSDKShareKit.framework in Frameworks */,
 				28FAD5721C61968A00D4AB48 /* SystemConfiguration.framework in Frameworks */,
 				28FAD56E1C61968000D4AB48 /* Security.framework in Frameworks */,
+				00E011841C90BB62009066B1 /* FBSDKLoginKit.framework in Frameworks */,
 				28FAD56C1C61967700D4AB48 /* MobileCoreServices.framework in Frameworks */,
 				28FAD5681C61966400D4AB48 /* CoreGraphics.framework in Frameworks */,
 				28FAD5661C61965F00D4AB48 /* Accounts.framework in Frameworks */,
 				0082A6211C31D09B00B42954 /* CoreLocation.framework in Frameworks */,
+				00E011831C90BB62009066B1 /* FBSDKCoreKit.framework in Frameworks */,
 				00CA473E1C375A3D00237A8A /* StoreKit.framework in Frameworks */,
+				00792CBB1C70027D00CFACD1 /* CloudKit.framework in Frameworks */,
 				A5CC7EF1B8365BBFEEE69013 /* libPods.a in Frameworks */,
 				28FAD5761C6196A400D4AB48 /* KinveyKit.framework in Frameworks */,
 			);
@@ -367,6 +388,10 @@
 		0082A5DC1C31CFEE00B42954 = {
 			isa = PBXGroup;
 			children = (
+				00E011801C90BB62009066B1 /* FBSDKCoreKit.framework */,
+				00E011811C90BB62009066B1 /* FBSDKLoginKit.framework */,
+				00E011821C90BB62009066B1 /* FBSDKShareKit.framework */,
+				00792CB91C70027600CFACD1 /* Placescope.entitlements */,
 				28FAD5751C6196A400D4AB48 /* KinveyKit.framework */,
 				0082A6221C31D0A000B42954 /* MapKit.framework */,
 				0082A6201C31D09B00B42954 /* CoreLocation.framework */,
@@ -413,15 +438,13 @@
 		0082A5E81C31CFEE00B42954 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				001764161C67D1F2005421A1 /* HOB60.png */,
-				001764101C67CF59005421A1 /* list.png */,
-				0017640E1C67CECD005421A1 /* marker.png */,
-				0017640C1C67CE4F005421A1 /* settings_filled.png */,
+				289B0D4B1C7FC862003E3380 /* thumbs_up.png */,
+				282EC0E71C6A9B52009B7A88 /* tab bar icons */,
 				00104DFB1C67971F00B88041 /* register view */,
 				00104DFA1C6796F400B88041 /* button icons */,
 				0051DDB21C667E0700A4E919 /* clearbutton.png */,
+				289B0D4F1C7FCA30003E3380 /* clearbutton copy.png */,
 				00720D121C35B3590027018E /* search2.png */,
-				00905C161C654D58001E9303 /* map_marker.png */,
 				00614EC21C65086E00669BE1 /* checkmark.png */,
 				00104E001C67995A00B88041 /* navi.png */,
 				00614EC01C65059300669BE1 /* GreenRC.png */,
@@ -431,9 +454,9 @@
 				289A700A1C6049EF00A819EA /* background.png */,
 				28BB40601C602C4E00A7E7C4 /* save.png */,
 				28BB405C1C6028E900A7E7C4 /* base.png */,
-				28BB405A1C60261F00A7E7C4 /* cover.png */,
 				000CA2B71C5EC5A000D356B2 /* default-placeholder.png */,
 				00104DFC1C67993500B88041 /* share3.png */,
+				289B0D4D1C7FC8B5003E3380 /* share3 copy.png */,
 				00DF22C71C59769400ECAA76 /* recurring_appointment.png */,
 				28E441371C61516C00097F84 /* user.png */,
 				28B487A31C3ACC0E006FD748 /* icons8_cup.png */,
@@ -507,10 +530,14 @@
 		00F4FDB31C657B48002E54FC /* Interface Controller */ = {
 			isa = PBXGroup;
 			children = (
+				00BBA0971C682E0800D21BC8 /* Drink.h */,
+				00BBA0981C682E0800D21BC8 /* Drink.m */,
+				00BBA09A1C682E1100D21BC8 /* Food.h */,
+				00BBA09B1C682E1100D21BC8 /* Food.m */,
+				00BBA09D1C682E1C00D21BC8 /* Shopping.h */,
+				00BBA09E1C682E1C00D21BC8 /* Shopping.m */,
 				28D1A6A91C5ABC930085CA64 /* Recommendations.h */,
 				28D1A6AA1C5ABC930085CA64 /* Recommendations.m */,
-				28D1A6A61C5ABC750085CA64 /* Places.h */,
-				28D1A6A71C5ABC750085CA64 /* Places.m */,
 				28BDED081C491BD4000AD454 /* InterfaceController.h */,
 				28BDED091C491BD4000AD454 /* InterfaceController.m */,
 			);
@@ -528,6 +555,17 @@
 				28D1A6AD1C5ABCC60085CA64 /* Row.m */,
 			);
 			name = Others;
+			sourceTree = "<group>";
+		};
+		282EC0E71C6A9B52009B7A88 /* tab bar icons */ = {
+			isa = PBXGroup;
+			children = (
+				001764161C67D1F2005421A1 /* HOB60.png */,
+				001764101C67CF59005421A1 /* list.png */,
+				0017640E1C67CECD005421A1 /* marker.png */,
+				0017640C1C67CE4F005421A1 /* settings_filled.png */,
+			);
+			name = "tab bar icons";
 			sourceTree = "<group>";
 		};
 		2888C0851C45CBBF0074468F /* INTULocationManager */ = {
@@ -564,7 +602,7 @@
 			isa = PBXGroup;
 			children = (
 				28BDECF71C491BD4000AD454 /* Interface.storyboard */,
-				283BBA031C62FC650013B5BA /* Media1.xcassets */,
+				283BBA031C62FC650013B5BA /* Media.xcassets */,
 				28BDECFC1C491BD4000AD454 /* Info.plist */,
 			);
 			path = "Placescope Apple Watch";
@@ -602,6 +640,7 @@
 		A89439F5089BA897D8AA91D1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				00792CBA1C70027D00CFACD1 /* CloudKit.framework */,
 				001764181C67DB1D005421A1 /* CoreLocation.framework */,
 				28FAD5711C61968A00D4AB48 /* SystemConfiguration.framework */,
 				28FAD56F1C61968300D4AB48 /* Social.framework */,
@@ -734,6 +773,9 @@
 							com.apple.Push = {
 								enabled = 1;
 							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
 						};
 					};
 					0082A5FD1C31CFEE00B42954 = {
@@ -795,10 +837,10 @@
 				28B487A81C3ACC0E006FD748 /* cafe.png in Resources */,
 				003C661F1C3716EA007C90FD /* textfield bg.png in Resources */,
 				280FDA081C610FCB00CA7E25 /* Setting Cell.xib in Resources */,
-				00905C171C654D58001E9303 /* map_marker.png in Resources */,
 				002C79411C371199009D92F3 /* button_outline.png in Resources */,
 				003C661D1C371601007C90FD /* place_background_2.jpg in Resources */,
 				28ACF6EB1C3B270100FA46CF /* parking.png in Resources */,
+				289B0D4E1C7FC8B5003E3380 /* share3 copy.png in Resources */,
 				00104DFD1C67993500B88041 /* share3.png in Resources */,
 				28E441381C61516C00097F84 /* user.png in Resources */,
 				283BBA071C62FCE70013B5BA /* icon.png in Resources */,
@@ -815,14 +857,15 @@
 				00104E031C67B92500B88041 /* Cell.xib in Resources */,
 				003C66271C372A5C007C90FD /* Green Color.png in Resources */,
 				001764171C67D1F2005421A1 /* HOB60.png in Resources */,
+				289B0D4C1C7FC862003E3380 /* thumbs_up.png in Resources */,
 				00CFDC551C39BC6A00054609 /* TableViewCell.xib in Resources */,
 				28B487A71C3ACC0E006FD748 /* bank_cards.png in Resources */,
 				0082A5F31C31CFEE00B42954 /* Main.storyboard in Resources */,
+				289B0D501C7FCA30003E3380 /* clearbutton copy.png in Resources */,
 				00104DFF1C67994400B88041 /* plus3.png in Resources */,
 				283BBA021C62FC530013B5BA /* Media.xcassets in Resources */,
 				28ACF6EF1C3B278500FA46CF /* public-park_318-85491.png in Resources */,
 				28B487A91C3ACC0E006FD748 /* icons8_cup.png in Resources */,
-				28BB405B1C60261F00A7E7C4 /* cover.png in Resources */,
 				00104E011C67995A00B88041 /* navi.png in Resources */,
 				002C79431C3711ED009D92F3 /* button_selected.png in Resources */,
 				00DF22C81C59769400ECAA76 /* recurring_appointment.png in Resources */,
@@ -855,7 +898,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				283BBA041C62FC650013B5BA /* Media1.xcassets in Resources */,
+				283BBA041C62FC650013B5BA /* Media.xcassets in Resources */,
 				28BDECF91C491BD4000AD454 /* Interface.storyboard in Resources */,
 				283BBA081C62FCE70013B5BA /* icon.png in Resources */,
 			);
@@ -865,7 +908,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				283BBA051C62FC650013B5BA /* Media1.xcassets in Resources */,
+				283BBA051C62FC650013B5BA /* Media.xcassets in Resources */,
 				28BDED121C491BD4000AD454 /* Assets.xcassets in Resources */,
 				283BBA091C62FCE70013B5BA /* icon.png in Resources */,
 			);
@@ -931,7 +974,6 @@
 				282800651C3C997700F029C5 /* Preference.m in Sources */,
 				00CFDC581C39C29B00054609 /* TableViewCell.m in Sources */,
 				2888C0841C45CBB20074468F /* INTULocationRequest.m in Sources */,
-				28D1A6A81C5ABC750085CA64 /* Places.m in Sources */,
 				00CA47411C375B5200237A8A /* RegisterLogin.m in Sources */,
 				28BF72D81C3B630200282442 /* Reachability.m in Sources */,
 				2888C0831C45CBB20074468F /* INTULocationManager.m in Sources */,
@@ -968,10 +1010,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				28D1A6AB1C5ABC930085CA64 /* Recommendations.m in Sources */,
+				00BBA09C1C682E1100D21BC8 /* Food.m in Sources */,
 				28D1A6AE1C5ABCC60085CA64 /* Row.m in Sources */,
+				00BBA0991C682E0800D21BC8 /* Drink.m in Sources */,
 				28BDED0D1C491BD4000AD454 /* ExtensionDelegate.m in Sources */,
 				28BDED0A1C491BD4000AD454 /* InterfaceController.m in Sources */,
 				28BDED101C491BD4000AD454 /* NotificationController.m in Sources */,
+				00BBA09F1C682E1C00D21BC8 /* Shopping.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1115,6 +1160,7 @@
 			baseConfigurationReference = C7909010732CCCA287C36223 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Placescope.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
@@ -1134,7 +1180,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.Places;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.places.byneil;
 				PRODUCT_NAME = Placescope;
 				PROVISIONING_PROFILE = "";
 			};
@@ -1145,6 +1191,7 @@
 			baseConfigurationReference = EF672564B659B796B23553F8 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Placescope.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
@@ -1164,7 +1211,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.Places;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.places.byneil;
 				PRODUCT_NAME = Placescope;
 				PROVISIONING_PROFILE = "";
 			};
@@ -1221,9 +1268,10 @@
 		28BDED171C491BD5000AD454 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = WatchIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_NO_COMMON_BLOCKS = NO;
 				IBSC_MODULE = Placescope_Apple_Watch_Extension;
 				INFOPLIST_FILE = "Placescope Apple Watch/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.places.byneil.watchkitapp;
@@ -1231,16 +1279,17 @@
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
 		28BDED181C491BD5000AD454 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = WatchIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_NO_COMMON_BLOCKS = NO;
 				IBSC_MODULE = Placescope_Apple_Watch_Extension;
 				INFOPLIST_FILE = "Placescope Apple Watch/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.places.byneil.watchkitapp;
@@ -1248,7 +1297,7 @@
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};
@@ -1256,6 +1305,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_NO_COMMON_BLOCKS = NO;
 				INFOPLIST_FILE = "Placescope Apple Watch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.places.byneil.watchkitapp.watchkitextension;
@@ -1263,7 +1313,7 @@
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
@@ -1271,6 +1321,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_NO_COMMON_BLOCKS = NO;
 				INFOPLIST_FILE = "Placescope Apple Watch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.places.byneil.watchkitapp.watchkitextension;
@@ -1278,7 +1329,7 @@
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};

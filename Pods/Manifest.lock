@@ -1,15 +1,15 @@
 PODS:
-  - Google-Mobile-Ads-SDK (7.6.0)
-  - Realm (0.97.0):
-    - Realm/Headers (= 0.97.0)
-  - Realm/Headers (0.97.0)
+  - Google-Mobile-Ads-SDK (7.7.0)
+  - Realm (0.98.3):
+    - Realm/Headers (= 0.98.3)
+  - Realm/Headers (0.98.3)
 
 DEPENDENCIES:
   - Google-Mobile-Ads-SDK (~> 7.0)
   - Realm
 
 SPEC CHECKSUMS:
-  Google-Mobile-Ads-SDK: 0290020329c61183c4685304264b73382bc49fb4
-  Realm: b498a6fb9d288b171ff98d0e2d4384c295be8990
+  Google-Mobile-Ads-SDK: d290e523a6e2f223256abcbf8e0c778b55b1f04e
+  Realm: c6a7d00221a2d5177810a674aebd40c5e0b70b0f
 
 COCOAPODS: 0.39.0

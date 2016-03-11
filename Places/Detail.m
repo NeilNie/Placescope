@@ -8,6 +8,7 @@
 
 #import "Detail.h"
 
+#define kAdMobAdUnitID @"ca-app-pub-7942613644553368/5543329138"
 #define kGOOGLE_API_KEY @"AIzaSyArw7ygFfOtMGDI7KpupWHWwLvDDR0-fyA"
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
@@ -169,9 +170,9 @@
     
     self.table.alpha = 0.0f;
     
-    reviewer = [[NSMutableArray alloc] init];
-    reviews = [[NSMutableArray alloc] init];
-    ratingArray = [[NSMutableArray alloc] init];
+    reviewer = [NSMutableArray array];
+    reviews = [NSMutableArray array];
+    ratingArray = [NSMutableArray array];
     
     //Resource: https://developers.google.com/maps/documentation/places/#Authentication
     NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/details/json?placeid=%@&key=%@", placeid, kGOOGLE_API_KEY];
@@ -190,6 +191,15 @@
     [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
     [locationManager requestAlwaysAuthorization];
     currentCentre = [locationManager location].coordinate;
+    
+    areAdsRemoved = [[NSUserDefaults standardUserDefaults] boolForKey:@"areAdsRemoved"];
+    if (areAdsRemoved == NO) {
+        self.banner.delegate = self;
+        self.banner.adUnitID = kAdMobAdUnitID;
+        self.banner.rootViewController = self;
+        GADRequest *request = [GADRequest request];
+        [self.banner loadRequest:request];
+    }
     
     [super viewDidLoad];
     // Do any additional setup after loading the view.
