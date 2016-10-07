@@ -12,6 +12,7 @@
 #import <KinveyKit/KinveyKit.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <FBSDKMessengerShareKit/FBSDKMessengerShareKit.h>
 #import <Realm/Realm.h>
 #import "MapPoint.h"
 #import "TableViewCell.h"

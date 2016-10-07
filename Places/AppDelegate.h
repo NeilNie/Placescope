@@ -11,6 +11,7 @@
 #import <KinveyKit/KinveyKit.h>
 #import <Realm/Realm.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <Google/Analytics.h>
 #import "INTULocationManager.h"
 #import "ViewController.h"
 #import "Preference.h"

@@ -113,10 +113,9 @@
 
 #pragma mark - queryGooglePlaces
 
--(void)queryPlacesWithKeyword: (NSString *)keyword queryPlacesWithType: (NSString *)googleType defaultLanguage: (NSString *)language isOpen: (BOOL)openNow {
+-(void)queryPlacesWithKeyword: (NSString *)keyword queryPlacesWithType: (NSString *)googleType isOpen: (BOOL)openNow {
     
-    //Resource: https://developers.google.com/maps/documentation/places/#Authentication
-    NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=%f,%f&radius=%@&types=%@&language=%@&key=%@", currentCentre.latitude, currentCentre.longitude, [NSString stringWithFormat:@"%i", currenDist - 200], googleType, language, kGOOGLE_API_KEY];
+    NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=%f,%f&radius=%@&types=%@&key=%@", currentCentre.latitude, currentCentre.longitude, [NSString stringWithFormat:@"%i", currenDist - 200], googleType, kGOOGLE_API_KEY];
     NSLog(@"%@", url);
     
     //check reachablity
@@ -131,18 +130,17 @@
             [self performSelectorOnMainThread:@selector(fetchedData:) withObject:data waitUntilDone:YES];
         });
     }else{
-        NSLog(@"Not reacheable, no result displayed");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Opps, no internet connect"
+                                                        message:@"Please double check your internet connection."
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
     }
 }
 
 - (void)fetchedData:(NSData *)responseData {
-    
-    if (displayName.count > 1) {
-        [displayName removeAllObjects];
-        [searchLocation removeAllObjects];
-        [ThumbnilURL removeAllObjects];
-        NSLog(@"cleared table for new data");
-    }
+
     //parse out the json data
     NSError* error;
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:&error];
@@ -156,12 +154,13 @@
     NSLog(@"Google Data: %@", searchResult);
     NSLog(@"error %@", ErrorMEssage);
     
-    //Plot the data in the places array onto the map with the plotPostions method.
-    [self plotPositions:searchResult];
-    
-    [UIView animateWithDuration:0.5 animations:^{
-        self.tableViewConstraint.constant = 250;
-    }];
+    if (searchResult.count > 1) {
+        [UIView animateWithDuration:0.5 animations:^{
+            self.tableViewConstraint.constant = 250;
+            [self.view layoutIfNeeded];
+        }];
+        [self plotPositions:searchResult]; //plot positions
+    }
 }
 
 - (void)plotPositions:(NSMutableArray *)data
@@ -292,6 +291,7 @@
 }
 
 -(void)showAll{
+    
     [UIView animateWithDuration:0.3 animations:^{
         self.searchButton.center = CGPointMake(self.searchButton.center.x, 37);
         self.searchText.center = CGPointMake(self.searchText.center.x, 37);
@@ -351,7 +351,7 @@
 
 - (IBAction)search:(id)sender {
     
-    [self queryPlacesWithKeyword:self.searchText.text queryPlacesWithType:nil defaultLanguage:@"en" isOpen:YES];
+    [self queryPlacesWithKeyword:self.searchText.text queryPlacesWithType:nil isOpen:YES];
     
 }
 - (IBAction)clear:(id)sender {
@@ -364,31 +364,32 @@
     [self.TableView reloadData];
     [UIView animateWithDuration:0.5 animations:^{
         self.tableViewConstraint.constant = 0;
+        [self.view layoutIfNeeded];
     }];
 }
 - (IBAction)bar:(id)sender {
-    [self queryPlacesWithKeyword:nil queryPlacesWithType:@"bar" defaultLanguage:@"en" isOpen:YES];
+    [self queryPlacesWithKeyword:nil queryPlacesWithType:@"bar" isOpen:YES];
 }
 - (IBAction)food:(id)sender {
-    [self queryPlacesWithKeyword:nil queryPlacesWithType:@"food" defaultLanguage:@"en" isOpen:YES];
+    [self queryPlacesWithKeyword:nil queryPlacesWithType:@"food" isOpen:YES];
 }
 - (IBAction)cafe:(id)sender {
-    [self queryPlacesWithKeyword:nil queryPlacesWithType:@"cafe" defaultLanguage:@"en" isOpen:YES];
+    [self queryPlacesWithKeyword:nil queryPlacesWithType:@"cafe" isOpen:YES];
 }
 - (IBAction)atm:(id)sender {
-    [self queryPlacesWithKeyword:nil queryPlacesWithType:@"bank" defaultLanguage:@"en" isOpen:YES];
+    [self queryPlacesWithKeyword:nil queryPlacesWithType:@"bank" isOpen:YES];
 }
 - (IBAction)parks:(id)sender{
-    [self queryPlacesWithKeyword:nil queryPlacesWithType:@"parks" defaultLanguage:@"en" isOpen:YES];
+    [self queryPlacesWithKeyword:nil queryPlacesWithType:@"parks" isOpen:YES];
 }
 - (IBAction)gas:(id)sender{
-    [self queryPlacesWithKeyword:nil queryPlacesWithType:@"gas" defaultLanguage:@"en" isOpen:YES];
+    [self queryPlacesWithKeyword:nil queryPlacesWithType:@"gas" isOpen:YES];
 }
 - (IBAction)shopping:(id)sender{
-    [self queryPlacesWithKeyword:nil queryPlacesWithType:@"shopping" defaultLanguage:@"en" isOpen:YES];
+    [self queryPlacesWithKeyword:nil queryPlacesWithType:@"shopping" isOpen:YES];
 }
 - (IBAction)parking:(id)sender{
-    [self queryPlacesWithKeyword:nil queryPlacesWithType:@"parking" defaultLanguage:@"en" isOpen:YES];
+    [self queryPlacesWithKeyword:nil queryPlacesWithType:@"parking" isOpen:YES];
 }
 - (BOOL)connected {
     Reachability *reachability = [Reachability reachabilityForInternetConnection];

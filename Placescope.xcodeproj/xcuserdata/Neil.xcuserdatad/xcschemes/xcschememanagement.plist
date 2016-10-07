@@ -7,9 +7,14 @@
 		<key>Notification - Placescope Apple Watch.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>6</integer>
+			<integer>2</integer>
 		</dict>
 		<key>Placescope Apple Watch.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>Placescope Widget.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>5</integer>
@@ -33,6 +38,11 @@
 			<true/>
 		</dict>
 		<key>0082A6081C31CFEE00B42954</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>288C46EE1CADDADD00D9AE7F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="9532" systemVersion="15E33e" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9515"/>
+    </dependencies>
+    <scenes>
+        <!--Placescope-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller title="Placescope" id="AgC-eL-Hgc" customClass="InterfaceController">
+                    <items>
+                        <label width="134.5" height="28.5" alignment="left" text="Good morning!" id="XcS-93-G89">
+                            <fontDescription key="font" type="system" pointSize="17"/>
+                        </label>
+                        <button width="1" alignment="left" title="Around you" id="RM6-QK-VAp">
+                            <connections>
+                                <segue destination="lv9-tv-h2d" kind="push" id="CTw-sZ-1js"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="Recommended" id="qtt-PY-uGx">
+                            <connections>
+                                <segue destination="fCk-6M-1eU" kind="push" id="i22-B6-y6Y"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="label" destination="XcS-93-G89" id="szu-di-He6"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="220" y="346"/>
+        </scene>
+        <!--Recommended-->
+        <scene sceneID="a2f-9F-lvd">
+            <objects>
+                <controller title="Recommended" id="fCk-6M-1eU" customClass="Recommendations">
+                    <items>
+                        <label alignment="left" text="Loading..." id="dto-Jp-jBr"/>
+                        <table alignment="left" id="XBd-56-bFk">
+                            <items>
+                                <tableRow identifier="default" id="qaQ-9e-J0h" customClass="Row">
+                                    <group key="rootItem" width="1" height="90.5" alignment="left" layout="vertical" spacing="1" id="0wX-ZN-2PS">
+                                        <items>
+                                            <label width="127" height="36.5" alignment="left" text="The Bement School" numberOfLines="2" id="fAk-H7-048">
+                                                <fontDescription key="font" type="system" weight="medium" pointSize="15"/>
+                                            </label>
+                                            <label width="136" height="33.5" alignment="left" text="94 Old Main Street Deerfield MA" numberOfLines="2" id="DGp-iM-lNV">
+                                                <fontDescription key="font" type="system" weight="light" pointSize="14"/>
+                                                <variation key="device=watch38mm" width="136"/>
+                                                <variation key="device=watch42mm" width="156"/>
+                                            </label>
+                                            <label height="16.5" alignment="left" text="4.5 Rating" minimumScaleFactor="0.80000000000000004" id="DK5-Yf-yyd">
+                                                <color key="textColor" red="1" green="1" blue="0.0" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="font" type="system" pointSize="14"/>
+                                            </label>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="Address" destination="DGp-iM-lNV" id="hkN-ZW-wRW"/>
+                                        <outlet property="Rating" destination="DK5-Yf-yyd" id="ocf-2P-c2e"/>
+                                        <outlet property="placeName" destination="fAk-H7-048" id="U1x-bf-VCq"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="Table" destination="XBd-56-bFk" id="awi-wa-VSK"/>
+                        <outlet property="loading" destination="dto-Jp-jBr" id="zZ4-g6-5S0"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="468" y="50"/>
+        </scene>
+        <!--drink-->
+        <scene sceneID="6l6-lT-LVr">
+            <objects>
+                <controller identifier="drink" title="drink" id="JDP-ho-iXp" customClass="Drink">
+                    <items>
+                        <label alignment="left" text="Loading..." id="arL-ix-RLW"/>
+                        <table alignment="left" id="cHI-P4-Dlh">
+                            <items>
+                                <tableRow identifier="default" id="KEa-it-Wj4" customClass="Row">
+                                    <group key="rootItem" width="1" height="91.5" alignment="left" layout="vertical" spacing="1" id="uDE-EE-Rhd">
+                                        <items>
+                                            <label width="124" height="37.5" alignment="left" text="The Bement School" numberOfLines="2" id="RVJ-bk-6uN">
+                                                <fontDescription key="font" type="system" weight="medium" pointSize="15"/>
+                                            </label>
+                                            <label width="136" alignment="left" text="94 Old Main Street Deerfield MA" numberOfLines="2" id="BfK-Cw-UhI">
+                                                <fontDescription key="font" type="system" weight="light" pointSize="14"/>
+                                                <variation key="device=watch38mm" width="136"/>
+                                                <variation key="device=watch42mm" width="156"/>
+                                            </label>
+                                            <label height="16.5" alignment="left" text="4.5 Rating" minimumScaleFactor="0.80000000000000004" id="p8h-kz-T0O">
+                                                <color key="textColor" red="1" green="1" blue="0.0" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="font" type="system" pointSize="14"/>
+                                            </label>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="Address" destination="BfK-Cw-UhI" id="hlt-Da-ZiW"/>
+                                        <outlet property="Rating" destination="p8h-kz-T0O" id="xVr-l6-tQo"/>
+                                        <outlet property="placeName" destination="RVJ-bk-6uN" id="ySB-Lr-GXk"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="Table" destination="cHI-P4-Dlh" id="vf0-bt-rLe"/>
+                        <outlet property="loading" destination="arL-ix-RLW" id="Y78-62-Gaw"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="744" y="113"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="986"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="hYv-Pk-LRb">
+            <objects>
+                <controller identifier="Search" title="Search" id="lv9-tv-h2d">
+                    <items>
+                        <button width="1" alignment="left" title="Drink" id="z0K-LS-8xB">
+                            <connections>
+                                <segue destination="JDP-ho-iXp" kind="push" id="P0H-OM-ayE"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="Food" id="kVN-SU-QW9">
+                            <connections>
+                                <segue destination="Keo-fw-XGB" kind="push" id="Rl2-Tq-fF1"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="Shopping" id="CzS-0D-iJ6">
+                            <connections>
+                                <segue destination="MZU-aG-39C" kind="push" id="GcM-6G-yfX"/>
+                            </connections>
+                        </button>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="468" y="346"/>
+        </scene>
+        <!--food-->
+        <scene sceneID="M6w-SI-CyL">
+            <objects>
+                <controller identifier="food" title="food" id="Keo-fw-XGB" customClass="Food">
+                    <items>
+                        <label alignment="left" text="Loading..." id="5SZ-aQ-W3G"/>
+                        <table alignment="left" id="eeU-2w-3zH">
+                            <items>
+                                <tableRow identifier="default" id="Ehh-Np-Ed9" customClass="Row">
+                                    <group key="rootItem" width="1" height="91.5" alignment="left" layout="vertical" spacing="1" id="a9m-wN-anU">
+                                        <items>
+                                            <label width="124" height="37.5" alignment="left" text="The Bement School" numberOfLines="2" id="xkP-fQ-LOc">
+                                                <fontDescription key="font" type="system" weight="medium" pointSize="15"/>
+                                            </label>
+                                            <label width="136" alignment="left" text="94 Old Main Street Deerfield MA" numberOfLines="2" id="kpV-ER-kOk">
+                                                <fontDescription key="font" type="system" weight="light" pointSize="14"/>
+                                                <variation key="device=watch38mm" width="136"/>
+                                                <variation key="device=watch42mm" width="156"/>
+                                            </label>
+                                            <label height="16.5" alignment="left" text="4.5 Rating" minimumScaleFactor="0.80000000000000004" id="Icv-jK-dYK">
+                                                <color key="textColor" red="1" green="1" blue="0.0" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="font" type="system" pointSize="14"/>
+                                            </label>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="Address" destination="kpV-ER-kOk" id="eSq-nb-9cS"/>
+                                        <outlet property="Rating" destination="Icv-jK-dYK" id="fOb-RC-ASh"/>
+                                        <outlet property="placeName" destination="xkP-fQ-LOc" id="7co-OM-irV"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="Table" destination="eeU-2w-3zH" id="We7-c5-Kdh"/>
+                        <outlet property="loading" destination="5SZ-aQ-W3G" id="deQ-AF-NQS"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="744" y="346"/>
+        </scene>
+        <!--shopping-->
+        <scene sceneID="1Qz-Sf-wHq">
+            <objects>
+                <controller identifier="shopping" title="shopping" id="MZU-aG-39C" customClass="Shopping">
+                    <items>
+                        <label alignment="left" text="Loading..." id="Skg-Nd-jXI"/>
+                        <table alignment="left" id="JMp-B3-7xA">
+                            <items>
+                                <tableRow identifier="default" id="orV-xV-KLt" customClass="Row">
+                                    <group key="rootItem" width="1" height="91.5" alignment="left" layout="vertical" spacing="1" id="UZl-QZ-Zu8">
+                                        <items>
+                                            <label width="124" height="37.5" alignment="left" text="The Bement School" numberOfLines="2" id="iLu-UU-7od">
+                                                <fontDescription key="font" type="system" weight="medium" pointSize="15"/>
+                                            </label>
+                                            <label width="136" alignment="left" text="94 Old Main Street Deerfield MA" numberOfLines="2" id="79V-E2-b5D">
+                                                <fontDescription key="font" type="system" weight="light" pointSize="14"/>
+                                                <variation key="device=watch38mm" width="136"/>
+                                                <variation key="device=watch42mm" width="156"/>
+                                            </label>
+                                            <label height="16.5" alignment="left" text="4.5 Rating" minimumScaleFactor="0.80000000000000004" id="ke1-Co-JFa">
+                                                <color key="textColor" red="1" green="1" blue="0.0" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="font" type="system" pointSize="14"/>
+                                            </label>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="Address" destination="79V-E2-b5D" id="c4Q-0z-svf"/>
+                                        <outlet property="Rating" destination="ke1-Co-JFa" id="Dry-5K-1lE"/>
+                                        <outlet property="placeName" destination="iLu-UU-7od" id="6HH-JJ-lsE"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="Table" destination="JMp-B3-7xA" id="HHb-vp-cej"/>
+                        <outlet property="loading" destination="Skg-Nd-jXI" id="R2m-ns-TKL"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="744" y="578"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="986"/>
+        </scene>
+    </scenes>
+</document>

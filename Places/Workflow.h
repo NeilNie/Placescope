@@ -39,10 +39,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *noResult;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIButton *refresh;
+
+//Facebook like alert
 @property (weak, nonatomic) IBOutlet UILabel *alertBody;
 @property (weak, nonatomic) IBOutlet FBSDKLikeButton *like;
 @property (weak, nonatomic) IBOutlet FBSDKShareButton *share;
-
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *alertHeight;
 
 - (IBAction)refresh:(id)sender;
