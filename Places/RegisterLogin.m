@@ -18,19 +18,9 @@
     
     [super viewDidLoad];
     timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(AnimateBackground) userInfo:nil repeats:YES];
-    self.FacebookLogin.readPermissions = @[@"public_profile", @"email", @"user_friends"];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-    
-    [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields": @"id, name, email"}] startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-         
-         if (!error) {
-             [self saveUserInfoName:result[@"name"] email:result[@"email"]];
-             [self presentMainView];
-             NSLog(@"saved user %@", result);
-         }
-     }];
     
     [super viewDidAppear:YES];
 }
@@ -73,29 +63,8 @@
     
     [self saveUserInfoName:self.Name.text email:self.Email.text];
 
-    [KCSUser userWithUsername:self.Name.text password:self.Password.text fieldsAndValues:@{KCSUserAttributeEmail: self.Email.text} withCompletionBlock:^(KCSUser *user, NSError *errorOrNil, KCSUserActionResult result) {
-        if (errorOrNil == nil) {
-            [self presentMainView];
-        } else {
-            NSLog(@"%@", errorOrNil);
-        }
-    }];
 }
 -(IBAction)login:(id)sender{
-    
-    [KCSUser loginWithUsername:self.Email.text password:self.Password.text withCompletionBlock:^(KCSUser *user, NSError *errorOrNil, KCSUserActionResult result) {
-        
-        [self saveUserInfoName:user.username email:user.email];
-        
-        if (errorOrNil ==  nil) {
-            [self presentMainView];
-        } else {
-            //there was an error with the update save
-            NSString* message = [errorOrNil localizedDescription];
-            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Create account failed", @"Sign account failed") message:message delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"OK") otherButtonTitles: nil];
-            [alert show];
-        }
-    }];
     
 }
 

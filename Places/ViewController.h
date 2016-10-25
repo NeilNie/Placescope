@@ -9,15 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
-#import <KinveyKit/KinveyKit.h>
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
-#import <FBSDKLoginKit/FBSDKLoginKit.h>
-#import <FBSDKMessengerShareKit/FBSDKMessengerShareKit.h>
+#import <Firebase/Firebase.h>
 #import <Realm/Realm.h>
 #import "MapPoint.h"
 #import "TableViewCell.h"
 #import "Reachability.h"
-#import "Detail.h"
+#import "DetailViewController.h"
 #import "UserInfo.h"
 
 @import GoogleMobileAds;
