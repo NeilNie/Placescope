@@ -436,7 +436,7 @@
 		0082A5E71C31CFEE00B42954 /* Places */ = {
 			isa = PBXGroup;
 			children = (
-				2888C0851C45CBBF0074468F /* INTULocationManager */,
+				2888C0851C45CBBF0074468F /* LocationManager */,
 				00CFDC5B1C39C6B700054609 /* Other */,
 				00CFDC5A1C39C6AA00054609 /* Data */,
 				00CFDC591C39C68A00054609 /* Views */,
@@ -453,13 +453,13 @@
 		0082A5E81C31CFEE00B42954 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				289B0D4B1C7FC862003E3380 /* thumbs_up.png */,
 				282EC0E71C6A9B52009B7A88 /* tab bar icons */,
 				00104DFB1C67971F00B88041 /* register view */,
 				00104DFA1C6796F400B88041 /* button icons */,
 				0051DDB21C667E0700A4E919 /* clearbutton.png */,
 				289B0D4F1C7FCA30003E3380 /* clearbutton copy.png */,
 				00720D121C35B3590027018E /* search2.png */,
+				289B0D4B1C7FC862003E3380 /* thumbs_up.png */,
 				00614EC21C65086E00669BE1 /* checkmark.png */,
 				00104E001C67995A00B88041 /* navi.png */,
 				00614EC01C65059300669BE1 /* GreenRC.png */,
@@ -563,7 +563,7 @@
 			name = "tab bar icons";
 			sourceTree = "<group>";
 		};
-		2888C0851C45CBBF0074468F /* INTULocationManager */ = {
+		2888C0851C45CBBF0074468F /* LocationManager */ = {
 			isa = PBXGroup;
 			children = (
 				2888C07D1C45CBB20074468F /* INTULocationManager.h */,
@@ -573,7 +573,7 @@
 				2888C0811C45CBB20074468F /* INTULocationRequestDefines.h */,
 				2888C0821C45CBB20074468F /* INTULocationManager+Internal.h */,
 			);
-			name = INTULocationManager;
+			name = LocationManager;
 			sourceTree = "<group>";
 		};
 		288C46F21CADDADD00D9AE7F /* Placescope Widget */ = {
@@ -784,7 +784,7 @@
 		0082A5DD1C31CFEE00B42954 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Yongyang Nie";
 				TargetAttributes = {
 					0082A5E41C31CFEE00B42954 = {
@@ -1145,8 +1145,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1189,8 +1191,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
