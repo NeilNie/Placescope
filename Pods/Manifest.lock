@@ -5,11 +5,11 @@ PODS:
   - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
-  - FBSDKCoreKit (4.17.0):
+  - FBSDKCoreKit (4.18.0):
     - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.17.0):
+  - FBSDKLoginKit (4.18.0):
     - FBSDKCoreKit
-  - FBSDKShareKit (4.17.0):
+  - FBSDKShareKit (4.18.0):
     - FBSDKCoreKit
   - Firebase/AdMob (3.10.0):
     - Firebase/Core
@@ -34,9 +34,9 @@ PODS:
   - GoogleToolboxForMac/Defines (2.1.0)
   - GoogleToolboxForMac/NSData+zlib (2.1.0):
     - GoogleToolboxForMac/Defines (= 2.1.0)
-  - Realm (2.1.0):
-    - Realm/Headers (= 2.1.0)
-  - Realm/Headers (2.1.0)
+  - Realm (2.1.1):
+    - Realm/Headers (= 2.1.1)
+  - Realm/Headers (2.1.1)
 
 DEPENDENCIES:
   - FBSDKCoreKit
@@ -48,9 +48,9 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
-  FBSDKCoreKit: 30a21d2d7b92984b3d80497113433c00824c35e9
-  FBSDKLoginKit: 42b7129ac0373ca99eaf4cbebf4d07bd42371f59
-  FBSDKShareKit: 9b573d03fbee36cbaf42d5bb1f2bc019e0d72347
+  FBSDKCoreKit: 15fef8804a4629f98c6f4e55e81a76c9d725d85e
+  FBSDKLoginKit: 6773073e970b2b15fb12e451ce7f11da0532b880
+  FBSDKShareKit: 0b8d6cc3f103c75297eb3c62caec284a2ccf1b9e
   Firebase: 387f37c7dca894a02708da9ff35ba147040eae9e
   FirebaseAnalytics: 9c67af0ebeb8d2146c9b4ea2616439affa947b58
   FirebaseCore: 1e383fdfe37b6b5d6ff88e84204bdee30276af0f
@@ -59,7 +59,7 @@ SPEC CHECKSUMS:
   GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
-  Realm: bc829ad0ef3d4eea70c34cfcc3b1704d18d50df1
+  Realm: a55959c0b171a5fe5267406d17f314fec3cefaae
 
 PODFILE CHECKSUM: 0c783407b042c81864589bcba9a4922f383ecadd
 
