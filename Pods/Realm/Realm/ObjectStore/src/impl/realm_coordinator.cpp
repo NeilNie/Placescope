@@ -302,6 +302,14 @@ void RealmCoordinator::clear_all_caches()
     }
 }
 
+void RealmCoordinator::assert_no_open_realms() noexcept
+{
+#ifdef REALM_DEBUG
+    std::lock_guard<std::mutex> lock(s_coordinator_mutex);
+    REALM_ASSERT(s_coordinators_per_path.empty());
+#endif
+}
+
 void RealmCoordinator::wake_up_notifier_worker()
 {
     if (m_notifier) {
@@ -683,9 +691,10 @@ void RealmCoordinator::advance_to_ready(Realm& realm)
     notifiers.package_and_wait(util::none);
 
     auto& sg = Realm::Internal::get_shared_group(realm);
-    if (!notifiers) {
-        transaction::advance(sg, realm.m_binding_context.get(), VersionID{});
-        return;
+    if (notifiers) {
+        auto version = notifiers.version();
+        if (version && *version <= sg.get_version_of_current_transaction())
+            return;
     }
 
     transaction::advance(sg, realm.m_binding_context.get(), notifiers);
