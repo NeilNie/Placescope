@@ -90,8 +90,8 @@
             NSLog(@"%@", json);
         });
     }else{
-        UIAlertView* MessageAlert = [[UIAlertView alloc] initWithTitle:@"Opps..." message:@"No internet connection. Please try again later." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil,nil];
-        [MessageAlert show];
+        UIAlertController *messageAlert = [UIAlertController alertControllerWithTitle:@"Opps..." message:@"No internet connection. Please try again later." preferredStyle:UIAlertControllerStyleAlert];
+        [self presentViewController:messageAlert animated:YES completion:nil];
     }
 }
 

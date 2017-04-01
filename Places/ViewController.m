@@ -130,12 +130,8 @@
             [self performSelectorOnMainThread:@selector(fetchedData:) withObject:data waitUntilDone:YES];
         });
     }else{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Opps, no internet connect"
-                                                        message:@"Please double check your internet connection."
-                                                       delegate:self
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
+        UIAlertController *messageAlert = [UIAlertController alertControllerWithTitle:@"Opps..." message:@"No internet connection. Please try again later." preferredStyle:UIAlertControllerStyleAlert];
+        [self presentViewController:messageAlert animated:YES completion:nil];
     }
 }
 
