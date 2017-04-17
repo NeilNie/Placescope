@@ -11,11 +11,11 @@
 #import <CoreLocation/CoreLocation.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKShareKit/FBSDKShareKit.h>
-#import "TableViewCell.h"
+#import "InterestPointTableViewCell.h"
 #import "Reachability.h"
-#import "WorkflowCell.h"
+#import "CollectionViewCell.h"
 #import "DetailViewController.h"
-#import "Preference.h"
+#import "PreferenceViewController.h"
 
 @import GoogleMobileAds;
 

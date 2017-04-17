@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11535.1" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3ff-J5-XKN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E175b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3ff-J5-XKN">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11523"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -476,7 +477,7 @@
         <!--Setting-->
         <scene sceneID="Nfd-3Y-h01">
             <objects>
-                <viewController id="bOe-Hg-mov" customClass="Preference" sceneMemberID="viewController">
+                <viewController id="bOe-Hg-mov" customClass="PreferenceViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9eW-J0-PYq"/>
                         <viewControllerLayoutGuide type="bottom" id="bgJ-5j-WRl"/>
@@ -747,7 +748,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="FacebookLogin" destination="wOj-kD-8ye" id="71e-f5-CZK"/>
                         <outlet property="background" destination="32C-mA-Gmu" id="nVm-in-59a"/>
                         <outlet property="paris" destination="sq3-Af-IRX" id="stx-nU-lbA"/>
                         <outlet property="swiss" destination="5kg-SK-aBf" id="u61-eK-ENm"/>
@@ -760,7 +760,7 @@
         <!--Your list-->
         <scene sceneID="cUi-sx-YMo">
             <objects>
-                <viewController id="1HU-TY-L4S" customClass="List" sceneMemberID="viewController">
+                <viewController id="1HU-TY-L4S" customClass="FavoriteViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Dkm-Nd-6Yf"/>
                         <viewControllerLayoutGuide type="bottom" id="3av-q3-KGw"/>
@@ -1092,7 +1092,7 @@
         <!--Workflows-->
         <scene sceneID="CeM-2k-k4A">
             <objects>
-                <viewController id="Sl0-uo-3l3" customClass="Workflow" sceneMemberID="viewController">
+                <viewController id="Sl0-uo-3l3" customClass="WorkflowViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="u4B-Mg-Oqb"/>
                         <viewControllerLayoutGuide type="bottom" id="lq2-nM-DQu"/>
@@ -1450,7 +1450,7 @@
         <image name="user.png" width="548" height="548"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="aoD-oI-07H"/>
         <segue reference="Hd0-Kc-AW9"/>
-        <segue reference="BB0-qf-SVX"/>
     </inferredMetricsTieBreakers>
 </document>

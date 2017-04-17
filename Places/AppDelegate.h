@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <WatchConnectivity/WatchConnectivity.h>
-#import <Realm/Realm.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FirebaseCore/FirebaseCore.h>
+
+#import "PreferenceViewController.h"
 #import "INTULocationManager.h"
 #import "ViewController.h"
-#import "Preference.h"
 #import "UserList.h"
 
 @import GoogleMobileAds;

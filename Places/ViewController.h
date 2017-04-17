@@ -12,7 +12,7 @@
 #import <Firebase/Firebase.h>
 #import <Realm/Realm.h>
 #import "MapPoint.h"
-#import "TableViewCell.h"
+#import "InterestPointTableViewCell.h"
 #import "Reachability.h"
 #import "DetailViewController.h"
 #import "UserInfo.h"

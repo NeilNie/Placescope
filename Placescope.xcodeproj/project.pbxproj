@@ -11,8 +11,8 @@
 		00104DFD1C67993500B88041 /* share3.png in Resources */ = {isa = PBXBuildFile; fileRef = 00104DFC1C67993500B88041 /* share3.png */; };
 		00104DFF1C67994400B88041 /* plus3.png in Resources */ = {isa = PBXBuildFile; fileRef = 00104DFE1C67994400B88041 /* plus3.png */; };
 		00104E011C67995A00B88041 /* navi.png in Resources */ = {isa = PBXBuildFile; fileRef = 00104E001C67995A00B88041 /* navi.png */; };
-		00104E031C67B92500B88041 /* Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00104E021C67B92500B88041 /* Cell.xib */; };
-		00104E061C67B94100B88041 /* WorkflowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00104E051C67B94100B88041 /* WorkflowCell.m */; };
+		00104E031C67B92500B88041 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00104E021C67B92500B88041 /* CollectionViewCell.xib */; };
+		00104E061C67B94100B88041 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00104E051C67B94100B88041 /* CollectionViewCell.m */; };
 		0017640D1C67CE4F005421A1 /* settings_filled.png in Resources */ = {isa = PBXBuildFile; fileRef = 0017640C1C67CE4F005421A1 /* settings_filled.png */; };
 		0017640F1C67CECD005421A1 /* marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 0017640E1C67CECD005421A1 /* marker.png */; };
 		001764111C67CF59005421A1 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = 001764101C67CF59005421A1 /* list.png */; };
@@ -45,17 +45,17 @@
 		00CA473E1C375A3D00237A8A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00CA473D1C375A3D00237A8A /* StoreKit.framework */; };
 		00CA47411C375B5200237A8A /* RegisterLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CA47401C375B5200237A8A /* RegisterLogin.m */; };
 		00CFDC551C39BC6A00054609 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00CFDC541C39BC6A00054609 /* TableViewCell.xib */; };
-		00CFDC581C39C29B00054609 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CFDC571C39C29B00054609 /* TableViewCell.m */; };
+		00CFDC581C39C29B00054609 /* InterestPointTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CFDC571C39C29B00054609 /* InterestPointTableViewCell.m */; };
 		00DF22C81C59769400ECAA76 /* recurring_appointment.png in Resources */ = {isa = PBXBuildFile; fileRef = 00DF22C71C59769400ECAA76 /* recurring_appointment.png */; };
 		00F113671C37027D009C0B50 /* mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 00F113661C37027D009C0B50 /* mask.png */; };
 		00F4FDB51C657CD0002E54FC /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FAD5691C61967200D4AB48 /* libsqlite3.tbd */; };
 		00FCBA251C41702A00568CD1 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FCBA241C41702A00568CD1 /* DetailViewController.m */; };
-		00FCBA281C41724200568CD1 /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FCBA271C41724200568CD1 /* List.m */; };
+		00FCBA281C41724200568CD1 /* FavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FCBA271C41724200568CD1 /* FavoriteViewController.m */; };
 		00FCBA2B1C41728E00568CD1 /* UserList.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FCBA2A1C41728E00568CD1 /* UserList.m */; };
 		280FDA061C6100EE00CA7E25 /* crying.png in Resources */ = {isa = PBXBuildFile; fileRef = 280FDA051C6100EE00CA7E25 /* crying.png */; };
-		280FDA081C610FCB00CA7E25 /* Setting Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 280FDA071C610FCB00CA7E25 /* Setting Cell.xib */; };
-		280FDA0B1C610FE700CA7E25 /* Setting Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 280FDA0A1C610FE700CA7E25 /* Setting Cell.m */; };
-		282800651C3C997700F029C5 /* Preference.m in Sources */ = {isa = PBXBuildFile; fileRef = 282800641C3C997700F029C5 /* Preference.m */; };
+		280FDA081C610FCB00CA7E25 /* PreferenceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 280FDA071C610FCB00CA7E25 /* PreferenceTableViewCell.xib */; };
+		280FDA0B1C610FE700CA7E25 /* PreferenceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 280FDA0A1C610FE700CA7E25 /* PreferenceTableViewCell.m */; };
+		282800651C3C997700F029C5 /* PreferenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 282800641C3C997700F029C5 /* PreferenceViewController.m */; };
 		283BBA021C62FC530013B5BA /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 283BBA011C62FC530013B5BA /* Media.xcassets */; };
 		283BBA041C62FC650013B5BA /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 283BBA031C62FC650013B5BA /* Media.xcassets */; };
 		283BBA051C62FC650013B5BA /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 283BBA031C62FC650013B5BA /* Media.xcassets */; };
@@ -106,20 +106,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0082A5FF1C31CFEE00B42954 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0082A5DD1C31CFEE00B42954 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0082A5E41C31CFEE00B42954;
-			remoteInfo = Places;
-		};
-		0082A60A1C31CFEE00B42954 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0082A5DD1C31CFEE00B42954 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0082A5E41C31CFEE00B42954;
-			remoteInfo = Places;
-		};
 		288C46FA1CADDADD00D9AE7F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0082A5DD1C31CFEE00B42954 /* Project object */;
@@ -184,9 +170,9 @@
 		00104DFC1C67993500B88041 /* share3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share3.png; sourceTree = "<group>"; };
 		00104DFE1C67994400B88041 /* plus3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus3.png; sourceTree = "<group>"; };
 		00104E001C67995A00B88041 /* navi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navi.png; sourceTree = "<group>"; };
-		00104E021C67B92500B88041 /* Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Cell.xib; sourceTree = "<group>"; };
-		00104E041C67B94100B88041 /* WorkflowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkflowCell.h; sourceTree = "<group>"; };
-		00104E051C67B94100B88041 /* WorkflowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkflowCell.m; sourceTree = "<group>"; };
+		00104E021C67B92500B88041 /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		00104E041C67B94100B88041 /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
+		00104E051C67B94100B88041 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 		0017640C1C67CE4F005421A1 /* settings_filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings_filled.png; sourceTree = "<group>"; };
 		0017640E1C67CECD005421A1 /* marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marker.png; sourceTree = "<group>"; };
 		001764101C67CF59005421A1 /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
@@ -214,8 +200,6 @@
 		0082A5F21C31CFEE00B42954 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0082A5F71C31CFEE00B42954 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0082A5F91C31CFEE00B42954 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0082A5FE1C31CFEE00B42954 /* Placescope.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Placescope.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0082A6091C31CFEE00B42954 /* Placescope.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Placescope.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0082A61D1C31D08700B42954 /* MapPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPoint.h; sourceTree = "<group>"; };
 		0082A61E1C31D08700B42954 /* MapPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPoint.m; sourceTree = "<group>"; };
 		0082A6201C31D09B00B42954 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -230,22 +214,22 @@
 		00CA473F1C375B5200237A8A /* RegisterLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterLogin.h; sourceTree = "<group>"; };
 		00CA47401C375B5200237A8A /* RegisterLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterLogin.m; sourceTree = "<group>"; };
 		00CFDC541C39BC6A00054609 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
-		00CFDC561C39C29B00054609 /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
-		00CFDC571C39C29B00054609 /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
+		00CFDC561C39C29B00054609 /* InterestPointTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterestPointTableViewCell.h; sourceTree = "<group>"; };
+		00CFDC571C39C29B00054609 /* InterestPointTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterestPointTableViewCell.m; sourceTree = "<group>"; };
 		00DF22C71C59769400ECAA76 /* recurring_appointment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recurring_appointment.png; sourceTree = "<group>"; };
 		00F113661C37027D009C0B50 /* mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mask.png; sourceTree = "<group>"; };
 		00FCBA231C41702A00568CD1 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		00FCBA241C41702A00568CD1 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		00FCBA261C41724200568CD1 /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
-		00FCBA271C41724200568CD1 /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = List.m; sourceTree = "<group>"; };
+		00FCBA261C41724200568CD1 /* FavoriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteViewController.h; sourceTree = "<group>"; };
+		00FCBA271C41724200568CD1 /* FavoriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteViewController.m; sourceTree = "<group>"; };
 		00FCBA291C41728E00568CD1 /* UserList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserList.h; sourceTree = "<group>"; };
 		00FCBA2A1C41728E00568CD1 /* UserList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserList.m; sourceTree = "<group>"; };
 		280FDA051C6100EE00CA7E25 /* crying.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crying.png; sourceTree = "<group>"; };
-		280FDA071C610FCB00CA7E25 /* Setting Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Setting Cell.xib"; sourceTree = "<group>"; };
-		280FDA091C610FE700CA7E25 /* Setting Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Setting Cell.h"; sourceTree = "<group>"; };
-		280FDA0A1C610FE700CA7E25 /* Setting Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Setting Cell.m"; sourceTree = "<group>"; };
-		282800631C3C997700F029C5 /* Preference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Preference.h; sourceTree = "<group>"; };
-		282800641C3C997700F029C5 /* Preference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Preference.m; sourceTree = "<group>"; };
+		280FDA071C610FCB00CA7E25 /* PreferenceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferenceTableViewCell.xib; sourceTree = "<group>"; };
+		280FDA091C610FE700CA7E25 /* PreferenceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceTableViewCell.h; sourceTree = "<group>"; };
+		280FDA0A1C610FE700CA7E25 /* PreferenceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceTableViewCell.m; sourceTree = "<group>"; };
+		282800631C3C997700F029C5 /* PreferenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceViewController.h; sourceTree = "<group>"; };
+		282800641C3C997700F029C5 /* PreferenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceViewController.m; sourceTree = "<group>"; };
 		283BBA011C62FC530013B5BA /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		283BBA031C62FC650013B5BA /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		283BBA061C62FCE70013B5BA /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
@@ -333,20 +317,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0082A5FB1C31CFEE00B42954 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0082A6061C31CFEE00B42954 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		288C46EC1CADDADD00D9AE7F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -424,8 +394,6 @@
 			isa = PBXGroup;
 			children = (
 				0082A5E51C31CFEE00B42954 /* Placescope.app */,
-				0082A5FE1C31CFEE00B42954 /* Placescope.xctest */,
-				0082A6091C31CFEE00B42954 /* Placescope.xctest */,
 				28BDECF51C491BD4000AD454 /* Placescope Apple Watch.app */,
 				28BDED011C491BD4000AD454 /* Placescope Apple Watch Extension.appex */,
 				288C46EF1CADDADD00D9AE7F /* Placescope Widget.appex */,
@@ -485,16 +453,16 @@
 		00CFDC591C39C68A00054609 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				00104E041C67B94100B88041 /* WorkflowCell.h */,
-				00104E051C67B94100B88041 /* WorkflowCell.m */,
-				00104E021C67B92500B88041 /* Cell.xib */,
-				280FDA091C610FE700CA7E25 /* Setting Cell.h */,
-				280FDA0A1C610FE700CA7E25 /* Setting Cell.m */,
-				280FDA071C610FCB00CA7E25 /* Setting Cell.xib */,
+				00104E041C67B94100B88041 /* CollectionViewCell.h */,
+				00104E051C67B94100B88041 /* CollectionViewCell.m */,
+				00104E021C67B92500B88041 /* CollectionViewCell.xib */,
+				280FDA091C610FE700CA7E25 /* PreferenceTableViewCell.h */,
+				280FDA0A1C610FE700CA7E25 /* PreferenceTableViewCell.m */,
+				280FDA071C610FCB00CA7E25 /* PreferenceTableViewCell.xib */,
 				0082A61D1C31D08700B42954 /* MapPoint.h */,
 				0082A61E1C31D08700B42954 /* MapPoint.m */,
-				00CFDC561C39C29B00054609 /* TableViewCell.h */,
-				00CFDC571C39C29B00054609 /* TableViewCell.m */,
+				00CFDC561C39C29B00054609 /* InterestPointTableViewCell.h */,
+				00CFDC571C39C29B00054609 /* InterestPointTableViewCell.m */,
 				00CFDC541C39BC6A00054609 /* TableViewCell.xib */,
 			);
 			name = Views;
@@ -598,10 +566,10 @@
 				0082A5EF1C31CFEE00B42954 /* ViewController.m */,
 				00FCBA231C41702A00568CD1 /* DetailViewController.h */,
 				00FCBA241C41702A00568CD1 /* DetailViewController.m */,
-				282800631C3C997700F029C5 /* Preference.h */,
-				282800641C3C997700F029C5 /* Preference.m */,
-				00FCBA261C41724200568CD1 /* List.h */,
-				00FCBA271C41724200568CD1 /* List.m */,
+				282800631C3C997700F029C5 /* PreferenceViewController.h */,
+				282800641C3C997700F029C5 /* PreferenceViewController.m */,
+				00FCBA261C41724200568CD1 /* FavoriteViewController.h */,
+				00FCBA271C41724200568CD1 /* FavoriteViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -690,42 +658,6 @@
 			productReference = 0082A5E51C31CFEE00B42954 /* Placescope.app */;
 			productType = "com.apple.product-type.application";
 		};
-		0082A5FD1C31CFEE00B42954 /* PlacescopeTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0082A6151C31CFEE00B42954 /* Build configuration list for PBXNativeTarget "PlacescopeTests" */;
-			buildPhases = (
-				0082A5FA1C31CFEE00B42954 /* Sources */,
-				0082A5FB1C31CFEE00B42954 /* Frameworks */,
-				0082A5FC1C31CFEE00B42954 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0082A6001C31CFEE00B42954 /* PBXTargetDependency */,
-			);
-			name = PlacescopeTests;
-			productName = PlacesTests;
-			productReference = 0082A5FE1C31CFEE00B42954 /* Placescope.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		0082A6081C31CFEE00B42954 /* PlacescopeUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0082A6181C31CFEE00B42954 /* Build configuration list for PBXNativeTarget "PlacescopeUITests" */;
-			buildPhases = (
-				0082A6051C31CFEE00B42954 /* Sources */,
-				0082A6061C31CFEE00B42954 /* Frameworks */,
-				0082A6071C31CFEE00B42954 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0082A60B1C31CFEE00B42954 /* PBXTargetDependency */,
-			);
-			name = PlacescopeUITests;
-			productName = PlacesUITests;
-			productReference = 0082A6091C31CFEE00B42954 /* Placescope.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 		288C46EE1CADDADD00D9AE7F /* Placescope Widget */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 288C46FF1CADDADD00D9AE7F /* Build configuration list for PBXNativeTarget "Placescope Widget" */;
@@ -805,14 +737,6 @@
 							};
 						};
 					};
-					0082A5FD1C31CFEE00B42954 = {
-						CreatedOnToolsVersion = 7.2;
-						TestTargetID = 0082A5E41C31CFEE00B42954;
-					};
-					0082A6081C31CFEE00B42954 = {
-						CreatedOnToolsVersion = 7.2;
-						TestTargetID = 0082A5E41C31CFEE00B42954;
-					};
 					288C46EE1CADDADD00D9AE7F = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 8NZ8K5GNH8;
@@ -846,8 +770,6 @@
 			projectRoot = "";
 			targets = (
 				0082A5E41C31CFEE00B42954 /* Placescope */,
-				0082A5FD1C31CFEE00B42954 /* PlacescopeTests */,
-				0082A6081C31CFEE00B42954 /* PlacescopeUITests */,
 				28BDECF41C491BD4000AD454 /* Placescope Apple Watch */,
 				28BDED001C491BD4000AD454 /* Placescope Apple Watch Extension */,
 				288C46EE1CADDADD00D9AE7F /* Placescope Widget */,
@@ -868,7 +790,7 @@
 				28ACF6F11C3B287300FA46CF /* restaurant.png in Resources */,
 				28B487A81C3ACC0E006FD748 /* cafe.png in Resources */,
 				003C661F1C3716EA007C90FD /* textfield bg.png in Resources */,
-				280FDA081C610FCB00CA7E25 /* Setting Cell.xib in Resources */,
+				280FDA081C610FCB00CA7E25 /* PreferenceTableViewCell.xib in Resources */,
 				002C79411C371199009D92F3 /* button_outline.png in Resources */,
 				003C661D1C371601007C90FD /* place_background_2.jpg in Resources */,
 				28ACF6EB1C3B270100FA46CF /* parking.png in Resources */,
@@ -886,7 +808,7 @@
 				28B487A61C3ACC0E006FD748 /* shopping_cart.png in Resources */,
 				289A700B1C6049EF00A819EA /* background.png in Resources */,
 				28ACF6E91C3B26E800FA46CF /* gas_pump.png in Resources */,
-				00104E031C67B92500B88041 /* Cell.xib in Resources */,
+				00104E031C67B92500B88041 /* CollectionViewCell.xib in Resources */,
 				003C66271C372A5C007C90FD /* Green Color.png in Resources */,
 				001764171C67D1F2005421A1 /* HOB60.png in Resources */,
 				289B0D4C1C7FC862003E3380 /* thumbs_up.png in Resources */,
@@ -909,20 +831,6 @@
 				0017640F1C67CECD005421A1 /* marker.png in Resources */,
 				000CA2B81C5EC5A000D356B2 /* default-placeholder.png in Resources */,
 				280FDA061C6100EE00CA7E25 /* crying.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0082A5FC1C31CFEE00B42954 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0082A6071C31CFEE00B42954 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1011,35 +919,21 @@
 			files = (
 				28F589511C47270A00EBD605 /* WorkflowViewController.m in Sources */,
 				00FCBA251C41702A00568CD1 /* DetailViewController.m in Sources */,
-				282800651C3C997700F029C5 /* Preference.m in Sources */,
-				00CFDC581C39C29B00054609 /* TableViewCell.m in Sources */,
+				282800651C3C997700F029C5 /* PreferenceViewController.m in Sources */,
+				00CFDC581C39C29B00054609 /* InterestPointTableViewCell.m in Sources */,
 				2888C0841C45CBB20074468F /* INTULocationRequest.m in Sources */,
 				00CA47411C375B5200237A8A /* RegisterLogin.m in Sources */,
 				28BF72D81C3B630200282442 /* Reachability.m in Sources */,
 				2888C0831C45CBB20074468F /* INTULocationManager.m in Sources */,
 				288B1B8F1C61A0BC0025DC33 /* UserInfo.m in Sources */,
 				0082A5F01C31CFEE00B42954 /* ViewController.m in Sources */,
-				280FDA0B1C610FE700CA7E25 /* Setting Cell.m in Sources */,
-				00104E061C67B94100B88041 /* WorkflowCell.m in Sources */,
+				280FDA0B1C610FE700CA7E25 /* PreferenceTableViewCell.m in Sources */,
+				00104E061C67B94100B88041 /* CollectionViewCell.m in Sources */,
 				0082A5ED1C31CFEE00B42954 /* AppDelegate.m in Sources */,
 				0082A61F1C31D08700B42954 /* MapPoint.m in Sources */,
 				00FCBA2B1C41728E00568CD1 /* UserList.m in Sources */,
-				00FCBA281C41724200568CD1 /* List.m in Sources */,
+				00FCBA281C41724200568CD1 /* FavoriteViewController.m in Sources */,
 				0082A5EA1C31CFEE00B42954 /* main.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0082A5FA1C31CFEE00B42954 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0082A6051C31CFEE00B42954 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1069,16 +963,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		0082A6001C31CFEE00B42954 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0082A5E41C31CFEE00B42954 /* Placescope */;
-			targetProxy = 0082A5FF1C31CFEE00B42954 /* PBXContainerItemProxy */;
-		};
-		0082A60B1C31CFEE00B42954 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0082A5E41C31CFEE00B42954 /* Placescope */;
-			targetProxy = 0082A60A1C31CFEE00B42954 /* PBXContainerItemProxy */;
-		};
 		288C46FB1CADDADD00D9AE7F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 288C46EE1CADDADD00D9AE7F /* Placescope Widget */;
@@ -1241,7 +1125,7 @@
 					"\"${PODS_ROOT}/Headers/Public/Realm\"",
 				);
 				INFOPLIST_FILE = Places/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.places.byneil;
@@ -1273,60 +1157,12 @@
 					"\"${PODS_ROOT}/Headers/Public/Realm\"",
 				);
 				INFOPLIST_FILE = Places/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.places.byneil;
 				PRODUCT_NAME = Placescope;
 				PROVISIONING_PROFILE = "";
-			};
-			name = Release;
-		};
-		0082A6161C31CFEE00B42954 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = PlacesTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.PlacesTests;
-				PRODUCT_NAME = Placescope;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Placescope.app/Placescope";
-			};
-			name = Debug;
-		};
-		0082A6171C31CFEE00B42954 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = PlacesTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.PlacesTests;
-				PRODUCT_NAME = Placescope;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Placescope.app/Placescope";
-			};
-			name = Release;
-		};
-		0082A6191C31CFEE00B42954 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = PlacesUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.PlacesUITests;
-				PRODUCT_NAME = Placescope;
-				TEST_TARGET_NAME = Places;
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		0082A61A1C31CFEE00B42954 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = PlacesUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.PlacesUITests;
-				PRODUCT_NAME = Placescope;
-				TEST_TARGET_NAME = Places;
-				USES_XCTRUNNER = YES;
 			};
 			name = Release;
 		};
@@ -1337,7 +1173,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Placescope Widget/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yongyang.places.byneil.Placescope-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1352,7 +1188,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Placescope Widget/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yongyang.places.byneil.Placescope-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1445,24 +1281,6 @@
 			buildConfigurations = (
 				0082A6131C31CFEE00B42954 /* Debug */,
 				0082A6141C31CFEE00B42954 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0082A6151C31CFEE00B42954 /* Build configuration list for PBXNativeTarget "PlacescopeTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0082A6161C31CFEE00B42954 /* Debug */,
-				0082A6171C31CFEE00B42954 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0082A6181C31CFEE00B42954 /* Build configuration list for PBXNativeTarget "PlacescopeUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0082A6191C31CFEE00B42954 /* Debug */,
-				0082A61A1C31CFEE00B42954 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

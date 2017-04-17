@@ -228,7 +228,7 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    TableViewCell *cell = (TableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"Cellid" forIndexPath:indexPath];
+    InterestPointTableViewCell *cell = (InterestPointTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"Cellid" forIndexPath:indexPath];
     if (cell == nil) {
         [tableView registerNib:[UINib nibWithNibName:@"TableViewCell" bundle:nil] forCellReuseIdentifier:@"Cellid"];
         cell = [tableView dequeueReusableCellWithIdentifier:@"Cellid"];
