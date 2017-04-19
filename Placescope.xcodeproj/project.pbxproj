@@ -43,7 +43,7 @@
 		00BBA09C1C682E1100D21BC8 /* Food.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BBA09B1C682E1100D21BC8 /* Food.m */; };
 		00BBA09F1C682E1C00D21BC8 /* Shopping.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BBA09E1C682E1C00D21BC8 /* Shopping.m */; };
 		00CA473E1C375A3D00237A8A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00CA473D1C375A3D00237A8A /* StoreKit.framework */; };
-		00CA47411C375B5200237A8A /* RegisterLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CA47401C375B5200237A8A /* RegisterLogin.m */; };
+		00CA47411C375B5200237A8A /* AuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CA47401C375B5200237A8A /* AuthViewController.m */; };
 		00CFDC551C39BC6A00054609 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00CFDC541C39BC6A00054609 /* TableViewCell.xib */; };
 		00CFDC581C39C29B00054609 /* InterestPointTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CFDC571C39C29B00054609 /* InterestPointTableViewCell.m */; };
 		00DF22C81C59769400ECAA76 /* recurring_appointment.png in Resources */ = {isa = PBXBuildFile; fileRef = 00DF22C71C59769400ECAA76 /* recurring_appointment.png */; };
@@ -56,15 +56,15 @@
 		280FDA081C610FCB00CA7E25 /* PreferenceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 280FDA071C610FCB00CA7E25 /* PreferenceTableViewCell.xib */; };
 		280FDA0B1C610FE700CA7E25 /* PreferenceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 280FDA0A1C610FE700CA7E25 /* PreferenceTableViewCell.m */; };
 		282800651C3C997700F029C5 /* PreferenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 282800641C3C997700F029C5 /* PreferenceViewController.m */; };
-		283BBA021C62FC530013B5BA /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 283BBA011C62FC530013B5BA /* Media.xcassets */; };
-		283BBA041C62FC650013B5BA /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 283BBA031C62FC650013B5BA /* Media.xcassets */; };
-		283BBA051C62FC650013B5BA /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 283BBA031C62FC650013B5BA /* Media.xcassets */; };
 		283BBA071C62FCE70013B5BA /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 283BBA061C62FCE70013B5BA /* icon.png */; };
 		283BBA081C62FCE70013B5BA /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 283BBA061C62FCE70013B5BA /* icon.png */; };
 		283BBA091C62FCE70013B5BA /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 283BBA061C62FCE70013B5BA /* icon.png */; };
+		284F55211EA7072600CA311D /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 284F55201EA7072600CA311D /* Media.xcassets */; };
+		284F55231EA7079200CA311D /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 284F55221EA7079200CA311D /* Media.xcassets */; };
+		284F55241EA7079200CA311D /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 284F55221EA7079200CA311D /* Media.xcassets */; };
 		2888C0831C45CBB20074468F /* INTULocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2888C07E1C45CBB20074468F /* INTULocationManager.m */; };
 		2888C0841C45CBB20074468F /* INTULocationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2888C0801C45CBB20074468F /* INTULocationRequest.m */; };
-		288B1B8F1C61A0BC0025DC33 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 288B1B8E1C61A0BC0025DC33 /* UserInfo.m */; };
+		288BDA6C1EA4D173002198B5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 288BDA6B1EA4D173002198B5 /* GoogleService-Info.plist */; };
 		288C46F11CADDADD00D9AE7F /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288C46F01CADDADD00D9AE7F /* NotificationCenter.framework */; };
 		288C46F51CADDADD00D9AE7F /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 288C46F41CADDADD00D9AE7F /* TodayViewController.m */; };
 		288C46F81CADDADD00D9AE7F /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 288C46F61CADDADD00D9AE7F /* MainInterface.storyboard */; };
@@ -92,6 +92,7 @@
 		28BDED121C491BD4000AD454 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28BDED111C491BD4000AD454 /* Assets.xcassets */; };
 		28BDED161C491BD4000AD454 /* Placescope Apple Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 28BDECF51C491BD4000AD454 /* Placescope Apple Watch.app */; };
 		28BF72D81C3B630200282442 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BF72D71C3B630200282442 /* Reachability.m */; };
+		28C151551EA63D030002FAE7 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28C151541EA63D030002FAE7 /* UserNotifications.framework */; };
 		28D1A6AB1C5ABC930085CA64 /* Recommendations.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D1A6AA1C5ABC930085CA64 /* Recommendations.m */; };
 		28D1A6AE1C5ABCC60085CA64 /* Row.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D1A6AD1C5ABCC60085CA64 /* Row.m */; };
 		28DFF3DB1C3DFADF00876DC8 /* menu-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 28DFF3DA1C3DFADF00876DC8 /* menu-placeholder.png */; };
@@ -211,8 +212,8 @@
 		00BBA09D1C682E1C00D21BC8 /* Shopping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shopping.h; sourceTree = "<group>"; };
 		00BBA09E1C682E1C00D21BC8 /* Shopping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shopping.m; sourceTree = "<group>"; };
 		00CA473D1C375A3D00237A8A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		00CA473F1C375B5200237A8A /* RegisterLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterLogin.h; sourceTree = "<group>"; };
-		00CA47401C375B5200237A8A /* RegisterLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterLogin.m; sourceTree = "<group>"; };
+		00CA473F1C375B5200237A8A /* AuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthViewController.h; sourceTree = "<group>"; };
+		00CA47401C375B5200237A8A /* AuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthViewController.m; sourceTree = "<group>"; };
 		00CFDC541C39BC6A00054609 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		00CFDC561C39C29B00054609 /* InterestPointTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterestPointTableViewCell.h; sourceTree = "<group>"; };
 		00CFDC571C39C29B00054609 /* InterestPointTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterestPointTableViewCell.m; sourceTree = "<group>"; };
@@ -230,17 +231,16 @@
 		280FDA0A1C610FE700CA7E25 /* PreferenceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceTableViewCell.m; sourceTree = "<group>"; };
 		282800631C3C997700F029C5 /* PreferenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceViewController.h; sourceTree = "<group>"; };
 		282800641C3C997700F029C5 /* PreferenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceViewController.m; sourceTree = "<group>"; };
-		283BBA011C62FC530013B5BA /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
-		283BBA031C62FC650013B5BA /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		283BBA061C62FCE70013B5BA /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		284F55201EA7072600CA311D /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		284F55221EA7079200CA311D /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		2888C07D1C45CBB20074468F /* INTULocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INTULocationManager.h; sourceTree = "<group>"; };
 		2888C07E1C45CBB20074468F /* INTULocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INTULocationManager.m; sourceTree = "<group>"; };
 		2888C07F1C45CBB20074468F /* INTULocationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INTULocationRequest.h; sourceTree = "<group>"; };
 		2888C0801C45CBB20074468F /* INTULocationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INTULocationRequest.m; sourceTree = "<group>"; };
 		2888C0811C45CBB20074468F /* INTULocationRequestDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INTULocationRequestDefines.h; sourceTree = "<group>"; };
 		2888C0821C45CBB20074468F /* INTULocationManager+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "INTULocationManager+Internal.h"; sourceTree = "<group>"; };
-		288B1B8D1C61A0BC0025DC33 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
-		288B1B8E1C61A0BC0025DC33 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
+		288BDA6B1EA4D173002198B5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		288C46EF1CADDADD00D9AE7F /* Placescope Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Placescope Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		288C46F01CADDADD00D9AE7F /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		288C46F31CADDADD00D9AE7F /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
@@ -279,6 +279,7 @@
 		28BDED131C491BD4000AD454 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28BF72D61C3B630200282442 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		28BF72D71C3B630200282442 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		28C151541EA63D030002FAE7 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		28D1A6A91C5ABC930085CA64 /* Recommendations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recommendations.h; sourceTree = "<group>"; };
 		28D1A6AA1C5ABC930085CA64 /* Recommendations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recommendations.m; sourceTree = "<group>"; };
 		28D1A6AC1C5ABCC60085CA64 /* Row.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Row.h; sourceTree = "<group>"; };
@@ -304,6 +305,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28C151551EA63D030002FAE7 /* UserNotifications.framework in Frameworks */,
 				00F4FDB51C657CD0002E54FC /* libsqlite3.tbd in Frameworks */,
 				0082A6231C31D0A000B42954 /* MapKit.framework in Frameworks */,
 				28FAD5721C61968A00D4AB48 /* SystemConfiguration.framework in Frameworks */,
@@ -404,15 +406,12 @@
 		0082A5E71C31CFEE00B42954 /* Places */ = {
 			isa = PBXGroup;
 			children = (
+				0082A5F11C31CFEE00B42954 /* Main.storyboard */,
 				2888C0851C45CBBF0074468F /* LocationManager */,
-				00CFDC5B1C39C6B700054609 /* Other */,
-				00CFDC5A1C39C6AA00054609 /* Data */,
+				00CFDC5B1C39C6B700054609 /* Classes */,
 				00CFDC591C39C68A00054609 /* Views */,
 				28A886BC1C4EDCBF001A2BF0 /* ViewController */,
-				0082A5F11C31CFEE00B42954 /* Main.storyboard */,
-				0082A5F61C31CFEE00B42954 /* LaunchScreen.storyboard */,
-				0082A5F91C31CFEE00B42954 /* Info.plist */,
-				283BBA011C62FC530013B5BA /* Media.xcassets */,
+				288BDA6D1EA4D17B002198B5 /* Media */,
 				0082A5E81C31CFEE00B42954 /* Supporting Files */,
 			);
 			path = Places;
@@ -421,30 +420,10 @@
 		0082A5E81C31CFEE00B42954 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				282EC0E71C6A9B52009B7A88 /* tab bar icons */,
-				00104DFB1C67971F00B88041 /* register view */,
-				00104DFA1C6796F400B88041 /* button icons */,
-				0051DDB21C667E0700A4E919 /* clearbutton.png */,
-				289B0D4F1C7FCA30003E3380 /* clearbutton copy.png */,
-				00720D121C35B3590027018E /* search2.png */,
-				289B0D4B1C7FC862003E3380 /* thumbs_up.png */,
-				00614EC21C65086E00669BE1 /* checkmark.png */,
-				00104E001C67995A00B88041 /* navi.png */,
-				00614EC01C65059300669BE1 /* GreenRC.png */,
-				00104DFE1C67994400B88041 /* plus3.png */,
-				283BBA061C62FCE70013B5BA /* icon.png */,
-				280FDA051C6100EE00CA7E25 /* crying.png */,
-				289A700A1C6049EF00A819EA /* background.png */,
-				28BB40601C602C4E00A7E7C4 /* save.png */,
-				28BB405C1C6028E900A7E7C4 /* base.png */,
-				000CA2B71C5EC5A000D356B2 /* default-placeholder.png */,
-				00104DFC1C67993500B88041 /* share3.png */,
-				289B0D4D1C7FC8B5003E3380 /* share3 copy.png */,
-				00DF22C71C59769400ECAA76 /* recurring_appointment.png */,
-				28E441371C61516C00097F84 /* user.png */,
-				28B487A31C3ACC0E006FD748 /* icons8_cup.png */,
-				28DFF3DA1C3DFADF00876DC8 /* menu-placeholder.png */,
-				003C66261C372A5C007C90FD /* Green Color.png */,
+				284F55201EA7072600CA311D /* Media.xcassets */,
+				0082A5F61C31CFEE00B42954 /* LaunchScreen.storyboard */,
+				0082A5F91C31CFEE00B42954 /* Info.plist */,
+				288BDA6B1EA4D173002198B5 /* GoogleService-Info.plist */,
 				0082A5E91C31CFEE00B42954 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -468,26 +447,17 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
-		00CFDC5A1C39C6AA00054609 /* Data */ = {
+		00CFDC5B1C39C6B700054609 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				00FCBA291C41728E00568CD1 /* UserList.h */,
-				00FCBA2A1C41728E00568CD1 /* UserList.m */,
-				288B1B8D1C61A0BC0025DC33 /* UserInfo.h */,
-				288B1B8E1C61A0BC0025DC33 /* UserInfo.m */,
-			);
-			name = Data;
-			sourceTree = "<group>";
-		};
-		00CFDC5B1C39C6B700054609 /* Other */ = {
-			isa = PBXGroup;
-			children = (
+				0082A5EB1C31CFEE00B42954 /* AppDelegate.h */,
+				0082A5EC1C31CFEE00B42954 /* AppDelegate.m */,
 				28BF72D61C3B630200282442 /* Reachability.h */,
 				28BF72D71C3B630200282442 /* Reachability.m */,
-				00CA473F1C375B5200237A8A /* RegisterLogin.h */,
-				00CA47401C375B5200237A8A /* RegisterLogin.m */,
+				00FCBA291C41728E00568CD1 /* UserList.h */,
+				00FCBA2A1C41728E00568CD1 /* UserList.m */,
 			);
-			name = Other;
+			name = Classes;
 			sourceTree = "<group>";
 		};
 		00F4FDB31C657B48002E54FC /* Interface Controller */ = {
@@ -544,6 +514,37 @@
 			name = LocationManager;
 			sourceTree = "<group>";
 		};
+		288BDA6D1EA4D17B002198B5 /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				282EC0E71C6A9B52009B7A88 /* tab bar icons */,
+				00104DFB1C67971F00B88041 /* register view */,
+				00104DFA1C6796F400B88041 /* button icons */,
+				0051DDB21C667E0700A4E919 /* clearbutton.png */,
+				289B0D4F1C7FCA30003E3380 /* clearbutton copy.png */,
+				00720D121C35B3590027018E /* search2.png */,
+				289B0D4B1C7FC862003E3380 /* thumbs_up.png */,
+				00614EC21C65086E00669BE1 /* checkmark.png */,
+				00104E001C67995A00B88041 /* navi.png */,
+				00614EC01C65059300669BE1 /* GreenRC.png */,
+				00104DFE1C67994400B88041 /* plus3.png */,
+				283BBA061C62FCE70013B5BA /* icon.png */,
+				280FDA051C6100EE00CA7E25 /* crying.png */,
+				289A700A1C6049EF00A819EA /* background.png */,
+				28BB40601C602C4E00A7E7C4 /* save.png */,
+				28BB405C1C6028E900A7E7C4 /* base.png */,
+				000CA2B71C5EC5A000D356B2 /* default-placeholder.png */,
+				00104DFC1C67993500B88041 /* share3.png */,
+				289B0D4D1C7FC8B5003E3380 /* share3 copy.png */,
+				00DF22C71C59769400ECAA76 /* recurring_appointment.png */,
+				28E441371C61516C00097F84 /* user.png */,
+				28B487A31C3ACC0E006FD748 /* icons8_cup.png */,
+				28DFF3DA1C3DFADF00876DC8 /* menu-placeholder.png */,
+				003C66261C372A5C007C90FD /* Green Color.png */,
+			);
+			name = Media;
+			sourceTree = "<group>";
+		};
 		288C46F21CADDADD00D9AE7F /* Placescope Widget */ = {
 			isa = PBXGroup;
 			children = (
@@ -558,8 +559,8 @@
 		28A886BC1C4EDCBF001A2BF0 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				0082A5EB1C31CFEE00B42954 /* AppDelegate.h */,
-				0082A5EC1C31CFEE00B42954 /* AppDelegate.m */,
+				00CA473F1C375B5200237A8A /* AuthViewController.h */,
+				00CA47401C375B5200237A8A /* AuthViewController.m */,
 				28F5894F1C47270A00EBD605 /* WorkflowViewController.h */,
 				28F589501C47270A00EBD605 /* WorkflowViewController.m */,
 				0082A5EE1C31CFEE00B42954 /* ViewController.h */,
@@ -577,8 +578,8 @@
 		28BDECF61C491BD4000AD454 /* Placescope Apple Watch */ = {
 			isa = PBXGroup;
 			children = (
+				284F55221EA7079200CA311D /* Media.xcassets */,
 				28BDECF71C491BD4000AD454 /* Interface.storyboard */,
-				283BBA031C62FC650013B5BA /* Media.xcassets */,
 				28BDECFC1C491BD4000AD454 /* Info.plist */,
 			);
 			path = "Placescope Apple Watch";
@@ -607,6 +608,7 @@
 		A89439F5089BA897D8AA91D1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				28C151541EA63D030002FAE7 /* UserNotifications.framework */,
 				28FAD5711C61968A00D4AB48 /* SystemConfiguration.framework */,
 				28FAD56F1C61968300D4AB48 /* Social.framework */,
 				28FAD56D1C61968000D4AB48 /* Security.framework */,
@@ -809,15 +811,16 @@
 				289A700B1C6049EF00A819EA /* background.png in Resources */,
 				28ACF6E91C3B26E800FA46CF /* gas_pump.png in Resources */,
 				00104E031C67B92500B88041 /* CollectionViewCell.xib in Resources */,
+				288BDA6C1EA4D173002198B5 /* GoogleService-Info.plist in Resources */,
 				003C66271C372A5C007C90FD /* Green Color.png in Resources */,
 				001764171C67D1F2005421A1 /* HOB60.png in Resources */,
+				284F55211EA7072600CA311D /* Media.xcassets in Resources */,
 				289B0D4C1C7FC862003E3380 /* thumbs_up.png in Resources */,
 				00CFDC551C39BC6A00054609 /* TableViewCell.xib in Resources */,
 				28B487A71C3ACC0E006FD748 /* bank_cards.png in Resources */,
 				0082A5F31C31CFEE00B42954 /* Main.storyboard in Resources */,
 				289B0D501C7FCA30003E3380 /* clearbutton copy.png in Resources */,
 				00104DFF1C67994400B88041 /* plus3.png in Resources */,
-				283BBA021C62FC530013B5BA /* Media.xcassets in Resources */,
 				28ACF6EF1C3B278500FA46CF /* public-park_318-85491.png in Resources */,
 				28B487A91C3ACC0E006FD748 /* icons8_cup.png in Resources */,
 				00104E011C67995A00B88041 /* navi.png in Resources */,
@@ -846,8 +849,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				283BBA041C62FC650013B5BA /* Media.xcassets in Resources */,
 				28BDECF91C491BD4000AD454 /* Interface.storyboard in Resources */,
+				284F55231EA7079200CA311D /* Media.xcassets in Resources */,
 				283BBA081C62FCE70013B5BA /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -856,8 +859,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				283BBA051C62FC650013B5BA /* Media.xcassets in Resources */,
 				28BDED121C491BD4000AD454 /* Assets.xcassets in Resources */,
+				284F55241EA7079200CA311D /* Media.xcassets in Resources */,
 				283BBA091C62FCE70013B5BA /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -922,10 +925,9 @@
 				282800651C3C997700F029C5 /* PreferenceViewController.m in Sources */,
 				00CFDC581C39C29B00054609 /* InterestPointTableViewCell.m in Sources */,
 				2888C0841C45CBB20074468F /* INTULocationRequest.m in Sources */,
-				00CA47411C375B5200237A8A /* RegisterLogin.m in Sources */,
+				00CA47411C375B5200237A8A /* AuthViewController.m in Sources */,
 				28BF72D81C3B630200282442 /* Reachability.m in Sources */,
 				2888C0831C45CBB20074468F /* INTULocationManager.m in Sources */,
-				288B1B8F1C61A0BC0025DC33 /* UserInfo.m in Sources */,
 				0082A5F01C31CFEE00B42954 /* ViewController.m in Sources */,
 				280FDA0B1C610FE700CA7E25 /* PreferenceTableViewCell.m in Sources */,
 				00104E061C67B94100B88041 /* CollectionViewCell.m in Sources */,
@@ -1128,7 +1130,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.places.byneil;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.placescope;
 				PRODUCT_NAME = Placescope;
 				PROVISIONING_PROFILE = "";
 			};
@@ -1160,7 +1162,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.places.byneil;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.placescope;
 				PRODUCT_NAME = Placescope;
 				PROVISIONING_PROFILE = "";
 			};
@@ -1175,7 +1177,7 @@
 				INFOPLIST_FILE = "Placescope Widget/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yongyang.places.byneil.Placescope-Widget";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.placescope.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -1190,7 +1192,7 @@
 				INFOPLIST_FILE = "Placescope Widget/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yongyang.places.byneil.Placescope-Widget";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.placescope.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -1205,7 +1207,7 @@
 				GCC_NO_COMMON_BLOCKS = NO;
 				IBSC_MODULE = Placescope_Apple_Watch_Extension;
 				INFOPLIST_FILE = "Placescope Apple Watch/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.places.byneil.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.placescope.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1223,7 +1225,7 @@
 				GCC_NO_COMMON_BLOCKS = NO;
 				IBSC_MODULE = Placescope_Apple_Watch_Extension;
 				INFOPLIST_FILE = "Placescope Apple Watch/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.places.byneil.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.placescope.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1239,7 +1241,7 @@
 				GCC_NO_COMMON_BLOCKS = NO;
 				INFOPLIST_FILE = "Placescope Apple Watch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.places.byneil.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.placescope.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1255,7 +1257,7 @@
 				GCC_NO_COMMON_BLOCKS = NO;
 				INFOPLIST_FILE = "Placescope Apple Watch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.places.byneil.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yongyang.placescope.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;

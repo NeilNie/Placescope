@@ -15,7 +15,6 @@
 #import "InterestPointTableViewCell.h"
 #import "Reachability.h"
 #import "DetailViewController.h"
-#import "UserInfo.h"
 
 @import GoogleMobileAds;
 

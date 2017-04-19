@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <UserNotifications/UserNotifications.h>
 #import <WatchConnectivity/WatchConnectivity.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FirebaseCore/FirebaseCore.h>
+#import <FirebaseMessaging/FirebaseMessaging.h>
+#import <FirebaseInstanceID/FirebaseInstanceID.h>
 
 #import "PreferenceViewController.h"
 #import "INTULocationManager.h"
@@ -20,7 +23,7 @@
 
 NSTimer *timer;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, WCSessionDelegate>{
+@interface AppDelegate : UIResponder <UIApplicationDelegate, WCSessionDelegate, FIRMessagingDelegate, UNUserNotificationCenterDelegate>{
     
     BOOL notified;
     BOOL traveling;

@@ -34,13 +34,13 @@
         GADRequest *request = [GADRequest request];
         [self.bannerView loadRequest:request];
     }
-    
-    objects = [UserInfo allObjects];
-    NSLog(@"user info %@", objects);
-    info = [[UserInfo alloc] init];
-    info = [objects objectAtIndex:0];
-    self.username.text = info.username;
-    self.email.text = info.email;
+#warning user info stuff
+//    objects = [UserInfo allObjects];
+//    NSLog(@"user info %@", objects);
+//    info = [[UserInfo alloc] init];
+//    info = [objects objectAtIndex:0];
+//    self.username.text = info.username;
+//    self.email.text = info.email;
     // Do any additional setup after loading the view.
 }
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
@@ -189,7 +189,7 @@
         [tableView registerNib:[UINib nibWithNibName:@"Setting Cell" bundle:nil] forCellReuseIdentifier:identifier];
         cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     }
-    info = [objects objectAtIndex:0];
+    /*info = [objects objectAtIndex:0];
     cell.name.text = [array objectAtIndex:indexPath.row];
     switch (indexPath.row) {
         case 0:
@@ -208,7 +208,7 @@
         default:
             break;
     }
-    
+    */
     return cell;
 }
 
@@ -216,7 +216,8 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     RLMRealm *realm = [RLMRealm defaultRealm];
-    switch (indexPath.row) {
+#warning current user info stuff
+    /*switch (indexPath.row) {
         case 0:
             if (info.travelNotification == YES) {
                 [realm beginWriteTransaction];
@@ -271,9 +272,8 @@
             
         default:
             break;
-    }
+    }*/
     [self.Table reloadData];
-    NSLog(@"user %@", info);
 }
 
 - (IBAction)changePass:(id)sender {

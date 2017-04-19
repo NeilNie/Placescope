@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E175b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3ff-J5-XKN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16F60a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3ff-J5-XKN">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -636,7 +636,7 @@
         <!--welcome-->
         <scene sceneID="gBI-KF-znZ">
             <objects>
-                <viewController storyboardIdentifier="welcome" title="welcome" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7Z1-lj-LaP" customClass="RegisterLogin" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="welcome" title="welcome" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7Z1-lj-LaP" customClass="AuthViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="G5A-sn-IpN"/>
                         <viewControllerLayoutGuide type="bottom" id="Yns-bs-HM0"/>
@@ -682,7 +682,6 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="stop:" destination="7Z1-lj-LaP" eventType="touchUpInside" id="EGM-jD-4B7"/>
                                     <segue destination="i12-hA-kKO" kind="presentation" id="ZNR-vP-dgm"/>
                                 </connections>
                             </button>
@@ -697,7 +696,6 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="stop:" destination="7Z1-lj-LaP" eventType="touchUpInside" id="dOM-ns-9MX"/>
                                     <segue destination="E3P-d7-a8w" kind="presentation" id="IjP-v0-Gbl"/>
                                 </connections>
                             </button>
@@ -749,6 +747,7 @@
                     </view>
                     <connections>
                         <outlet property="background" destination="32C-mA-Gmu" id="nVm-in-59a"/>
+                        <outlet property="loginButton" destination="wOj-kD-8ye" id="leA-6n-3lC"/>
                         <outlet property="paris" destination="sq3-Af-IRX" id="stx-nU-lbA"/>
                         <outlet property="swiss" destination="5kg-SK-aBf" id="u61-eK-ENm"/>
                     </connections>
@@ -860,10 +859,10 @@
             </objects>
             <point key="canvasLocation" x="3655" y="2527"/>
         </scene>
-        <!--Register Login-->
+        <!--Auth View Controller-->
         <scene sceneID="1aD-2e-Cqu">
             <objects>
-                <viewController storyboardIdentifier="first" useStoryboardIdentifierAsRestorationIdentifier="YES" id="i12-hA-kKO" customClass="RegisterLogin" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="first" useStoryboardIdentifierAsRestorationIdentifier="YES" id="i12-hA-kKO" customClass="AuthViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y8e-bc-1No"/>
                         <viewControllerLayoutGuide type="bottom" id="fb3-Xg-Jh8"/>
@@ -897,7 +896,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="save1:" destination="i12-hA-kKO" eventType="touchUpInside" id="sCM-dm-tMO"/>
+                                    <action selector="registerUser:" destination="i12-hA-kKO" eventType="touchUpInside" id="cx9-Bu-B5U"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="LJL-cE-Vf9">
@@ -915,11 +914,11 @@
                                 </constraints>
                                 <state key="normal" image="left_arrow.png"/>
                                 <connections>
-                                    <segue destination="7Z1-lj-LaP" kind="presentation" id="Hd0-Kc-AW9"/>
+                                    <action selector="backButton:" destination="i12-hA-kKO" eventType="touchUpInside" id="4Ix-O4-jmS"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" background="textfield bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="goK-DK-ynO">
-                                <rect key="frame" x="36" y="256" width="303" height="35"/>
+                                <rect key="frame" x="36" y="251" width="303" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="gB2-KB-Lla"/>
                                 </constraints>
@@ -927,7 +926,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" background="textfield bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="3J3-DZ-OuE">
-                                <rect key="frame" x="36" y="321" width="303" height="35"/>
+                                <rect key="frame" x="36" y="311" width="303" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="QlH-7P-LUI"/>
                                 </constraints>
@@ -948,20 +947,20 @@
                             <constraint firstItem="Khx-R4-mlC" firstAttribute="leading" secondItem="MNK-L2-6IU" secondAttribute="leadingMargin" constant="20" id="Mfh-Hl-PpD"/>
                             <constraint firstItem="LJL-cE-Vf9" firstAttribute="top" secondItem="y8e-bc-1No" secondAttribute="bottom" constant="25" id="PV5-rZ-ggl"/>
                             <constraint firstItem="yhz-qw-qb4" firstAttribute="centerY" secondItem="lee-3g-DNf" secondAttribute="centerY" id="Wob-JV-UNd"/>
-                            <constraint firstItem="goK-DK-ynO" firstAttribute="top" secondItem="Khx-R4-mlC" secondAttribute="bottom" constant="30" id="XJA-pR-xfq"/>
+                            <constraint firstItem="goK-DK-ynO" firstAttribute="top" secondItem="Khx-R4-mlC" secondAttribute="bottom" constant="25" id="XJA-pR-xfq"/>
                             <constraint firstItem="fb3-Xg-Jh8" firstAttribute="top" secondItem="lee-3g-DNf" secondAttribute="bottom" id="cIa-Gl-paC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="goK-DK-ynO" secondAttribute="trailing" constant="20" id="hgl-oV-4jM"/>
                             <constraint firstItem="Khx-R4-mlC" firstAttribute="top" secondItem="LJL-cE-Vf9" secondAttribute="bottom" constant="40" id="hvb-4C-s2Z"/>
-                            <constraint firstItem="3J3-DZ-OuE" firstAttribute="top" secondItem="goK-DK-ynO" secondAttribute="bottom" constant="30" id="mlr-yq-oZX"/>
+                            <constraint firstItem="3J3-DZ-OuE" firstAttribute="top" secondItem="goK-DK-ynO" secondAttribute="bottom" constant="25" id="mlr-yq-oZX"/>
                             <constraint firstItem="yhz-qw-qb4" firstAttribute="centerX" secondItem="lee-3g-DNf" secondAttribute="centerX" id="o0V-SX-yrk"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lee-3g-DNf" secondAttribute="trailing" constant="-20" id="voU-Sz-gDj"/>
                             <constraint firstItem="LJL-cE-Vf9" firstAttribute="centerX" secondItem="MNK-L2-6IU" secondAttribute="centerX" id="vrh-7e-1e5"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="Email" destination="Khx-R4-mlC" id="Tjt-HJ-8xv"/>
-                        <outlet property="Name" destination="goK-DK-ynO" id="p6c-TO-ddV"/>
-                        <outlet property="Password" destination="3J3-DZ-OuE" id="9Bd-00-6sJ"/>
+                        <outlet property="email" destination="Khx-R4-mlC" id="Lwp-FT-Ljc"/>
+                        <outlet property="name" destination="goK-DK-ynO" id="DRh-55-TWr"/>
+                        <outlet property="password" destination="3J3-DZ-OuE" id="yov-Ac-6bi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YZo-ho-Lws" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -993,10 +992,10 @@
             </objects>
             <point key="canvasLocation" x="2913" y="1850"/>
         </scene>
-        <!--Register Login-->
+        <!--Auth View Controller-->
         <scene sceneID="IxR-V7-EfZ">
             <objects>
-                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="E3P-d7-a8w" customClass="RegisterLogin" sceneMemberID="viewController">
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="E3P-d7-a8w" customClass="AuthViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9Yn-39-BCz"/>
                         <viewControllerLayoutGuide type="bottom" id="zlb-ut-nXm"/>
@@ -1005,7 +1004,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email / username" textAlignment="natural" minimumFontSize="17" background="textfield bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="9Um-zN-amj">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" background="textfield bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="9Um-zN-amj">
                                 <rect key="frame" x="36" y="215" width="303" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="EGQ-nS-qem"/>
@@ -1041,14 +1040,14 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HIM-9f-y8M">
-                                <rect key="frame" x="16" y="20" width="25" height="25"/>
+                                <rect key="frame" x="16" y="20" width="30" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="25" id="F3p-wJ-iMU"/>
-                                    <constraint firstAttribute="height" constant="25" id="SBH-2O-5uH"/>
+                                    <constraint firstAttribute="width" constant="30" id="F3p-wJ-iMU"/>
+                                    <constraint firstAttribute="height" constant="30" id="SBH-2O-5uH"/>
                                 </constraints>
                                 <state key="normal" image="left_arrow.png"/>
                                 <connections>
-                                    <segue destination="7Z1-lj-LaP" kind="presentation" id="xx8-ao-Ic1"/>
+                                    <action selector="backButton:" destination="E3P-d7-a8w" eventType="touchUpInside" id="U8a-n7-Mje"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" background="textfield bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="n7F-fS-FEh">
@@ -1081,8 +1080,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="Email" destination="9Um-zN-amj" id="ZnD-wO-d7E"/>
-                        <outlet property="Password" destination="n7F-fS-FEh" id="Rls-9M-kHf"/>
+                        <outlet property="email" destination="9Um-zN-amj" id="ksd-sA-is4"/>
+                        <outlet property="name" destination="n7F-fS-FEh" id="9gf-YX-oMp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nHk-95-gu3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1451,6 +1450,5 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="aoD-oI-07H"/>
-        <segue reference="Hd0-Kc-AW9"/>
     </inferredMetricsTieBreakers>
 </document>

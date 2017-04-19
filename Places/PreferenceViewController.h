@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ViewController.h"
-#import "UserInfo.h"
 #import <StoreKit/StoreKit.h>
 #import <Realm/Realm.h>
+#import "ViewController.h"
 
 @import GoogleMobileAds;
 
@@ -22,7 +21,6 @@ BOOL dailyNotification;
     
     NSMutableArray *array;
     NSMutableArray *array2;
-    UserInfo *info;
     RLMResults *objects;
 }
 @property (weak, nonatomic) IBOutlet UITableView *Table;

@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-#define kGOOGLE_API_KEY @"AIzaSyArw7ygFfOtMGDI7KpupWHWwLvDDR0-fyA"
+#define kGOOGLE_API_KEY @"AIzaSyDIAi5NwP8UOos1Os8OIY3qtMRYm3T2krQ"
 #define kAdMobAdUnitID @"ca-app-pub-7942613644553368/5543329138"
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 

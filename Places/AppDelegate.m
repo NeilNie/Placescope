@@ -14,35 +14,48 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [[FBSDKApplicationDelegate sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
 
+    [FIRApp configure];
+    
     //Check the Username string and display UIViewController
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     UIStoryboard *MainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *StartView = [MainStoryBoard instantiateViewControllerWithIdentifier:@"welcome"];
     UIViewController *Viewcontroller = [MainStoryBoard instantiateViewControllerWithIdentifier:@"TabBarController"];
     
-    /*if ([FBSDKAccessToken currentAccessToken]) {
+    if ([[FIRAuth auth] currentUser]) {
         self.window.rootViewController = Viewcontroller;
         [self.window makeKeyAndVisible];
 
     } else {
         self.window.rootViewController = StartView;
         [self.window makeKeyAndVisible];
-    }*/
-    self.window.rootViewController = Viewcontroller;
-    [self.window makeKeyAndVisible];
+    }
+    //debugging only
+    //self.window.rootViewController = Viewcontroller;
+    //[self.window makeKeyAndVisible];
     
-    application.applicationIconBadgeNumber = 0;
-
-    //register for notification
-    UIUserNotificationType types = UIUserNotificationTypeBadge |
-    UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
-    UIUserNotificationSettings *mySettings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
-    [[UIApplication sharedApplication] registerUserNotificationSettings:mySettings];
+    UNAuthorizationOptions options = UNAuthorizationOptionAlert + UNAuthorizationOptionSound;
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    [center requestAuthorizationWithOptions:options completionHandler:^(BOOL granted, NSError * _Nullable error) {
+        if (!granted) {
+            NSLog(@"%@", error);
+        }
+    }];
+    
+    [UNUserNotificationCenter currentNotificationCenter].delegate = self;
+    UNAuthorizationOptions authOptions = UNAuthorizationOptionAlert | UNAuthorizationOptionSound | UNAuthorizationOptionBadge;
+    [[UNUserNotificationCenter currentNotificationCenter] requestAuthorizationWithOptions:authOptions completionHandler:^(BOOL granted, NSError * _Nullable error) {
+        if (!granted) {
+            NSLog(@"we have issues %@", error);
+        }
+    }];
+    [FIRMessaging messaging].remoteMessageDelegate = self;
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     
     return YES;
 }
@@ -84,9 +97,10 @@
     if (traveling == YES) {
         timer = [NSTimer scheduledTimerWithTimeInterval:60*60 target:self selector:@selector(updatetime) userInfo:nil repeats:YES];
     }
+}
+
+-(void)applicationReceivedRemoteMessage:(FIRMessagingRemoteMessage *)remoteMessage{
     
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
 -(void)updatetime{
