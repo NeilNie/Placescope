@@ -20,6 +20,8 @@
 
     [FIRApp configure];
     
+    [GMSPlacesClient provideAPIKey:@"AIzaSyDlYmAFnPNXSeNHJgf0HbsLH4oRo6Qd_oA"];
+    
     //Check the Username string and display UIViewController
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     UIStoryboard *MainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];

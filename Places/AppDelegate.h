@@ -20,6 +20,7 @@
 #import "UserList.h"
 
 @import GoogleMobileAds;
+@import GooglePlaces;
 
 NSTimer *timer;
 

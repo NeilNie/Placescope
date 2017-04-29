@@ -3,7 +3,7 @@
 //
 //
 //  Created by Yongyang Nie on 1/1/16.
-//
+//  (c) Yongyang Nie
 //
 
 #import "AuthViewController.h"

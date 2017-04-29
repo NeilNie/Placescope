@@ -13,10 +13,6 @@
 		00104E011C67995A00B88041 /* navi.png in Resources */ = {isa = PBXBuildFile; fileRef = 00104E001C67995A00B88041 /* navi.png */; };
 		00104E031C67B92500B88041 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00104E021C67B92500B88041 /* CollectionViewCell.xib */; };
 		00104E061C67B94100B88041 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00104E051C67B94100B88041 /* CollectionViewCell.m */; };
-		0017640D1C67CE4F005421A1 /* settings_filled.png in Resources */ = {isa = PBXBuildFile; fileRef = 0017640C1C67CE4F005421A1 /* settings_filled.png */; };
-		0017640F1C67CECD005421A1 /* marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 0017640E1C67CECD005421A1 /* marker.png */; };
-		001764111C67CF59005421A1 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = 001764101C67CF59005421A1 /* list.png */; };
-		001764171C67D1F2005421A1 /* HOB60.png in Resources */ = {isa = PBXBuildFile; fileRef = 001764161C67D1F2005421A1 /* HOB60.png */; };
 		002C79411C371199009D92F3 /* button_outline.png in Resources */ = {isa = PBXBuildFile; fileRef = 002C79401C371199009D92F3 /* button_outline.png */; };
 		002C79431C3711ED009D92F3 /* button_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 002C79421C3711ED009D92F3 /* button_selected.png */; };
 		003C661D1C371601007C90FD /* place_background_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 003C661C1C371601007C90FD /* place_background_2.jpg */; };
@@ -71,8 +67,6 @@
 		288C46FC1CADDADD00D9AE7F /* Placescope Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 288C46EF1CADDADD00D9AE7F /* Placescope Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		289A700B1C6049EF00A819EA /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 289A700A1C6049EF00A819EA /* background.png */; };
 		289B0D4C1C7FC862003E3380 /* thumbs_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 289B0D4B1C7FC862003E3380 /* thumbs_up.png */; };
-		289B0D4E1C7FC8B5003E3380 /* share3 copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 289B0D4D1C7FC8B5003E3380 /* share3 copy.png */; };
-		289B0D501C7FCA30003E3380 /* clearbutton copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 289B0D4F1C7FCA30003E3380 /* clearbutton copy.png */; };
 		28ACF6E91C3B26E800FA46CF /* gas_pump.png in Resources */ = {isa = PBXBuildFile; fileRef = 28ACF6E81C3B26E800FA46CF /* gas_pump.png */; };
 		28ACF6EB1C3B270100FA46CF /* parking.png in Resources */ = {isa = PBXBuildFile; fileRef = 28ACF6EA1C3B270100FA46CF /* parking.png */; };
 		28ACF6EF1C3B278500FA46CF /* public-park_318-85491.png in Resources */ = {isa = PBXBuildFile; fileRef = 28ACF6EE1C3B278500FA46CF /* public-park_318-85491.png */; };
@@ -83,7 +77,6 @@
 		28B487A91C3ACC0E006FD748 /* icons8_cup.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B487A31C3ACC0E006FD748 /* icons8_cup.png */; };
 		28B487AB1C3ACC0E006FD748 /* bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 28B487A51C3ACC0E006FD748 /* bar.png */; };
 		28BB405D1C6028E900A7E7C4 /* base.png in Resources */ = {isa = PBXBuildFile; fileRef = 28BB405C1C6028E900A7E7C4 /* base.png */; };
-		28BB40611C602C4E00A7E7C4 /* save.png in Resources */ = {isa = PBXBuildFile; fileRef = 28BB40601C602C4E00A7E7C4 /* save.png */; };
 		28BDECF91C491BD4000AD454 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28BDECF71C491BD4000AD454 /* Interface.storyboard */; };
 		28BDED021C491BD4000AD454 /* Placescope Apple Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 28BDED011C491BD4000AD454 /* Placescope Apple Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		28BDED0A1C491BD4000AD454 /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BDED091C491BD4000AD454 /* InterfaceController.m */; };
@@ -174,10 +167,6 @@
 		00104E021C67B92500B88041 /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		00104E041C67B94100B88041 /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
 		00104E051C67B94100B88041 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
-		0017640C1C67CE4F005421A1 /* settings_filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings_filled.png; sourceTree = "<group>"; };
-		0017640E1C67CECD005421A1 /* marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marker.png; sourceTree = "<group>"; };
-		001764101C67CF59005421A1 /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
-		001764161C67D1F2005421A1 /* HOB60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HOB60.png; sourceTree = "<group>"; };
 		002C79401C371199009D92F3 /* button_outline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_outline.png; sourceTree = "<group>"; };
 		002C79421C3711ED009D92F3 /* button_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_selected.png; sourceTree = "<group>"; };
 		003C661C1C371601007C90FD /* place_background_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = place_background_2.jpg; sourceTree = "<group>"; };
@@ -249,8 +238,6 @@
 		288C46F91CADDADD00D9AE7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		289A700A1C6049EF00A819EA /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		289B0D4B1C7FC862003E3380 /* thumbs_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbs_up.png; sourceTree = "<group>"; };
-		289B0D4D1C7FC8B5003E3380 /* share3 copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share3 copy.png"; sourceTree = "<group>"; };
-		289B0D4F1C7FCA30003E3380 /* clearbutton copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clearbutton copy.png"; sourceTree = "<group>"; };
 		28A5F04A1DBFB43100CFB172 /* Placescope.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Placescope.entitlements; sourceTree = "<group>"; };
 		28ACF6E81C3B26E800FA46CF /* gas_pump.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gas_pump.png; sourceTree = "<group>"; };
 		28ACF6EA1C3B270100FA46CF /* parking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = parking.png; sourceTree = "<group>"; };
@@ -263,7 +250,6 @@
 		28B487A31C3ACC0E006FD748 /* icons8_cup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icons8_cup.png; sourceTree = "<group>"; };
 		28B487A51C3ACC0E006FD748 /* bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar.png; sourceTree = "<group>"; };
 		28BB405C1C6028E900A7E7C4 /* base.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = base.png; sourceTree = "<group>"; };
-		28BB40601C602C4E00A7E7C4 /* save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = save.png; sourceTree = "<group>"; };
 		28BDECF51C491BD4000AD454 /* Placescope Apple Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Placescope Apple Watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		28BDECF81C491BD4000AD454 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		28BDECFC1C491BD4000AD454 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -420,7 +406,6 @@
 		0082A5E81C31CFEE00B42954 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				284F55201EA7072600CA311D /* Media.xcassets */,
 				0082A5F61C31CFEE00B42954 /* LaunchScreen.storyboard */,
 				0082A5F91C31CFEE00B42954 /* Info.plist */,
 				288BDA6B1EA4D173002198B5 /* GoogleService-Info.plist */,
@@ -490,17 +475,6 @@
 			name = Others;
 			sourceTree = "<group>";
 		};
-		282EC0E71C6A9B52009B7A88 /* tab bar icons */ = {
-			isa = PBXGroup;
-			children = (
-				001764161C67D1F2005421A1 /* HOB60.png */,
-				001764101C67CF59005421A1 /* list.png */,
-				0017640E1C67CECD005421A1 /* marker.png */,
-				0017640C1C67CE4F005421A1 /* settings_filled.png */,
-			);
-			name = "tab bar icons";
-			sourceTree = "<group>";
-		};
 		2888C0851C45CBBF0074468F /* LocationManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -517,11 +491,10 @@
 		288BDA6D1EA4D17B002198B5 /* Media */ = {
 			isa = PBXGroup;
 			children = (
-				282EC0E71C6A9B52009B7A88 /* tab bar icons */,
+				284F55201EA7072600CA311D /* Media.xcassets */,
 				00104DFB1C67971F00B88041 /* register view */,
 				00104DFA1C6796F400B88041 /* button icons */,
 				0051DDB21C667E0700A4E919 /* clearbutton.png */,
-				289B0D4F1C7FCA30003E3380 /* clearbutton copy.png */,
 				00720D121C35B3590027018E /* search2.png */,
 				289B0D4B1C7FC862003E3380 /* thumbs_up.png */,
 				00614EC21C65086E00669BE1 /* checkmark.png */,
@@ -531,11 +504,9 @@
 				283BBA061C62FCE70013B5BA /* icon.png */,
 				280FDA051C6100EE00CA7E25 /* crying.png */,
 				289A700A1C6049EF00A819EA /* background.png */,
-				28BB40601C602C4E00A7E7C4 /* save.png */,
 				28BB405C1C6028E900A7E7C4 /* base.png */,
 				000CA2B71C5EC5A000D356B2 /* default-placeholder.png */,
 				00104DFC1C67993500B88041 /* share3.png */,
-				289B0D4D1C7FC8B5003E3380 /* share3 copy.png */,
 				00DF22C71C59769400ECAA76 /* recurring_appointment.png */,
 				28E441371C61516C00097F84 /* user.png */,
 				28B487A31C3ACC0E006FD748 /* icons8_cup.png */,
@@ -786,8 +757,6 @@
 			files = (
 				28BB405D1C6028E900A7E7C4 /* base.png in Resources */,
 				0082A5F81C31CFEE00B42954 /* LaunchScreen.storyboard in Resources */,
-				0017640D1C67CE4F005421A1 /* settings_filled.png in Resources */,
-				28BB40611C602C4E00A7E7C4 /* save.png in Resources */,
 				003C662B1C372F19007C90FD /* coffee117.jpg in Resources */,
 				28ACF6F11C3B287300FA46CF /* restaurant.png in Resources */,
 				28B487A81C3ACC0E006FD748 /* cafe.png in Resources */,
@@ -796,7 +765,6 @@
 				002C79411C371199009D92F3 /* button_outline.png in Resources */,
 				003C661D1C371601007C90FD /* place_background_2.jpg in Resources */,
 				28ACF6EB1C3B270100FA46CF /* parking.png in Resources */,
-				289B0D4E1C7FC8B5003E3380 /* share3 copy.png in Resources */,
 				00104DFD1C67993500B88041 /* share3.png in Resources */,
 				28E441381C61516C00097F84 /* user.png in Resources */,
 				283BBA071C62FCE70013B5BA /* icon.png in Resources */,
@@ -813,25 +781,21 @@
 				00104E031C67B92500B88041 /* CollectionViewCell.xib in Resources */,
 				288BDA6C1EA4D173002198B5 /* GoogleService-Info.plist in Resources */,
 				003C66271C372A5C007C90FD /* Green Color.png in Resources */,
-				001764171C67D1F2005421A1 /* HOB60.png in Resources */,
 				284F55211EA7072600CA311D /* Media.xcassets in Resources */,
 				289B0D4C1C7FC862003E3380 /* thumbs_up.png in Resources */,
 				00CFDC551C39BC6A00054609 /* TableViewCell.xib in Resources */,
 				28B487A71C3ACC0E006FD748 /* bank_cards.png in Resources */,
 				0082A5F31C31CFEE00B42954 /* Main.storyboard in Resources */,
-				289B0D501C7FCA30003E3380 /* clearbutton copy.png in Resources */,
 				00104DFF1C67994400B88041 /* plus3.png in Resources */,
 				28ACF6EF1C3B278500FA46CF /* public-park_318-85491.png in Resources */,
 				28B487A91C3ACC0E006FD748 /* icons8_cup.png in Resources */,
 				00104E011C67995A00B88041 /* navi.png in Resources */,
 				002C79431C3711ED009D92F3 /* button_selected.png in Resources */,
 				00DF22C81C59769400ECAA76 /* recurring_appointment.png in Resources */,
-				001764111C67CF59005421A1 /* list.png in Resources */,
 				003C66251C3728F0007C90FD /* right_arrow.png in Resources */,
 				00614EC11C65059300669BE1 /* GreenRC.png in Resources */,
 				00614EC31C65086E00669BE1 /* checkmark.png in Resources */,
 				00720D131C35B3590027018E /* search2.png in Resources */,
-				0017640F1C67CECD005421A1 /* marker.png in Resources */,
 				000CA2B81C5EC5A000D356B2 /* default-placeholder.png in Resources */,
 				280FDA061C6100EE00CA7E25 /* crying.png in Resources */,
 			);
