@@ -787,6 +787,7 @@
 		3DAFE0A0AF2B4FBDFB8F789BBE5B390E /* Protobuf.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Protobuf.xcconfig; sourceTree = "<group>"; };
 		3DB4E72BD6815D1A736AB91F23F17EED /* FBSDKAppEventsState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKAppEventsState.m; path = FBSDKCoreKit/FBSDKCoreKit/Internal/AppEvents/FBSDKAppEventsState.m; sourceTree = "<group>"; };
 		3E518F8CB01CFDF43FA933415EA339EE /* FBSDKCheckmarkIcon.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKCheckmarkIcon.m; path = FBSDKShareKit/FBSDKShareKit/Internal/FBSDKCheckmarkIcon.m; sourceTree = "<group>"; };
+		3FF00E16B4FED6DBC9E5D31DD5693249 /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCore.framework; path = Frameworks/FirebaseCore.framework; sourceTree = "<group>"; };
 		3FFBC6F20D0353AAAE221F6C7E17F2D4 /* FBSDKKeychainStore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKKeychainStore.h; path = FBSDKCoreKit/FBSDKCoreKit/Internal/TokenCaching/FBSDKKeychainStore.h; sourceTree = "<group>"; };
 		404ED39E4306D5B0917B0553318437BD /* FBSDKWebDialog.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKWebDialog.h; path = FBSDKCoreKit/FBSDKCoreKit/Internal/WebDialog/FBSDKWebDialog.h; sourceTree = "<group>"; };
 		4064C58E05854300348AED19F81AA6F8 /* RLMObjectBase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMObjectBase.h; path = include/RLMObjectBase.h; sourceTree = "<group>"; };
@@ -1037,6 +1038,7 @@
 		AAC0376C8549E8CACD0CC51EF42C25C5 /* RLMRealmConfiguration.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMRealmConfiguration.mm; path = Realm/RLMRealmConfiguration.mm; sourceTree = "<group>"; };
 		AB90964180C9BDFA6D7A2683CB1CA91E /* RLMSyncCredentials.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RLMSyncCredentials.m; path = Realm/RLMSyncCredentials.m; sourceTree = "<group>"; };
 		AB9BE741FB05337F08374BA7F16D9102 /* Any.pbobjc.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Any.pbobjc.m; path = objectivec/google/protobuf/Any.pbobjc.m; sourceTree = "<group>"; };
+		ABE75911928CCAB8BC016926E0E6F105 /* FirebaseNanoPB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseNanoPB.framework; path = Frameworks/FirebaseNanoPB.framework; sourceTree = "<group>"; };
 		AC3EB6F138913BC199BC21F8B0DDE04D /* RLMResults_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMResults_Private.h; path = include/RLMResults_Private.h; sourceTree = "<group>"; };
 		ACE396047B8BE1B149C0F480789D25CF /* FBSDKLoginCompletion+Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "FBSDKLoginCompletion+Internal.h"; path = "FBSDKLoginKit/FBSDKLoginKit/Internal/FBSDKLoginCompletion+Internal.h"; sourceTree = "<group>"; };
 		AD4D91CF700FDBDEE3F3977A5A5B501A /* RLMSyncSessionRefreshHandle.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMSyncSessionRefreshHandle.mm; path = Realm/RLMSyncSessionRefreshHandle.mm; sourceTree = "<group>"; };
@@ -1084,6 +1086,7 @@
 		BE85D9E6865E78834A940D8236906EBE /* FBSDKAppEventsDeviceInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKAppEventsDeviceInfo.h; path = FBSDKCoreKit/FBSDKCoreKit/Internal/AppEvents/FBSDKAppEventsDeviceInfo.h; sourceTree = "<group>"; };
 		BFD5BFADFA6A9C3D4A3F3DA0423A14AF /* FBSDKShareVideoContent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKShareVideoContent.m; path = FBSDKShareKit/FBSDKShareKit/FBSDKShareVideoContent.m; sourceTree = "<group>"; };
 		C009E5DF98CB140645B8F03D40FC2E0D /* BFAppLinkTarget.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFAppLinkTarget.h; path = Bolts/iOS/BFAppLinkTarget.h; sourceTree = "<group>"; };
+		C04FE640DD3CCD106BCE7A8ED6332EF0 /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCoreDiagnostics.framework; path = Frameworks/FirebaseCoreDiagnostics.framework; sourceTree = "<group>"; };
 		C059EB52B7729856A63002718D44C675 /* FBSDKAccessTokenCacheV3.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKAccessTokenCacheV3.h; path = FBSDKCoreKit/FBSDKCoreKit/Internal/TokenCaching/FBSDKAccessTokenCacheV3.h; sourceTree = "<group>"; };
 		C0CBA1B7F53DD1AF768C4CD7FEF72D3B /* FBSDKGraphRequestMetadata.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKGraphRequestMetadata.m; path = FBSDKCoreKit/FBSDKCoreKit/Internal/Network/FBSDKGraphRequestMetadata.m; sourceTree = "<group>"; };
 		C163CC49CDC886EF183DA155FC739443 /* GoogleToolboxForMac-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GoogleToolboxForMac-dummy.m"; sourceTree = "<group>"; };
@@ -1177,7 +1180,6 @@
 		E2EBF113FCC5D53922D9148BCB5CC5C0 /* RLMSyncUtil_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMSyncUtil_Private.h; path = include/RLMSyncUtil_Private.h; sourceTree = "<group>"; };
 		E312F41E930BA1F7041C1F609E50A83C /* RLMSyncSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMSyncSession.h; path = include/RLMSyncSession.h; sourceTree = "<group>"; };
 		E329BD42D23B4B35FA81C1018492625C /* GPBUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GPBUtilities.m; path = objectivec/GPBUtilities.m; sourceTree = "<group>"; };
-		E37C74D0D6CE3166F71A9DFC1B83EE40 /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCore.framework; path = Frameworks/FirebaseCore.framework; sourceTree = "<group>"; };
 		E3D206CE49BABE3EB484E622587F73C4 /* FBSDKGraphRequestConnection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKGraphRequestConnection.h; path = FBSDKCoreKit/FBSDKCoreKit/FBSDKGraphRequestConnection.h; sourceTree = "<group>"; };
 		E44DF56FBCD7A3C9F30DD79131C5E2A1 /* RLMResults.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMResults.mm; path = Realm/RLMResults.mm; sourceTree = "<group>"; };
 		E48E30D416BB0D6DE72C99B7046CC9FA /* GPBArray.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GPBArray.m; path = objectivec/GPBArray.m; sourceTree = "<group>"; };
@@ -1534,6 +1536,15 @@
 				127E63FCDB2F25CE9431371067F2C582 /* GTMMethodCheck.h */,
 			);
 			name = DebugUtils;
+			sourceTree = "<group>";
+		};
+		5546F3729490FDB4FF3D452DBD2B95E0 /* FirebaseCore */ = {
+			isa = PBXGroup;
+			children = (
+				F1BF1712DC29F49CD797EEEC3F2904DC /* Frameworks */,
+			);
+			name = FirebaseCore;
+			path = FirebaseCore;
 			sourceTree = "<group>";
 		};
 		5A3EF1E519CAE8CD015A19A0CE040357 /* FBSDKCoreKit */ = {
@@ -1918,15 +1929,6 @@
 			path = GoogleMaps;
 			sourceTree = "<group>";
 		};
-		778C26D000CA7FD21B58B4670A22B11F /* FirebaseCore */ = {
-			isa = PBXGroup;
-			children = (
-				8CBCA33B9F78765EA21459A87E86E0D2 /* Frameworks */,
-			);
-			name = FirebaseCore;
-			path = FirebaseCore;
-			sourceTree = "<group>";
-		};
 		7A1E98D2AEDF37203DEA871973F40EB9 /* NSString+URLArguments */ = {
 			isa = PBXGroup;
 			children = (
@@ -2096,14 +2098,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		8CBCA33B9F78765EA21459A87E86E0D2 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E37C74D0D6CE3166F71A9DFC1B83EE40 /* FirebaseCore.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		9112EC1F75C2F1744706C4729DF593E4 /* NSDictionary+URLArguments */ = {
 			isa = PBXGroup;
 			children = (
@@ -2259,7 +2253,7 @@
 				9CC377573865CC7C2FD770663D36200B /* Firebase */,
 				AF61F00F68BA6CFC4075CD1064705D69 /* FirebaseAnalytics */,
 				931488B5DAA40CA43FB24410972AA44B /* FirebaseAuth */,
-				778C26D000CA7FD21B58B4670A22B11F /* FirebaseCore */,
+				5546F3729490FDB4FF3D452DBD2B95E0 /* FirebaseCore */,
 				93096035B81A70685F0A0BE498648971 /* FirebaseInstanceID */,
 				73328F8825D52F521963CEA53C18148E /* FirebaseMessaging */,
 				6903BEE259FEB7E487C77EBA368FF5B1 /* Google-Mobile-Ads-SDK */,
@@ -2407,6 +2401,16 @@
 				F44282061DAA45AEC21D86103998EB3F /* GooglePlacePicker.bundle */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		F1BF1712DC29F49CD797EEEC3F2904DC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3FF00E16B4FED6DBC9E5D31DD5693249 /* FirebaseCore.framework */,
+				C04FE640DD3CCD106BCE7A8ED6332EF0 /* FirebaseCoreDiagnostics.framework */,
+				ABE75911928CCAB8BC016926E0E6F105 /* FirebaseNanoPB.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		F472451EC0138DD06F8035F2BC0E7FE1 /* GTMSessionFetcher */ = {
