@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '7576E2D8FE79494078E3B57883D11340'
+               BlueprintIdentifier = 'CD4722214734BABDE9338B854992A31F'
                BlueprintName = 'Pods-Placescope'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPods-Placescope.a'>
