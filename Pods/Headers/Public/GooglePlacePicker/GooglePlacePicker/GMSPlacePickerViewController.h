@@ -1,1 +1,1 @@
-../../../../GooglePlacePicker/Frameworks/GooglePlacePicker.framework/Versions/A/Headers/GMSPlacePickerViewController.h
+../../../../GooglePlacePicker/Frameworks/GooglePlacePicker.framework/Headers/GMSPlacePickerViewController.h
