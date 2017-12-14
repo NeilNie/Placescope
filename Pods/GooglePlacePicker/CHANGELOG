@@ -1,3 +1,17 @@
+Version 2.5.0 - October 2017
+============================
+
+Improvements:
+  - Improved iOS 11 & iPhone X support.
+  - Fixed UI layout issues in the Place Picker when used on iOS 11.
+
+Resolved Issues:
+  - Fixed an issue where Xcode 9's Main Thread Checker warns that [UIApplication
+    applicationState] is being called on a background thread.
+
+Note:
+  - Support for Xcode 7.3 has been dropped. The new minimum is Xcode 8.0.
+
 Version 2.4.0 - August 2017
 ===========================
 Note:
